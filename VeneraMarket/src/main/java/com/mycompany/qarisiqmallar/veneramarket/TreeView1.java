@@ -2003,31 +2003,30 @@ public class TreeView1 extends javax.swing.JFrame {
                                     theLastComponent.setUserObject(newCategoryName);
                                     model = (DefaultTreeModel) jTree1.getModel();
                                     model.reload();
-                                    
+
                                     String gender = node3.toString();
                                     String season = node4.toString();
-                                    
+
                                     String SecondsubCatName = node2.toString();
                                     con = connect();
-                                    
-                                    pres = con.prepareStatement("select * from category where categories ="+"'"+season+"'");
+
+                                    pres = con.prepareStatement("select * from category where categories =" + "'" + season + "'");
                                     rs = pres.executeQuery();
                                     rs.next();
                                     int seasonID = rs.getInt("id");
-                                    
-                                    pres = con.prepareStatement("select * from subcategory sss where name ="+"'"+gender+"'" +" and sss.index = "+seasonID);
+
+                                    pres = con.prepareStatement("select * from subcategory sss where name =" + "'" + gender + "'" + " and sss.index = " + seasonID);
                                     rs = pres.executeQuery();
                                     rs.next();
                                     int genderID = rs.getInt("id");
-                                    
-                                    
-                                    pres = con.prepareStatement("select * from 2ndsubcategory  where name = " + "'" + SecondsubCatName + "'"+" and `index-gender` ="+genderID+" and `index-season` = "+seasonID);
+
+                                    pres = con.prepareStatement("select * from 2ndsubcategory  where name = " + "'" + SecondsubCatName + "'" + " and `index-gender` =" + genderID + " and `index-season` = " + seasonID);
                                     rs = pres.executeQuery();
                                     rs.next();
 
                                     int SecondSubCatID = rs.getInt("id");
 
-                                    pres = con.prepareStatement("update 3ndsubcategory  set name =? where name = " + "'" + node1 + "'" + " and `index-gender` =" + genderID+" and `index-season` = "+seasonID + " and `index-3rdSubCat` = "+SecondSubCatID);
+                                    pres = con.prepareStatement("update 3ndsubcategory  set name =? where name = " + "'" + node1 + "'" + " and `index-gender` =" + genderID + " and `index-season` = " + seasonID + " and `index-3rdSubCat` = " + SecondSubCatID);
                                     pres.setString(1, newCategoryName);
                                     pres.executeUpdate();
 
@@ -2339,12 +2338,12 @@ public class TreeView1 extends javax.swing.JFrame {
                                     rs.next();
                                     int categoryID = rs.getInt("id");
 
-                                    pres = con.prepareStatement("select * from subcategory where name = " + "'" + node2 + "'");
+                                    pres = con.prepareStatement("select * from subcategory where name = " + "'" + node2 + "'" + " and `index` =" + categoryID);
                                     rs = pres.executeQuery();
                                     rs.next();
                                     int subCategoryID = rs.getInt("id");
 
-                                    pres = con.prepareStatement("select * from 2ndsubcategory where name = " + "'" + node1 + "'");
+                                    pres = con.prepareStatement("select * from 2ndsubcategory where name = " + "'" + node1 + "'" + " and `index-gender` = " + subCategoryID + " and `index-season` = " + categoryID);
                                     rs = pres.executeQuery();
                                     rs.next();
                                     int secondSubCategoryID = rs.getInt("id");
@@ -2789,7 +2788,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
         Integer i = 0;
 
-        try (Connection c = connect()) {
+        try ( Connection c = connect()) {
             GetProduct getProduct = new GetProduct(this, true);
             int numberOfProduct = (getProduct.number);
             String numberOfProduct2 = (getProduct.txtMiqdar.getText());
