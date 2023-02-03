@@ -628,6 +628,11 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         });
 
         jButton5.setText("Borc qebzini çap et");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -2210,6 +2215,10 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
         txtOdenis.requestFocus();
     }//GEN-LAST:event_optionForCashierMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        System.out.println("Yeni proyekt uzerinde deyisiklikler etdik");
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
