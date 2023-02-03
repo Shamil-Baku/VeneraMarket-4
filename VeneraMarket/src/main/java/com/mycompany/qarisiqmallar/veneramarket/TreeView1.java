@@ -1295,7 +1295,7 @@ public class TreeView1 extends javax.swing.JFrame {
         jMenuItem9.setText("Legv et");
         jPopupMenu2.add(jMenuItem9);
 
-        open.setText("jMenuItem10");
+        open.setText("Aç");
         open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openActionPerformed(evt);
@@ -1303,7 +1303,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(open);
 
-        correction.setText("jMenuItem10");
+        correction.setText("Düzəliş et");
         correction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correctionActionPerformed(evt);
@@ -1311,7 +1311,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(correction);
 
-        delete.setText("jMenuItem10");
+        delete.setText("Sil");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
@@ -1319,7 +1319,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(delete);
 
-        ShowOrPrintBarcode.setText("jMenuItem10");
+        ShowOrPrintBarcode.setText("Barkodu göstər/Çap et");
         ShowOrPrintBarcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowOrPrintBarcodeActionPerformed(evt);
@@ -1327,7 +1327,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(ShowOrPrintBarcode);
 
-        Cancel.setText("jMenuItem10");
+        Cancel.setText("Ləğv et");
         OptionsForProductsTable.add(Cancel);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
