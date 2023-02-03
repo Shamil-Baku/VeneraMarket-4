@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="164" pageHeight="193" columnWidth="164" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="840afc62-4f15-456f-860d-8a376f47050c">
+	<property name="ireport.zoom" value="3.1384283767210035"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<title>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="10" width="113" height="26" uuid="5ac70535-42f8-499a-8c3c-a0e0ea89a670"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Salam]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="48" splitType="Stretch"/>
+	</pageHeader>
+</jasperReport>

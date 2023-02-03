@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BazaDbApp/QarisiqMallarDbApp.iml" filepath="$PROJECT_DIR$/BazaDbApp/QarisiqMallarDbApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QarisiqMallarDbApp/QarisiqMallarDbApp (1).iml" filepath="$PROJECT_DIR$/QarisiqMallarDbApp/QarisiqMallarDbApp (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.mycompany.qarisiqMallar_QarisiqMallarDbApp_jar_1.0/QarisiqMallarDbApp (2).iml" filepath="$PROJECT_DIR$/com.mycompany.qarisiqMallar_QarisiqMallarDbApp_jar_1.0/QarisiqMallarDbApp (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/VeneraMarket/VeneraMarket.iml" filepath="$PROJECT_DIR$/VeneraMarket/VeneraMarket.iml" />
+    </modules>
+  </component>
+</project>

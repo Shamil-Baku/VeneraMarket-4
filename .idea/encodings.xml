@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/BazaDbApp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BazaDbApp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/QarisiqMallarDbApp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/QarisiqMallarDbApp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VeneraMarket/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VeneraMarket/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.mycompany.qarisiqMallar_QarisiqMallarDbApp_jar_1.0/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.mycompany.qarisiqMallar_QarisiqMallarDbApp_jar_1.0/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

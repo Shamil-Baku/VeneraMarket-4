@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="165" pageHeight="107" columnWidth="165" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f94903b8-e613-4aae-8c8f-35c98a26619c">
+	<property name="ireport.zoom" value="4.840000000000125"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="barcodeNumber" class="java.lang.String"/>
+	<parameter name="productName" class="java.lang.String"/>
+	<parameter name="productSize" class="java.lang.String"/>
+	<parameter name="productColor" class="java.lang.String"/>
+	<parameter name="productPrice" class="java.lang.String"/>
+	<parameter name="currency" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from mehsullar]]>
+	</queryString>
+	<field name="id" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Malin_adi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Satis_qiymeti" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Barcode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="29">
+			<staticText>
+				<reportElement x="60" y="-1" width="58" height="27" uuid="f84424de-7a02-44bf-b073-a326939e567b"/>
+				<textElement>
+					<font fontName="Algerian" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENERA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="14" width="106" height="15" uuid="5720a4b6-b649-4134-895c-e6986953bdee"/>
+				<textElement>
+					<font fontName="Chiller" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Geyim ve Tekstil Dünyası]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="50">
+			<line>
+				<reportElement x="12" y="0" width="152" height="1" uuid="dbd79d92-4956-4bf5-aff9-b172579a5eeb"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="163" y="0" width="1" height="50" uuid="76c9d277-9496-4310-9667-9a8c6944cbbf"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="12" y="0" width="1" height="50" uuid="b15bac7d-45c6-487b-998e-9013e946f855"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="15" y="1" width="66" height="11" uuid="675aa782-50bf-4fa9-a521-f3f4f7128eb1"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mehsulun adı :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="12" width="41" height="11" uuid="75fd8186-672a-43e7-b8c9-d4cf0538220e"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ölçüsü :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="23" width="41" height="11" uuid="d1981a1a-70a5-4fb2-8421-734b7050e1d9"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rengi :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="34" width="55" height="16" uuid="b1887304-1367-48be-9e02-5be42ee8ce4a"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qiymeti :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="1" width="81" height="11" uuid="1c05cfc6-039e-4c9d-b770-a48f58b796f9"/>
+				<textElement>
+					<font size="8" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{productName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="12" width="75" height="11" uuid="3e145ee0-7b49-411b-a853-48b99db63f1c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{productSize}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="23" width="75" height="11" uuid="f544aaef-9e66-4965-b61c-6efff3c74a29"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{productColor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="34" width="79" height="16" uuid="c3bd635b-e73f-429b-8200-bc5528fec17a"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{productPrice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28">
+			<line>
+				<reportElement x="12" y="0" width="1" height="25" uuid="f3048555-b187-4607-8cc3-d3b532733a3d"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="12" y="24" width="152" height="1" uuid="fbf72a8c-47d1-4ba9-b424-a901595c6e4a"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="163" y="-1" width="1" height="26" uuid="6110437e-32fc-4dd5-ba78-234be063cf54"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<componentElement>
+				<reportElement x="36" y="1" width="103" height="24" uuid="8382102a-1770-4eec-bbdd-a1683dc24da6"/>
+				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="bottom">
+					<jr:codeExpression><![CDATA[$P{barcodeNumber}]]></jr:codeExpression>
+				</jr:Code39>
+			</componentElement>
+		</band>
+	</pageFooter>
+</jasperReport>
