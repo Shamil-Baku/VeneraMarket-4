@@ -10,6 +10,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="net.sf.jasperreports" level="project" />
     <orderEntry type="library" name="Maven: org.javapos:javapos:1.14.0" level="project" />
     <orderEntry type="library" name="Maven: net.glxn.qrgen:qrgen-parent:1.4" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.barbecue:barbecue:1.5-beta1" level="project" />
@@ -78,6 +79,5 @@
     <orderEntry type="library" name="Maven: org.apache.xmlgraphics:batik-extension:1.16" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlgraphics:batik-transcoder:1.16" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlgraphics:batik-svggen:1.16" level="project" />
-    <orderEntry type="library" name="net.sf.jasperreports" level="project" />
   </component>
 </module>
