@@ -2138,7 +2138,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             currencyAfterPayment = "0 qepik";
         }
 
-        String projectPath = "C:\\GitHubProject\\VeneraMarket\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml";
+        String projectPath = "C:\\git projects\\VeneraMarket-4\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml";
         JasperDesign jdesign;
         try {
             Connection c = connect();
@@ -2153,7 +2153,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             parametrs.put("payment", resultString + currencyResult);
             parametrs.put("finalDebt", stringFinalDebtAfterPayment + currencyAfterPayment);
             parametrs.put("cashier", optionCashier);
-            String printerName = "Xprinter XP-365B";
+            String printerName = "TSC TDP-225";
 
             jr = JasperCompileManager.compileReport(jdesign);
 
@@ -2217,7 +2217,12 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
     }//GEN-LAST:event_optionForCashierMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        System.out.println("Yeni proyekt uzerinde deyisiklikler etdik");
+
+
+
+
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
