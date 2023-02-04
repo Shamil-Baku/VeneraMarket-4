@@ -737,7 +737,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 double Kohbeborc = Double.parseDouble(txtUmumiBorc.getText());
 
                 double result = QaliqBorc + Kohbeborc;
-                double roundedResult = Math.round(result * 100.000)/100.000;
+                double roundedResult = Math.round(result * 100.000) / 100.000;
 
                 txtUmumiBorc.setText(Double.toString(roundedResult));
 
@@ -1523,7 +1523,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                     int borcID = rs.getInt("id");
                     double qismen = rs.getDouble("Qismen_odenis");
                     double qaliq = rs.getDouble("Qaliq_borc");
-                    double roundedQaliq = Math.round(qaliq *100.000)/100.000;
+                    double roundedQaliq = Math.round(qaliq * 100.000) / 100.000;
                     String date = txtOdenisTarixi.getText();
 
                     pres = con.prepareStatement("update borclar_siyahisi set Qismen_odenis = Qismen_odenis + ?, Qaliq_borc=?, Borc_odeme_tarixi=?  where id = ?");
@@ -2100,13 +2100,12 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         try {
 
             finalDebtAfterPayment = Double.parseDouble(txtUmumiBorc.getText());
-            finalDebtAfterPayment = 00.00;
+            //finalDebtAfterPayment = 00.00;
 
         } catch (Exception ex) {
 
-            
-            
             JOptionPane.showMessageDialog(this, "Müştərinin borcu tam ödənilmişdir.\n Qəbz üçün Ok - düyməsini sıxın");
+            finalDebtAfterPayment = 00.00;
         }
 
         double roundedFinalDebt = Math.round(finalDebtAfterPayment * 100.000) / 100.000;
@@ -2138,11 +2137,14 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             currencyAfterPayment = "0 qepik";
         }
 
-        String projectPath = "C:\\git projects\\VeneraMarket-4\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml";
+        String projectPath = System.getProperty("user.dir");
+        System.out.println(projectPath);
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml";
+        System.out.println(filePath);
         JasperDesign jdesign;
         try {
             Connection c = connect();
-            jdesign = JRXmlLoader.load(projectPath);
+            jdesign = JRXmlLoader.load(projectPath + filePath);
             JasperReport jr = null;
 
             HashMap<String, Object> parametrs;
@@ -2217,10 +2219,63 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
     }//GEN-LAST:event_optionForCashierMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        
+        String currencyFirstdebt;
+        
+        String clientName = txtAxtaris.getText();
 
+        String totalCredit = txtUmumiBorc.getText();
+        
+        optionCashier = optionForCashier.getSelectedItem().toString();
+        
+        if (optionCashier.equals("Secim edin..")) {
+            JOptionPane.showMessageDialog(this, "Zehmet olmasa kassir adini secin!", "DIQQET!", HEIGHT);
+            return;
+        }
+        
+        //String stringFirstdebt = Double.toString(roundedFirstCommonDebt);
+        
+        if (totalCredit.contains(".0")) {
+            currencyFirstdebt = "0 AZN";
+        } else {
+            currencyFirstdebt = "0 qepik";
+        }
 
+        try {
 
+            String projectPath = System.getProperty("user.dir");
+            System.out.println(projectPath);
+            String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333_1.jrxml";
+            System.out.println(filePath);
+            JasperDesign jdesign;
 
+            Connection c = connect();
+            jdesign = JRXmlLoader.load(projectPath + filePath);
+            JasperReport jr = null;
+
+            HashMap<String, Object> parametrs;
+            parametrs = new HashMap<>();
+            parametrs.put("currentTime", time2);
+            parametrs.put("clientName", clientName);
+            parametrs.put("firstDebt", totalCredit + currencyFirstdebt);
+//                parametrs.put("payment", resultString + currencyResult);
+//                parametrs.put("finalDebt", stringFinalDebtAfterPayment + currencyAfterPayment);
+            parametrs.put("cashier", optionCashier);
+            String printerName = "TSC TDP-225";
+
+            jr = JasperCompileManager.compileReport(jdesign);
+
+            JasperPrint jprint = JasperFillManager.fillReport(jr, parametrs, c);
+
+            //SilentPrint ss = new SilentPrint();
+            SilentPrint2 sp = new SilentPrint2();
+            //ss.printReport(jr, productPrice, parametrs, c);
+
+            sp.PrintReportToPrinter(jprint, printerName, 1);
+
+        } catch (Exception ex) {
+
+        }
 
 
     }//GEN-LAST:event_jButton5ActionPerformed
