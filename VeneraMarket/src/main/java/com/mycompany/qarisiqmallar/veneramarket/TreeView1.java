@@ -2178,15 +2178,31 @@ public class TreeView1 extends javax.swing.JFrame {
                                 model.removeNodeFromParent(theLastComponent);
                                 model.reload();
 
+                                String mainCatNAme = node4.toString();
+                                con = connect();
+                                pres = con.prepareStatement("select * from category ss where ss.categories = " + "'" + mainCatNAme + "'");
+                                rs = pres.executeQuery();
+                                rs.next();
+
+                                int mainCatID = rs.getInt("id");
+
+                                String genderName = node3.toString();
+                                con = connect();
+                                pres = con.prepareStatement("select * from subcategory s where name = " + "'" + genderName + "'" + " and s.index = " + mainCatID);
+                                rs = pres.executeQuery();
+                                rs.next();
+
+                                int genderID = rs.getInt("id");
+
                                 String SecondsubCatName = node2.toString();
                                 con = connect();
-                                pres = con.prepareStatement("select * from 2ndsubcategory ss where ss.name = " + "'" + SecondsubCatName + "'");
+                                pres = con.prepareStatement("select * from 2ndsubcategory where name = " + "'" + SecondsubCatName + "'" + " and `index-season` =" + mainCatID + " and `index-gender` = " + genderID);
                                 rs = pres.executeQuery();
                                 rs.next();
 
                                 int SecondSubCatID = rs.getInt("id");
 
-                                pres = con.prepareStatement("delete from 3ndsubcategory s where s.name = " + "'" + node1 + "'" + " and s.index =" + SecondSubCatID);
+                                pres = con.prepareStatement("delete from 3ndsubcategory s where s.name = " + "'" + node1 + "'" + " and `index-3rdSubCat` =" + SecondSubCatID+" and `index-season` ="+mainCatID +" and `index-gender` = " + genderID);
                                 pres.executeUpdate();
 
                                 JOptionPane.showMessageDialog(this, "Kateqoriya ugurla silindi");
@@ -2199,15 +2215,23 @@ public class TreeView1 extends javax.swing.JFrame {
                             model.removeNodeFromParent(theLastComponent);
                             model.reload();
 
-                            String subCatName = node2.toString();
+                            String mainCatNAme = node3.toString();
                             con = connect();
-                            pres = con.prepareStatement("select * from subcategory where name = " + "'" + subCatName + "'");
+                            pres = con.prepareStatement("select * from category ss where ss.categories = " + "'" + mainCatNAme + "'");
                             rs = pres.executeQuery();
                             rs.next();
 
-                            int catID = rs.getInt("id");
+                            int mainCatID = rs.getInt("id");
 
-                            pres = con.prepareStatement("delete from 2ndsubcategory s where s.name = " + "'" + node1 + "'" + " and s.index =" + catID);
+                            String genderName = node2.toString();
+                            con = connect();
+                            pres = con.prepareStatement("select * from subcategory s where name = " + "'" + genderName + "'" + " and s.index = " + mainCatID);
+                            rs = pres.executeQuery();
+                            rs.next();
+
+                            int genderID = rs.getInt("id");
+
+                            pres = con.prepareStatement("delete from 2ndsubcategory where name = " + "'" + node1 + "'" + " and `index-season` =" + mainCatID + " and `index-gender` = " + genderID);
                             pres.executeUpdate();
 
                             JOptionPane.showMessageDialog(this, "Kateqoriya ugurla silindi");
