@@ -150,9 +150,9 @@ public class BorcYazmaq extends javax.swing.JFrame {
     private void borcGostericileri() {
 
         double umumi, umumiOdenis, umumiBorc, cemAlinan = 0, cemOdenis = 0, borc = 0;
-        double roundedBorc = 0 ;
-        double roundedcemOdenis = 0 ;
-        double roundedCemAlinan = 0 ;
+        double roundedBorc = 0;
+        double roundedcemOdenis = 0;
+        double roundedCemAlinan = 0;
 
         int a;
         try {
@@ -167,16 +167,16 @@ public class BorcYazmaq extends javax.swing.JFrame {
 
                 umumi = rs.getDouble("Umumi_Mebleg");
                 cemAlinan += umumi;
-                roundedCemAlinan = Math.round(cemAlinan * 100.000 )/100.000;
+                roundedCemAlinan = Math.round(cemAlinan * 100.000) / 100.000;
 
                 umumiOdenis = rs.getDouble("Qismen_Odenis");
                 cemOdenis += umumiOdenis;
-                roundedcemOdenis = Math.round(cemOdenis * 100.000 )/100.000;
+                roundedcemOdenis = Math.round(cemOdenis * 100.000) / 100.000;
 
                 umumiBorc = rs.getDouble("Qaliq_borc");
                 borc += umumiBorc;
-                
-                roundedBorc = Math.round(borc * 100.000 )/100.000;
+
+                roundedBorc = Math.round(borc * 100.000) / 100.000;
 
             }
 
@@ -260,6 +260,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
         listNameOfClients = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         comboBoxOptionForCashier = new javax.swing.JComboBox<>();
+        checkBoxOptionFotPrintRecipe = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -503,6 +504,9 @@ public class BorcYazmaq extends javax.swing.JFrame {
         comboBoxOptionForCashier.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxOptionForCashier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secim edin..", "Eliyeva Zülfiyye", "Eliyeva Hecer", "Eliyev Şamil", "Eliyev Ramil" }));
 
+        checkBoxOptionFotPrintRecipe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkBoxOptionFotPrintRecipe.setText("Çek çap edilsin");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -548,13 +552,15 @@ public class BorcYazmaq extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxOptionForCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkBoxOptionFotPrintRecipe)
+                            .addComponent(comboBoxOptionForCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -570,7 +576,9 @@ public class BorcYazmaq extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboBoxOptionForCashier, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkBoxOptionFotPrintRecipe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -588,7 +596,6 @@ public class BorcYazmaq extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -772,12 +779,14 @@ public class BorcYazmaq extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         optionForCashier = comboBoxOptionForCashier.getSelectedItem().toString();
+        boolean yoxla = checkBoxOptionFotPrintRecipe.isSelected();
 
         if (optionForCashier.equals("Secim edin..")) {
             JOptionPane.showMessageDialog(this, "Zehmet olmasa kassir adini secin!", "DIQQET", HEIGHT);
         } else {
-
-            printCreditRecipe();
+            if (yoxla == true) {
+                printCreditRecipe();
+            }
 
             df = (DefaultTableModel) tblBorcSiyahisi.getModel();
             if (df.getRowCount() == 0) {
@@ -926,11 +935,14 @@ public class BorcYazmaq extends javax.swing.JFrame {
             currencyFinalCredit = "0 qepik";
         }
 
-        String projectPath = "C:\\GitHubProject\\VeneraMarket\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_1.jrxml";
+        String projectPath = System.getProperty("user.dir");
+        System.out.println(projectPath);
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_1.jrxml";
+        System.out.println(filePath);
         JasperDesign jdesign;
         try {
             Connection c = connect();
-            jdesign = JRXmlLoader.load(projectPath);
+            jdesign = JRXmlLoader.load(projectPath + filePath);
             JasperReport jr = null;
 
             HashMap<String, Object> parametrs;
@@ -943,7 +955,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
             parametrs.put("oldCredit", roundedOldCredit + currencyRoundedOldCredit);
             parametrs.put("finalCredit", finalCredit + currencyFinalCredit);
             parametrs.put("cashier", optionForCashier);
-            String printerName = "Xprinter XP-365B";
+            String printerName = "TSC TDP-225";
 
             jr = JasperCompileManager.compileReport(jdesign);
 
@@ -1115,6 +1127,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox checkBox;
+    private javax.swing.JCheckBox checkBoxOptionFotPrintRecipe;
     private javax.swing.JComboBox<String> comboBoxOptionForCashier;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

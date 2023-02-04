@@ -324,7 +324,7 @@ public class TestClass {
 
         String projectPath = System.getProperty("user.dir");
         System.out.println(projectPath);
-        System.out.println("C:\\git projects\\VeneraMarket-3\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\BarcodePrinter.jrxml");
+        System.out.println("C:\\git projects\\VeneraMarket-4\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml");
         //createNewDate();
         //doCoppySecondSubCategory();
         //doCoppySubCategory();
