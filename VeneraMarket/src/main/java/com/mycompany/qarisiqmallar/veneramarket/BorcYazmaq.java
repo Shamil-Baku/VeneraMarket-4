@@ -67,6 +67,8 @@ public class BorcYazmaq extends javax.swing.JFrame {
         txtQismenOdenis.disable();
         panelTest.setVisible(false);
         setTime();
+        checkBoxOptionFotPrintRecipe.doClick();
+        txtBorcAlaninAdi.requestFocus();
 
     }
 
@@ -505,6 +507,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
         comboBoxOptionForCashier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secim edin..", "Eliyeva Zülfiyye", "Eliyeva Hecer", "Eliyev Şamil", "Eliyev Ramil" }));
 
         checkBoxOptionFotPrintRecipe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkBoxOptionFotPrintRecipe.setForeground(new java.awt.Color(255, 255, 255));
         checkBoxOptionFotPrintRecipe.setText("Çek çap edilsin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -516,26 +519,28 @@ public class BorcYazmaq extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBorcAlaninAdi, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(124, 124, 124)
                         .addComponent(panelTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel10))
-                        .addGap(18, 18, 18)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtQismenOdenis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel10))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtQismenOdenis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBorcAlaninAdi, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -560,9 +565,25 @@ public class BorcYazmaq extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBorcAlaninAdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtQismenOdenis, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1)
@@ -571,31 +592,14 @@ public class BorcYazmaq extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtBorc1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtOdenis, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(txtUmumiBorc, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(txtUmumiBorc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboBoxOptionForCashier, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(checkBoxOptionFotPrintRecipe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtBorcAlaninAdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtQismenOdenis, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -802,6 +806,24 @@ public class BorcYazmaq extends javax.swing.JFrame {
                     for (int i = 0; i < df.getRowCount(); i++) {
 
                         BorcAlaninAdi = df.getValueAt(i, 0).toString();
+                        int clientName = 0;
+                        try {
+
+                            con = connect();
+                            pres = con.prepareStatement("select * from clients_permanently where NameAndSurename = " + "'" + BorcAlaninAdi + "'");
+                            ResultSet rsForClientName = pres.executeQuery();
+
+                            while (rsForClientName.next()) {
+                                clientName++;
+
+                            }
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        if (clientName == 0) {
+                            Ok(BorcAlaninAdi);
+                        }
+
                         Mehsul = df.getValueAt(i, 1).toString();
                         ID = Integer.parseInt(df.getValueAt(i, 2).toString());
                         Miqdari = Double.parseDouble(df.getValueAt(i, 3).toString());
@@ -887,7 +909,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     public void printCreditRecipe() {
-
+        String printerName;
         String currencyForTotalSum;
         String currencyPartialPayment;
         String currencyRemainingCredit;
@@ -955,7 +977,12 @@ public class BorcYazmaq extends javax.swing.JFrame {
             parametrs.put("oldCredit", roundedOldCredit + currencyRoundedOldCredit);
             parametrs.put("finalCredit", finalCredit + currencyFinalCredit);
             parametrs.put("cashier", optionForCashier);
-            String printerName = "TSC TDP-225";
+            
+            if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
+                printerName = "TSC TDP-225";
+            }else{
+                printerName = "Xprinter XP-365B";  
+            }
 
             jr = JasperCompileManager.compileReport(jdesign);
 
@@ -1046,7 +1073,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
 
         try {
             Connection c = connect();
-            pres = c.prepareStatement("select * from clients c where c.NameAndSurename like " + "'" + "%" + s + "%" + "'");
+            pres = c.prepareStatement("select * from clients_permanently c where c.NameAndSurename like " + "'" + "%" + s + "%" + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1081,6 +1108,46 @@ public class BorcYazmaq extends javax.swing.JFrame {
         panelTest.setVisible(false);
 
     }//GEN-LAST:event_listNameOfClientsMouseClicked
+
+    public void Ok(String nameAndSurename) {
+
+        String numberOfDebtCard = "";
+        String emailAddress = "";
+        String phoneNumber = "";
+        String numberOfContract = "";
+        String NameAndSurename = nameAndSurename;
+        double txtPercentageOfSalePrice = 0;
+        String option = "%";
+
+        if (NameAndSurename.isEmpty() == true) {
+
+            JOptionPane.showMessageDialog(this, "Пожалуйста, заполните информацию полностью");
+
+        } else {
+
+            try {
+                con = connect();
+                pres = con.prepareStatement("insert into clients_permanently (NameAndSurename, NumberOfContract, PhoneNumber, EmailAddress, NumberOfDebetCard, PersentageOfSalePrice, OptionOnRubleAndPercentage) values (?,?,?,?,?,?,?)");
+                pres.setString(1, NameAndSurename);
+                pres.setString(2, numberOfContract);
+                pres.setString(3, phoneNumber);
+                pres.setString(4, emailAddress);
+                pres.setString(5, numberOfDebtCard);
+                pres.setDouble(6, txtPercentageOfSalePrice);
+                pres.setString(7, option);
+                pres.executeUpdate();
+
+                //Клиент по имени Samil успешно создан
+                JOptionPane.showMessageDialog(this, NameAndSurename + " - adli müşteri uğurla qeyd ulundu!");
+
+            } catch (Exception ex) {
+
+                ex.printStackTrace();
+            }
+
+        }
+
+    }
 
     /**
      * @param args the command line arguments
