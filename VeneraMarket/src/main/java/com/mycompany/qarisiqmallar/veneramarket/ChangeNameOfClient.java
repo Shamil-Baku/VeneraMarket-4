@@ -26,7 +26,7 @@ public class ChangeNameOfClient extends javax.swing.JDialog {
         initComponents();
         txtNewName.requestFocus();
     }
-
+    public static int clientName = 0;
     Connection con;
     PreparedStatement pres;
     ResultSet rs;
@@ -134,13 +134,20 @@ public class ChangeNameOfClient extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         String oldName = txtOldName.getText();
         String newName = txtNewName.getText();
+
+        if (newName.isEmpty() || newName.isBlank() || newName == null) {
+            clientName++;
+            return;
+        }
+
         con = connect();
-        
-        
+
         try {
             pres = con.prepareStatement("update borclar_siyahisi set Borc_alanin_adi=? where Borc_alanin_adi = " + "'" + oldName + "'");
             pres.setString(1, newName);
@@ -150,7 +157,8 @@ public class ChangeNameOfClient extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        JOptionPane.showMessageDialog(this, "Müşteri adı "+newName+" - olaraq deyişdirildi!", "Info", HEIGHT);
+        JOptionPane.showMessageDialog(this, "Müşteri adı " + newName + " - olaraq deyişdirildi!", "Info", HEIGHT);
+        clientName =2;
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
