@@ -2674,7 +2674,7 @@ public class Main extends javax.swing.JFrame implements KeyListener {
     }
 
     public void printRecipe() {
-
+        String printerName;
         String currency = "AZN";
         String totalSum = txtCemMebleg.getText();
         String currentTime = lblTime.getText();
@@ -2687,18 +2687,29 @@ public class Main extends javax.swing.JFrame implements KeyListener {
             currency = ".00 AZN";
         }
 
-        String projectPath = "C:\\GitHubProject\\VeneraMarket\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
+        
+        String projectPath = System.getProperty("user.dir");
+        System.out.println(projectPath);
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
+        System.out.println(filePath);
+  
         JasperDesign jdesign;
         try {
             Connection c = connect();
-            jdesign = JRXmlLoader.load(projectPath);
+            jdesign = JRXmlLoader.load(projectPath+filePath);
             JasperReport jr = null;
 
             HashMap<String, Object> parametrs;
             parametrs = new HashMap<>();
             parametrs.put("date", time2);
             parametrs.put("totalSum", totalSum + currency);
-            String printerName = "Xprinter XP-365B";
+            
+            if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
+                printerName = "TSC TDP-225";
+            }else{
+                printerName = "Xprinter XP-365B";  
+            }
+            
 
             jr = JasperCompileManager.compileReport(jdesign);
 

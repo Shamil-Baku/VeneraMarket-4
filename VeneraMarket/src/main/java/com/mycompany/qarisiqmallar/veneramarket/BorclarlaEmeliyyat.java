@@ -41,6 +41,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import org.apache.logging.log4j.util.Strings;
 
 /**
  *
@@ -990,7 +991,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                     pres.setDouble(4, Miqdari);
                     pres.setDouble(5, qiymeti);
                     pres.setDouble(6, umumimebleg);
-                    pres.setString(7, SatisTarixi);
+                    pres.setString(7, time2);
                     pres.setDouble(8, umumimebleg);
                     pres.setDouble(9, qismenOdenis);
                     pres.setString(10, borcAlaninAdi);
@@ -1090,7 +1091,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 pres.setDouble(4, Miqdari);
                 pres.setDouble(5, qiymeti);
                 pres.setDouble(6, umumimebleg);
-                pres.setString(7, SatisTarixi);
+                pres.setString(7, time2);
                 pres.setDouble(8, umumimebleg);
                 pres.setDouble(9, qismenOdenis);
                 pres.setString(10, borcAlaninAdi);
@@ -1491,7 +1492,21 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        odenisEt();
+        
+        if (firstCommonDebt == 0) {
+            firstCommonDebt = Double.parseDouble(txtUmumiBorc.getText());
+            clientName = txtBorcAlaninAdi.getText();
+        }
+
+        optionCashier = optionForCashier.getSelectedItem().toString();
+
+        if (optionCashier.equals("Secim edin..")) {
+            JOptionPane.showMessageDialog(this, "Zehmet olmasa kassir adini secin!", "DIQQET!", HEIGHT);
+        } else {
+
+            odenisEt();
+        }
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void odenisEt() {
@@ -1504,9 +1519,9 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
             if (check == true) {
 
-                String BorcAlaninAdi = txtBorcAlaninAdi.getText();
+                String BorcAlaninAdi = txtAxtaris.getText();
 
-                if (txtBorcAlaninAdi.getText().isBlank()) {
+                if (BorcAlaninAdi == null || BorcAlaninAdi.isBlank() || BorcAlaninAdi.isEmpty()) {
 
                     JOptionPane.showMessageDialog(this, "Zehmet olmasa Borc alanin adini qeyd edin! ");
 
@@ -1515,14 +1530,14 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
                 pres = con.prepareCall("select * from borclar_siyahisi where Borc_alanin_adi = " + "'" + BorcAlaninAdi + "'");
 
-                ResultSet rs = pres.executeQuery();
+                ResultSet rsForCreditNumber = pres.executeQuery();
 
-                while (rs.next()) {
+                while (rsForCreditNumber.next()) {
 
-                    double Umumi = rs.getDouble("Umumi_mebleg");
-                    int borcID = rs.getInt("id");
-                    double qismen = rs.getDouble("Qismen_odenis");
-                    double qaliq = rs.getDouble("Qaliq_borc");
+                    double Umumi = rsForCreditNumber.getDouble("Umumi_mebleg");
+                    int borcID = rsForCreditNumber.getInt("id");
+                    double qismen = rsForCreditNumber.getDouble("Qismen_odenis");
+                    double qaliq = rsForCreditNumber.getDouble("Qaliq_borc");
                     double roundedQaliq = Math.round(qaliq * 100.000) / 100.000;
                     String date = txtOdenisTarixi.getText();
 
@@ -1535,11 +1550,11 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                     pres.executeUpdate();
 
                     pres = con.prepareStatement("select * from updatedCapitalbudget order by id desc limit 1");
-                    rs = pres.executeQuery();
+                    ResultSet rsForUpdateCapitalBudget = pres.executeQuery();
 
-                    rs.next();
+                    rsForUpdateCapitalBudget.next();
 
-                    double capitalBudget = rs.getDouble("AmountOfCapitalBudget");
+                    double capitalBudget = rsForUpdateCapitalBudget.getDouble("AmountOfCapitalBudget");
 
                     double result = capitalBudget + roundedQaliq;
                     double roundedResult = Math.round(result * 100.000) / 100.000;
@@ -1669,7 +1684,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
         int a;
         try {
-            pres = con.prepareCall("select * from borclar_siyahisi b where b.Borc_alanin_adi like " + "'" + "%" + s + "%" + "'");
+            pres = con.prepareStatement("select * from borclar_siyahisi b where b.Borc_alanin_adi = "+"'"+s+"'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -2086,7 +2101,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
     double finalDebtAfterPayment;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        String printerName;
         String currencyFirstdebt;
         String currencyResult;
         String currencyAfterPayment;
@@ -2155,7 +2170,11 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             parametrs.put("payment", resultString + currencyResult);
             parametrs.put("finalDebt", stringFinalDebtAfterPayment + currencyAfterPayment);
             parametrs.put("cashier", optionCashier);
-            String printerName = "TSC TDP-225";
+            if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
+                printerName = "TSC TDP-225";
+            }else{
+                printerName = "Xprinter XP-365B";  
+            }
 
             jr = JasperCompileManager.compileReport(jdesign);
 
