@@ -1492,7 +1492,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        
+
         if (firstCommonDebt == 0) {
             firstCommonDebt = Double.parseDouble(txtUmumiBorc.getText());
             clientName = txtBorcAlaninAdi.getText();
@@ -1684,7 +1684,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
         int a;
         try {
-            pres = con.prepareStatement("select * from borclar_siyahisi b where b.Borc_alanin_adi = "+"'"+s+"'");
+            pres = con.prepareStatement("select * from borclar_siyahisi b where b.Borc_alanin_adi = " + "'" + s + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -2032,12 +2032,20 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 }
         ));
         //tblBorcSiyahisi.setPreferredSize(new Dimension(650, 650));
-        tblBorcSiyahisi.getColumnModel().getColumn(0).setPreferredWidth(300);
-        tblBorcSiyahisi.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tblBorcSiyahisi.getColumnModel().getColumn(0).setPreferredWidth(270);
+        tblBorcSiyahisi.getColumnModel().getColumn(1).setPreferredWidth(150);
         tblBorcSiyahisi.getColumnModel().getColumn(2).setMinWidth(0);
         tblBorcSiyahisi.getColumnModel().getColumn(2).setPreferredWidth(0);
         tblBorcSiyahisi.getColumnModel().getColumn(3).setMinWidth(0);
         tblBorcSiyahisi.getColumnModel().getColumn(3).setPreferredWidth(0);
+        tblBorcSiyahisi.getColumnModel().getColumn(4).setMinWidth(0);
+        tblBorcSiyahisi.getColumnModel().getColumn(4).setPreferredWidth(60);
+        tblBorcSiyahisi.getColumnModel().getColumn(9).setMinWidth(0);
+        tblBorcSiyahisi.getColumnModel().getColumn(9).setPreferredWidth(100);
+        tblBorcSiyahisi.getColumnModel().getColumn(8).setMinWidth(0);
+        tblBorcSiyahisi.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tblBorcSiyahisi.getColumnModel().getColumn(10).setMinWidth(0);
+        tblBorcSiyahisi.getColumnModel().getColumn(10).setPreferredWidth(100);
     }
 
 
@@ -2172,8 +2180,8 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             parametrs.put("cashier", optionCashier);
             if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
                 printerName = "TSC TDP-225";
-            }else{
-                printerName = "Xprinter XP-365B";  
+            } else {
+                printerName = "Xprinter XP-365B";
             }
 
             jr = JasperCompileManager.compileReport(jdesign);
@@ -2223,11 +2231,23 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         ChangeNameOfClient.txtOldName.setText(name);
 
         changeName.setVisible(true);
+        int ss = ChangeNameOfClient.clientName;
 
-        filterAllClients();
-        getCommonDebts();
-        checkBoxShowAllDebts.doClick();
-        checkBoxShowAllDebts.doClick();
+        if (ss == 2) {
+
+            filterAllClients();
+            getCommonDebts();
+            checkBoxShowAllDebts.doClick();
+            checkBoxShowAllDebts.doClick();
+            ChangeNameOfClient.clientName =0;
+
+        } else if(ss == 1) {
+
+            checkBoxShowAllDebts.doClick();
+            checkBoxShowAllDebts.doClick();
+            ChangeNameOfClient.clientName =0;
+
+        }
 
 
     }//GEN-LAST:event_changeNameOfClientActionPerformed
@@ -2238,23 +2258,22 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
     }//GEN-LAST:event_optionForCashierMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+
         String printerName;
         String currencyFirstdebt;
-        
+
         String clientName = txtAxtaris.getText();
 
         String totalCredit = txtUmumiBorc.getText();
-        
+
         optionCashier = optionForCashier.getSelectedItem().toString();
-        
+
         if (optionCashier.equals("Secim edin..")) {
             JOptionPane.showMessageDialog(this, "Zehmet olmasa kassir adini secin!", "DIQQET!", HEIGHT);
             return;
         }
-        
+
         //String stringFirstdebt = Double.toString(roundedFirstCommonDebt);
-        
         if (totalCredit.contains(".0")) {
             currencyFirstdebt = "0 AZN";
         } else {
@@ -2281,10 +2300,10 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 //                parametrs.put("payment", resultString + currencyResult);
 //                parametrs.put("finalDebt", stringFinalDebtAfterPayment + currencyAfterPayment);
             parametrs.put("cashier", optionCashier);
-           if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
+            if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
                 printerName = "TSC TDP-225";
-            }else{
-                printerName = "Xprinter XP-365B";  
+            } else {
+                printerName = "Xprinter XP-365B";
             }
 
             jr = JasperCompileManager.compileReport(jdesign);
