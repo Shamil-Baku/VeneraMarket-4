@@ -2239,6 +2239,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         
+        String printerName;
         String currencyFirstdebt;
         
         String clientName = txtAxtaris.getText();
@@ -2280,7 +2281,11 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 //                parametrs.put("payment", resultString + currencyResult);
 //                parametrs.put("finalDebt", stringFinalDebtAfterPayment + currencyAfterPayment);
             parametrs.put("cashier", optionCashier);
-            String printerName = "TSC TDP-225";
+           if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
+                printerName = "TSC TDP-225";
+            }else{
+                printerName = "Xprinter XP-365B";  
+            }
 
             jr = JasperCompileManager.compileReport(jdesign);
 
