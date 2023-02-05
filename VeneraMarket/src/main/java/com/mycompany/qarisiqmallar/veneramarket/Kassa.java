@@ -453,7 +453,7 @@ public class Kassa extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableExpenses = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));

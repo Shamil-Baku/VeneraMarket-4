@@ -227,7 +227,7 @@ public class Mehsul_Elave_etmek extends javax.swing.JFrame {
         });
         jPopupMenu1.add(Sil);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
