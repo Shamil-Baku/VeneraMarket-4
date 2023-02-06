@@ -2873,7 +2873,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
     @Override
     public void windowClosing(WindowEvent e) {
         
-        this.dispose();
+        //this.dispose();
     }
 
     @Override
@@ -2898,7 +2898,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        this.dispose();
+        //this.dispose();
     }
 
     public static class CharToByteConverter {
