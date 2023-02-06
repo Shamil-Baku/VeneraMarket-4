@@ -770,7 +770,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
 
             load();
             borcGostericileri();
-            JOptionPane.showMessageDialog(this, "Borc qeyd olundu");
+            JOptionPane.showMessageDialog(this, "Borc emeliyyatının melumatları tam dolduruldu.\n Zehmet olmasa borcu qeyd edin!");
         } catch (Exception ex) {
             System.out.println(ex);
         }

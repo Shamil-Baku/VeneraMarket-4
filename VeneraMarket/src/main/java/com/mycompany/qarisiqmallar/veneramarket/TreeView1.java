@@ -1327,7 +1327,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(ShowOrPrintBarcode);
 
-        Cancel.setText("Ləğv et");
+        Cancel.setText("Bağla");
         OptionsForProductsTable.add(Cancel);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
