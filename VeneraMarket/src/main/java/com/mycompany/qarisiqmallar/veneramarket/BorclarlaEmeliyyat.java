@@ -71,6 +71,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         filterAllClients();
         getCommonDebts();
         clearBarcodeText();
+        addWindowListener(this);
 
         //addAllDebtsToTheTable();
     }
@@ -718,7 +719,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
     public void clearBarcodeText() {
 
-        // Main.txtBarcode_reader.setText("");
+         Main.txtBarcode_reader.setText("");
     }
 
     public void borcGostericileri() {

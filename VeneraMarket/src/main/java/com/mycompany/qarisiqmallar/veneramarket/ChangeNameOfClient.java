@@ -134,8 +134,7 @@ public class ChangeNameOfClient extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String oldName = txtOldName.getText();
@@ -153,12 +152,50 @@ public class ChangeNameOfClient extends javax.swing.JDialog {
             pres.setString(1, newName);
             pres.executeUpdate();
 
+            pres = con.prepareStatement("update clients_permanently set NameAndSurename=? where NameAndSurename = " + "'" + oldName + "'");
+            pres.setString(1, newName);
+            pres.executeUpdate();
+
+            pres = con.prepareStatement("select * from clients_permanently where NameAndSurename = " + "'" + newName + "'");
+            ResultSet rsFindNewName = pres.executeQuery();
+
+            while (rsFindNewName.next()) {
+
+                int clientID = rsFindNewName.getInt("id");
+                String clientName = rsFindNewName.getString("NameAndSurename");
+
+                pres = con.prepareStatement("select * from clients_permanently where NameAndSurename = " + "'" + newName + "'");
+                ResultSet rsFindCopyClientName = pres.executeQuery();
+
+                while (rsFindCopyClientName.next()) {
+
+                    int idCopyName = rsFindCopyClientName.getInt("id");
+                    String nameCopyClient = rsFindNewName.getString("NameAndSurename");
+
+                    if (clientName.equals(nameCopyClient)) {
+
+                        if (clientID == idCopyName) {
+
+                        } if(clientID != idCopyName) {
+
+                            pres = con.prepareStatement("delete from clients_permanently where id = ?");
+                            pres.setInt(1, idCopyName);
+                            pres.executeUpdate();
+
+                        }
+
+                    }
+
+                }
+
+            }
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
         JOptionPane.showMessageDialog(this, "Müşteri adı " + newName + " - olaraq deyişdirildi!", "Info", HEIGHT);
-        clientName =2;
+        clientName = 2;
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

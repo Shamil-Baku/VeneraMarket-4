@@ -765,7 +765,7 @@ public class NewProduct extends javax.swing.JDialog {
                 pres.executeUpdate();
 
             }
-            TreeView1.mouseClicked();
+            ProductCategories.mouseClicked();
 
         } catch (Exception ex) {
             ex.printStackTrace();

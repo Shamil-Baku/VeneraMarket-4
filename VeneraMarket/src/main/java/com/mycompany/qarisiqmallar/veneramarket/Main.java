@@ -2012,7 +2012,7 @@ public class Main extends javax.swing.JFrame implements KeyListener {
                 if (e.getSource() == Products) {
 
                     try {
-                        Mehsul_Elave_etmek products = new Mehsul_Elave_etmek();
+                        ProductCategories products = new ProductCategories();
                         products.setVisible(true);
 
                     } catch (Exception ex) {
@@ -3142,6 +3142,7 @@ public class Main extends javax.swing.JFrame implements KeyListener {
     private void txtBarcode_readerKeyPressed(java.awt.event.KeyEvent evt) {
 
         int s = evt.getKeyCode();
+        System.out.println(s);
         if (s == 39) {
 
             txtOdenis.requestFocus();
@@ -3185,6 +3186,11 @@ public class Main extends javax.swing.JFrame implements KeyListener {
             txtDisplay.requestFocus();
             txtBarcode_reader.setText("");
 
+        }
+        if (s == 81) {
+           
+            ProductCategories products = new ProductCategories();
+            products.setVisible(true);
         }
 
     }
