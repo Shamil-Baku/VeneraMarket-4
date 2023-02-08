@@ -146,7 +146,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         });
         jPopupMenu1.add(changeNameOfClient);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 204));
 
@@ -585,6 +585,9 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
         });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -719,7 +722,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
     public void clearBarcodeText() {
 
-         Main.txtBarcode_reader.setText("");
+        Main.txtBarcode_reader.setText("");
     }
 
     public void borcGostericileri() {
@@ -939,9 +942,9 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 }
 
             }
-            borcunSilinmesi();
+            //borcunSilinmesi();
         } catch (Exception ex) {
-
+                    ex.printStackTrace();
         }
     }
 
@@ -1050,90 +1053,107 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
     public void borcunSilinmesi() throws SQLException {
 
-        double QaliqBorc2, qiymeti, umumimebleg, qismenOdenis, Miqdari;
-        String borcAlaninAdi, Mehsul, SatisTarixi;
-        int MehsulID, BorcID;
+        try {
 
-        df = (DefaultTableModel) tblBorcSiyahisi.getModel();
-        double QaliqBorc;
+            double QaliqBorc2, qiymeti, umumimebleg, qismenOdenis, Miqdari;
+            String borcAlaninAdi, Mehsul, SatisTarixi;
+            int MehsulID, BorcID;
+            double qismenOdenis2 = 0;
 
-        //int selected = tblBorcSiyahisi.getSelectedRow();
-        for (int i = 0; i < df.getRowCount(); i++) {
+            df = (DefaultTableModel) tblBorcSiyahisi.getModel();
+            double QaliqBorc;
 
-            QaliqBorc = Double.parseDouble(df.getValueAt(i, 8).toString());
+            //int selected = tblBorcSiyahisi.getSelectedRow();
+            for (int i = 0; i < df.getRowCount(); i++) {
 
-            if (QaliqBorc == 0.00) {
+                QaliqBorc = Double.parseDouble(df.getValueAt(i, 8).toString());
 
-                df = (DefaultTableModel) tblBorcSiyahisi.getModel();
+                if (QaliqBorc == 0.00) {
 
-                borcAlaninAdi = df.getValueAt(i, 0).toString();
-                Mehsul = df.getValueAt(i, 1).toString();
-                MehsulID = Integer.parseInt(df.getValueAt(i, 2).toString());
-                Miqdari = Double.parseDouble(df.getValueAt(i, 4).toString());
-                qiymeti = Double.parseDouble(df.getValueAt(i, 5).toString());
-                umumimebleg = Double.parseDouble(df.getValueAt(i, 6).toString());
-                qismenOdenis = Double.parseDouble(df.getValueAt(i, 7).toString());
-                SatisTarixi = df.getValueAt(i, 10).toString();
-                double qismenOdenis2 = Double.parseDouble(txtOdenis.getText());
+                    df = (DefaultTableModel) tblBorcSiyahisi.getModel();
 
-                int say = 1;
-                Statement stmt = con.createStatement();
-                stmt.execute("select * from satilan_mallar");
-                ResultSet rs = stmt.getResultSet();
-                while (rs.next()) {
-                    say++;
+                    borcAlaninAdi = df.getValueAt(i, 0).toString();
+                    Mehsul = df.getValueAt(i, 1).toString();
+                    MehsulID = Integer.parseInt(df.getValueAt(i, 2).toString());
+                    Miqdari = Double.parseDouble(df.getValueAt(i, 4).toString());
+                    qiymeti = Double.parseDouble(df.getValueAt(i, 5).toString());
+                    umumimebleg = Double.parseDouble(df.getValueAt(i, 6).toString());
+                    qismenOdenis = Double.parseDouble(df.getValueAt(i, 7).toString());
+                    SatisTarixi = df.getValueAt(i, 10).toString();
+
+                    try {
+                        qismenOdenis2 = Double.parseDouble(txtOdenis.getText());
+                    } catch (Exception ex) {
+                        if (qismenOdenis2 == 0.0) {
+                            if (chcBoxHamisi.isSelected() == true) {
+                                qismenOdenis2 = qismenOdenis;
+                            }
+                        }
+
+                        System.out.println("Butun borc odenir");
+                    }
+
+                    int say = 1;
+                    Statement stmt = con.createStatement();
+                    stmt.execute("select * from satilan_mallar");
+                    ResultSet rs = stmt.getResultSet();
+                    while (rs.next()) {
+                        say++;
+                    }
+
+                    String query = "insert into satilan_mallar (Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti,  Umumi_Mebleg, Satis_Tarixi, Borcdan_Gelen, QiemenOdenis, Borc_Alanin_Adi) values(?,?,?,?,?,?,?,?,?,?)";
+
+                    pres = con.prepareStatement(query);
+
+                    //pres.setString(1, BorcAlaninAdi);
+                    pres.setInt(1, say);
+                    pres.setInt(2, MehsulID);
+                    pres.setString(3, "Borcdan-" + Mehsul);
+                    pres.setDouble(4, Miqdari);
+                    pres.setDouble(5, qiymeti);
+                    pres.setDouble(6, umumimebleg);
+                    pres.setString(7, time2);
+                    pres.setDouble(8, umumimebleg);
+                    pres.setDouble(9, qismenOdenis2);
+                    pres.setString(10, borcAlaninAdi);
+                    pres.execute();
+                    txtOdenis.setText("0.0");
+                }
+            }
+            df = (DefaultTableModel) tblBorcSiyahisi.getModel();
+
+            for (int i2 = 0; i2 < df.getRowCount(); i2++) {
+
+                MehsulID = Integer.parseInt(df.getValueAt(i2, 2).toString());
+                BorcID = Integer.parseInt(df.getValueAt(i2, 3).toString());
+                QaliqBorc = Double.parseDouble(df.getValueAt(i2, 8).toString());
+
+                if (QaliqBorc == 0.00) {
+
+                    String querySilinme = "delete from borclar_siyahisi where id = " + BorcID;
+                    stmt = con.createStatement();
+                    stmt.execute(querySilinme);
+
+                    txtUmumiBorc.setText("");
+                    txtBorc.setText("");
+                    txtID.setText("");
+                    txtBorcID.setText("");
+                    txtMiqdari.setText("");
+                    txtQiymeti.setText("");
+                    txtUmumiMebleg.setText("");
+                    txtQismenOdenis.setText("");
+                    txtQaliqBorc.setText("");
+                    txtOdenis.setText("");
+                    txtMehsul.setText("");
+                    chcBoxHamisi.doClick();
+                    //loadAxtarisaGore();
+                    
                 }
 
-                String query = "insert into satilan_mallar (Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti,  Umumi_Mebleg, Satis_Tarixi, Borcdan_Gelen, QiemenOdenis, Borc_Alanin_Adi) values(?,?,?,?,?,?,?,?,?,?)";
-
-                pres = con.prepareStatement(query);
-
-                //pres.setString(1, BorcAlaninAdi);
-                pres.setInt(1, say);
-                pres.setInt(2, MehsulID);
-                pres.setString(3, "Borcdan-" + Mehsul);
-                pres.setDouble(4, Miqdari);
-                pres.setDouble(5, qiymeti);
-                pres.setDouble(6, umumimebleg);
-                pres.setString(7, time2);
-                pres.setDouble(8, umumimebleg);
-                pres.setDouble(9, qismenOdenis2);
-                pres.setString(10, borcAlaninAdi);
-                pres.execute();
             }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        df = (DefaultTableModel) tblBorcSiyahisi.getModel();
-
-        for (int i2 = 0; i2 < df.getRowCount(); i2++) {
-
-            MehsulID = Integer.parseInt(df.getValueAt(i2, 2).toString());
-            BorcID = Integer.parseInt(df.getValueAt(i2, 3).toString());
-            QaliqBorc = Double.parseDouble(df.getValueAt(i2, 8).toString());
-
-            if (QaliqBorc == 0.00) {
-
-                String querySilinme = "delete from borclar_siyahisi where id = " + BorcID;
-                stmt = con.createStatement();
-                stmt.execute(querySilinme);
-
-                txtUmumiBorc.setText("");
-                txtBorc.setText("");
-                txtID.setText("");
-                txtBorcID.setText("");
-                txtMiqdari.setText("");
-                txtQiymeti.setText("");
-                txtUmumiMebleg.setText("");
-                txtQismenOdenis.setText("");
-                txtQaliqBorc.setText("");
-                txtOdenis.setText("");
-                txtMehsul.setText("");
-                chcBoxHamisi.doClick();
-                //loadAxtarisaGore();
-
-            }
-
-        }
-
         JOptionPane.showMessageDialog(this, "Borc ugurla silindi!");
 
     }
@@ -1512,7 +1532,8 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         }
 
     }//GEN-LAST:event_jButton2MouseClicked
-
+    
+    double qaliq;
     private void odenisEt() {
 
         String cashierName = optionForCashier.getSelectedItem().toString();
@@ -1538,10 +1559,15 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
                 while (rsForCreditNumber.next()) {
 
-                    double Umumi = rsForCreditNumber.getDouble("Umumi_mebleg");
+                    double UmumiMebleg = rsForCreditNumber.getDouble("Umumi_mebleg");
                     int borcID = rsForCreditNumber.getInt("id");
+                    int Mehsul_ID = rsForCreditNumber.getInt("Mehsul_ID");
+                    int Miqdari = rsForCreditNumber.getInt("Miqdari");
+                    String Mehsul = rsForCreditNumber.getString("Borca_goturduyu_mehsul");
+                    String borcAlaninAdi = rsForCreditNumber.getString("Borc_alanin_adi");
                     double qismen = rsForCreditNumber.getDouble("Qismen_odenis");
-                    double qaliq = rsForCreditNumber.getDouble("Qaliq_borc");
+                    double Qiymeti = rsForCreditNumber.getDouble("Qiymeti");
+                    qaliq = rsForCreditNumber.getDouble("Qaliq_borc");
                     double roundedQaliq = Math.round(qaliq * 100.000) / 100.000;
                     String date = txtOdenisTarixi.getText();
 
@@ -1570,17 +1596,81 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                     pres.setString(4, "+");
                     pres.setDouble(5, roundedQaliq);
                     pres.executeUpdate();
+                    
+                    
+                    pres = con.prepareStatement("select * from borclar_siyahisi where Borc_alanin_adi = "+"'"+BorcAlaninAdi+"'"+ " and Qaliq_borc = "+ 0.0);
+                    ResultSet rsForPaidProduct = pres.executeQuery();
+                    
+                    while (rsForPaidProduct.next()) {                        
+                        
+                       String query = "insert into satilan_mallar (Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti,  Umumi_Mebleg, Satis_Tarixi, Borcdan_Gelen, QiemenOdenis, Borc_Alanin_Adi) values(?,?,?,?,?,?,?,?,?,?)";
+
+                    pres = con.prepareStatement(query);
+                    
+                    int say = 1;
+                    Statement stmt = con.createStatement();
+                    stmt.execute("select * from satilan_mallar");
+                    ResultSet rs = stmt.getResultSet();
+                    while (rs.next()) {
+                        say++;
+                    }
+                    
+                    
+                    //pres.setString(1, BorcAlaninAdi);
+                    pres.setInt(1, say);
+                    pres.setInt(2, Mehsul_ID);
+                    pres.setString(3, "Borcdan-" + Mehsul);
+                    pres.setDouble(4, Miqdari);
+                    pres.setDouble(5, Qiymeti);
+                    pres.setDouble(6, UmumiMebleg);
+                    pres.setString(7, time2);
+                    pres.setDouble(8, UmumiMebleg);
+                    pres.setDouble(9, roundedQaliq);
+                    pres.setString(10, borcAlaninAdi);
+                    pres.execute();  
+                    
+                    
+                    String query2 = "update mehsullar set Satisin_toplam_deyeri = Satisin_toplam_deyeri + ? where id = ?";
+
+                    pres = con.prepareStatement(query2);
+
+                    // pres.setString(1, Miqdari);
+                    pres.setDouble(1, UmumiMebleg);
+                    pres.setInt(2, Mehsul_ID);
+                    pres.executeUpdate();
+                    
+                    
+                    String querySilinme = "delete from borclar_siyahisi where id = " + borcID;
+                    stmt = con.createStatement();
+                    stmt.execute(querySilinme);
+
+                    txtUmumiBorc.setText("");
+                    txtBorc.setText("");
+                    txtID.setText("");
+                    txtBorcID.setText("");
+                    txtMiqdari.setText("");
+                    txtQiymeti.setText("");
+                    txtUmumiMebleg.setText("");
+                    txtQismenOdenis.setText("");
+                    txtQaliqBorc.setText("");
+                    txtOdenis.setText("");
+                    txtMehsul.setText("");
+                    chcBoxHamisi.doClick();
+                        
+                    }
 
                 }
 
                 load();
                 loadAxtarisaGore();
-                satis2();
+                //satis2();
                 borcGostericileri2();
                 txtUmumiBorc.setText("");
-                load();
-                loadAxtarisaGore();
-                borcGostericileri();
+                JOptionPane.showMessageDialog(this, "Borc ugurla silindi!");
+                
+//                load();
+//                loadAxtarisaGore();
+//                borcGostericileri();
 
             } else {
 
@@ -2243,13 +2333,13 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             getCommonDebts();
             checkBoxShowAllDebts.doClick();
             checkBoxShowAllDebts.doClick();
-            ChangeNameOfClient.clientName =0;
+            ChangeNameOfClient.clientName = 0;
 
-        } else if(ss == 1) {
+        } else if (ss == 1) {
 
             checkBoxShowAllDebts.doClick();
             checkBoxShowAllDebts.doClick();
-            ChangeNameOfClient.clientName =0;
+            ChangeNameOfClient.clientName = 0;
 
         }
 
@@ -2326,6 +2416,10 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseEntered
 
     /**
      * @param args the command line arguments
@@ -2442,13 +2536,10 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
     @Override
     public void windowActivated(WindowEvent e) {
 
-     
-
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
 
- 
     }
 }
