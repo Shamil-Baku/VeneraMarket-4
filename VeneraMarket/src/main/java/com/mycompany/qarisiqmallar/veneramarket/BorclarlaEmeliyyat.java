@@ -138,7 +138,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
-        changeNameOfClient.setText("Adını deyişdir");
+        changeNameOfClient.setText("jMenuItem1");
         changeNameOfClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeNameOfClientActionPerformed(evt);
@@ -146,7 +146,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         });
         jPopupMenu1.add(changeNameOfClient);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 204));
 
@@ -772,7 +772,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
         int a;
         try {
-            pres = con.prepareCall("select * from borclar_siyahisi b where b.Borc_alanin_adi like " + "'" + "%" + s + "%" + "'");
+            pres = con.prepareCall("select * from borclar_siyahisi b where b.Borc_alanin_adi = " + "'" + s + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -870,6 +870,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                         umumimebleg = Double.parseDouble(df.getValueAt(i, 6).toString());
                         qismenOdenis = Double.parseDouble(df.getValueAt(i, 7).toString());
                         SatisTarixi = df.getValueAt(i, 10).toString();
+                        double qismenOdenis2 = Double.parseDouble(txtOdenis.getText());
 
                         int say = 1;
                         Statement stmt = con.createStatement();
@@ -891,7 +892,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                         pres.setString(7, time2);
                         pres.setString(8, borcAlaninAdi);
                         pres.setString(9, "Borcdan gələn");
-                        pres.setDouble(10, qismenOdenis);
+                        pres.setDouble(10, qismenOdenis2);
                         pres.setDouble(11, umumimebleg);
 
                         pres.execute();
@@ -970,6 +971,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 umumimebleg = Double.parseDouble(df.getValueAt(i, 6).toString());
                 qismenOdenis = Double.parseDouble(df.getValueAt(i, 7).toString());
                 SatisTarixi = df.getValueAt(i, 10).toString();
+                double qismenOdenis2 = Double.parseDouble(txtOdenis.getText());
 
                 try {
 
@@ -994,7 +996,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                     pres.setDouble(6, umumimebleg);
                     pres.setString(7, time2);
                     pres.setDouble(8, umumimebleg);
-                    pres.setDouble(9, qismenOdenis);
+                    pres.setDouble(9, qismenOdenis2);
                     pres.setString(10, borcAlaninAdi);
                     pres.execute();
 
@@ -1072,6 +1074,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 umumimebleg = Double.parseDouble(df.getValueAt(i, 6).toString());
                 qismenOdenis = Double.parseDouble(df.getValueAt(i, 7).toString());
                 SatisTarixi = df.getValueAt(i, 10).toString();
+                double qismenOdenis2 = Double.parseDouble(txtOdenis.getText());
 
                 int say = 1;
                 Statement stmt = con.createStatement();
@@ -1094,7 +1097,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 pres.setDouble(6, umumimebleg);
                 pres.setString(7, time2);
                 pres.setDouble(8, umumimebleg);
-                pres.setDouble(9, qismenOdenis);
+                pres.setDouble(9, qismenOdenis2);
                 pres.setString(10, borcAlaninAdi);
                 pres.execute();
             }
@@ -2439,14 +2442,13 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
     @Override
     public void windowActivated(WindowEvent e) {
 
-        clearBarcodeText();
+     
 
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
 
-        clearBarcodeText();
-
+ 
     }
 }
