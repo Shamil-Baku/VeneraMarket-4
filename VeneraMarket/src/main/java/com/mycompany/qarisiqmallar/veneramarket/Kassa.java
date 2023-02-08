@@ -453,7 +453,7 @@ public class Kassa extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableExpenses = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
@@ -840,7 +840,7 @@ public class Kassa extends javax.swing.JFrame {
                                 .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel13)))
                         .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jScrollPane1.setBackground(new java.awt.Color(255, 51, 51));
@@ -1922,22 +1922,25 @@ public class Kassa extends javax.swing.JFrame {
             Gelir = Double.parseDouble(df.getValueAt(i, 8).toString());
 
             String formattedGelir = dformater.format(Gelir);
+            double roundedGelir = Math.round(Gelir * 100.000)/100.000;
 
             boolean yoxla = UmumiSatis.getText().isEmpty();
 
             if (yoxla != false) {
-                UmumiSatis.setText(formattedGelir);
+                UmumiSatis.setText(Double.toString(roundedGelir));
             } else {
 
                 double kohneMebleg = Double.parseDouble(UmumiSatis.getText());
 
                 String formattedKohneMebleg = dformater.format(kohneMebleg);
+                double roundedMebleg = Math.round(kohneMebleg * 100.000)/100.000;
 
-                double netice = kohneMebleg + Gelir;
+                double netice = roundedMebleg + roundedGelir;
 
                 String formatterNetice = dformater.format(netice);
+                double roundedNetice = Math.round(netice * 100.000)/100.000;
 
-                UmumiSatis.setText(formatterNetice);
+                UmumiSatis.setText(Double.toString(roundedNetice));
             }
 
         }
@@ -1958,8 +1961,9 @@ public class Kassa extends javax.swing.JFrame {
                 double umumiSatis = SatisQiymeti * Miqdari - musteriyeGeriQaytarilanMebleg + qismenOdenis - (borcdanGelen);
 
                 String formatted = dformater.format(umumiSatis);
+                double roundedGelir = Math.round(umumiSatis * 100.000)/100.000;
 
-                txtKassa.setText(formatted);
+                txtKassa.setText(Double.toString(roundedGelir));
 
             } else {
 
@@ -1969,13 +1973,15 @@ public class Kassa extends javax.swing.JFrame {
                 if (umumiSatis == qismenOdenis) {
                     double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg - borcdanGelen + qismenOdenis;
                     String formatted = dformater.format(sonNetice);
-                    txtKassa.setText(formatted);
+                    double roundedSonNetice = Math.round(sonNetice * 100.000)/100.000;
+                    txtKassa.setText(Double.toString(roundedSonNetice));
 
                 } else {
 
                     double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg + qismenOdenis - borcdanGelen;
                     String formatted = dformater.format(sonNetice);
-                    txtKassa.setText(formatted);
+                    double roundedSonNetice = Math.round(sonNetice * 100.000)/100.000;
+                    txtKassa.setText(Double.toString(roundedSonNetice));                   
                 }
 
             }
