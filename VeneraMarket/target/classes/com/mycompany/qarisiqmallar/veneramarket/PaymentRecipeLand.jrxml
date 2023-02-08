@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="164" pageHeight="297" columnWidth="164" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4ff26269-fd5f-4e87-8e8a-2aca18292af2">
+	<property name="ireport.zoom" value="2.8531167061100087"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1" uuid="b8063869-4292-4033-b5e0-c4e3b85c51c7"/>
+	<subDataset name="sebet" uuid="328f3695-4f6c-4c5e-b858-490f87f0ae7d">
+		<queryString language="SQL">
+			<![CDATA[select * from sebet]]>
+		</queryString>
+		<field name="id2" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Malin_adi" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Miqdari" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Satis_qiymeti" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Umumi_Mebleg" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="totalSum" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="date2" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from sebet]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Malin_adi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Miqdari" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Satis_qiymeti" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Umumi_Mebleg" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Qismen_Odenis" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Qaliq_borc" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tarix" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id2" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="4" width="46" height="27" uuid="89eb0a5a-3952-42ea-bfd4-4defc43f5fd2"/>
+				<textElement>
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VENERA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="15" width="150" height="16" uuid="90cb4421-1ad7-4d0c-bb99-c9a458c0edd5"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Geyim ve Tekstil Dünyası]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="35" width="145" height="11" uuid="3185d2ca-b6f0-4efe-bc49-c0177cf53d78"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[  Ünvan : Kürdexanı qes, Kenan inşaatın yanı.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="42" width="142" height="11" uuid="677ad1e0-58c7-4894-b958-a3bd4336dd3f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[  Elaqe nömresi : +994(70) 245-08-70]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="5" y="64" width="150" height="36" uuid="1f78f97f-9998-4741-ad41-40a5a3169f18"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="sebet" uuid="a2953675-1ba8-413b-a328-589a4b45f473">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="14" uuid="12fbc77d-e18c-4e12-8bfc-ce3c9d136671">
+						<jr:tableHeader style="table 1_TH" height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="14" height="16" uuid="ec3a1fc6-dc24-4168-8cb5-707441a643ae"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[№]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="14" height="10" uuid="dd4f93a9-8315-46cf-800f-5c5a48bef1aa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{id2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="61" uuid="bd3c22cb-772b-4795-a11b-78519173abf7">
+						<jr:tableHeader style="table 1_TH" height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="61" height="16" uuid="1553a426-e273-4f6c-9813-43af6d3d421d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Mehsulun adi]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="61" height="12" uuid="fc5cd7e1-ed7a-4228-9ec6-e1a92ff79acf"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Malin_adi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="24" uuid="3eaa9b0f-587a-4c27-8641-a4bac5161812">
+						<jr:tableHeader style="table 1_TH" height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="24" height="16" uuid="a44b3db2-6b38-407b-863a-e51e1bc18a2c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Miqdari]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="24" height="12" uuid="1a91b6e4-81af-4a53-9047-989a04bd04f9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Miqdari}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="25" uuid="ef55b9dd-7a95-4be0-bdae-b0b7a66bc823">
+						<jr:tableHeader style="table 1_TH" height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="24" height="16" uuid="61b92f15-2853-4c0c-ba00-10d0d714f779"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Qiymeti]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="24" height="12" uuid="a8fc0765-16ca-4a38-ae32-8da96d8a21a1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Satis_qiymeti}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="29" uuid="05c66459-dbf5-49ae-9797-c475b5d6e0f2">
+						<jr:tableHeader style="table 1_TH" height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="27" height="16" uuid="cd53c5ae-e12e-4def-acb0-8ee42f3343aa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Cemi]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="1" y="0" width="26" height="12" uuid="eb56877a-7bc3-4ab5-9bcd-8ed96dcdcdcb"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Umumi_Mebleg}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<line>
+				<reportElement x="157" y="3" width="1" height="55" uuid="df325200-6e1b-4414-84b2-95c688c10a19"/>
+			</line>
+			<line>
+				<reportElement x="7" y="58" width="151" height="1" uuid="762fa095-11c7-4771-8cf0-81c7537c6b49"/>
+			</line>
+			<line>
+				<reportElement x="7" y="3" width="151" height="1" uuid="b693642f-3e16-43fc-8df3-c4d8df86df05"/>
+			</line>
+			<line>
+				<reportElement x="6" y="3" width="1" height="56" uuid="64284846-cfca-4a6c-a46a-97afd97d466f"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="4" width="55" height="9" uuid="018502e3-6333-4ee7-965b-4b8648d9778e"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ümumi mebleğ : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="13" width="40" height="9" uuid="294ed794-87c0-46e7-b8a9-8a2dac182ffa"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qalıq borc : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="13" width="45" height="9" uuid="fc3769bf-783a-4039-9906-aea5d0db9d30"/>
+				<textElement>
+					<font size="7" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[00, 00 AZN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="6" y="25" width="152" height="1" uuid="9810e1b1-ec21-4f85-857f-fac1ae6d5ae2"/>
+			</line>
+			<line>
+				<reportElement x="158" y="25" width="1" height="29" uuid="3258744e-aeeb-436a-af18-689673377225"/>
+			</line>
+			<line>
+				<reportElement x="6" y="53" width="153" height="1" uuid="34c82030-9f5d-4166-8b0f-7faf3c459a15"/>
+			</line>
+			<line>
+				<reportElement x="5" y="25" width="1" height="28" uuid="bd0c9ebd-6503-4fe2-b2cc-12d35390aad6"/>
+			</line>
+			<staticText>
+				<reportElement x="31" y="26" width="102" height="13" uuid="ead4c7d0-4b77-44b2-9f4c-9568ad9029f4"/>
+				<textElement>
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Bizi seçdiyiniz üçün]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="39" width="61" height="13" uuid="ba2ee9d8-684a-46f1-82ee-6a17f8e98680"/>
+				<textElement>
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Teşekkürler!]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="61" y="4" width="46" height="9" uuid="89f93a49-c88d-4378-b919-a5b1fb6cd203"/>
+				<textElement>
+					<font size="7" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalSum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="4" width="44" height="9" uuid="ffb297bb-045e-447c-a354-f542d08a7dbe"/>
+				<textElement textAlignment="Right">
+					<font size="6" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="13" width="46" height="9" uuid="0d78a6cb-5036-44b7-8d94-0480b532e84a"/>
+				<textElement textAlignment="Right">
+					<font size="6" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>
