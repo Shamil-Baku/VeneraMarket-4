@@ -1,6 +1,8 @@
 com\mycompany\qarisiqmallar\veneramarket\createNewCapitalBudget.class
 com\mycompany\qarisiqmallar\veneramarket\PurchaseInvoice$21.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$19.class
 com\mycompany\qarisiqmallar\veneramarket\ExistingProducts$6.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$5.class
 com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$15.class
 com\mycompany\qarisiqmallar\veneramarket\ExistingProductsAcilanQaime$5.class
 com\mycompany\qarisiqmallar\veneramarket\Main$44.class
@@ -67,15 +69,18 @@ com\mycompany\qarisiqmallar\veneramarket\Kassa$11.class
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$23.class
 com\mycompany\qarisiqmallar\veneramarket\Expenses.class
 com\mycompany\qarisiqmallar\veneramarket\Main$31.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$12.class
 com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$7.class
 com\mycompany\qarisiqmallar\veneramarket\updateCategoryNameDialogForm$6$1.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$13.class
 com\mycompany\qarisiqmallar\veneramarket\PurchaseInvoice$18.class
+com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat$23.class
 com\mycompany\qarisiqmallar\veneramarket\Main$60.class
 com\mycompany\qarisiqmallar\veneramarket\Kassa$3.class
 com\mycompany\qarisiqmallar\veneramarket\Satici_Elave_Etmek$7.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$11.class
 com\mycompany\qarisiqmallar\veneramarket\EditBarcode$2.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$FontFamilyResolver.class
 com\mycompany\qarisiqmallar\veneramarket\PurchaseBills$17.class
 com\mycompany\qarisiqmallar\veneramarket\ChronologyOfOperations$7.class
 com\mycompany\qarisiqmallar\veneramarket\exploreAboutProduct$2.class
@@ -147,6 +152,7 @@ com\mycompany\qarisiqmallar\veneramarket\TreeView1$5.class
 com\mycompany\qarisiqmallar\veneramarket\PrintBarcode.class
 com\mycompany\qarisiqmallar\veneramarket\ExistingProductsAcilanQaime$3.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$35.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories.class
 com\mycompany\qarisiqmallar\veneramarket\ExistingProducts$4.class
 com\mycompany\qarisiqmallar\veneramarket\ChronologyOfOperations$4.class
 com\mycompany\qarisiqmallar\veneramarket\SatilanMallarSatisID$3.class
@@ -170,6 +176,7 @@ com\mycompany\qarisiqmallar\veneramarket\IdentificationOfProduuctBarcodes$2.clas
 com\mycompany\qarisiqmallar\veneramarket\Main$47.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$20.class
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$4.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$16.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesi$2.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat1$5.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$22.class
@@ -181,6 +188,7 @@ com\mycompany\qarisiqmallar\veneramarket\createNewCapitalBudget$5.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat$3.class
 com\mycompany\qarisiqmallar\veneramarket\PurchaseInvoice$17.class
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$19.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$10.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$2.class
 com\mycompany\qarisiqmallar\veneramarket\ExistingProducts.class
 com\mycompany\qarisiqmallar\veneramarket\Main$41.class
@@ -200,6 +208,7 @@ com\mycompany\qarisiqmallar\veneramarket\Main$55.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$1.class
 com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$8.class
 com\mycompany\qarisiqmallar\veneramarket\PaymentForPurchaseInvoice$10.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$11.class
 com\mycompany\qarisiqmallar\veneramarket\SilentPrint2.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$14.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$3.class
@@ -211,6 +220,7 @@ com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$22.class
 com\mycompany\qarisiqmallar\veneramarket\GetProductsFromExcelFileToPurchaseInvoice1.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesi$12.class
 com\mycompany\qarisiqmallar\veneramarket\Kassa$2.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$23.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$10.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$12.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesi$1.class
@@ -250,13 +260,16 @@ com\mycompany\qarisiqmallar\veneramarket\IdentificationOfProduuctBarcodes$3.clas
 com\mycompany\qarisiqmallar\veneramarket\AddSecondSubCategory$1.class
 com\mycompany\qarisiqmallar\veneramarket\ChangeNameOfClient$2$1.class
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$13.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$17.class
 com\mycompany\qarisiqmallar\veneramarket\AddSubCategory$2.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$30.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$22.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$11.class
 com\mycompany\qarisiqmallar\veneramarket\EditProducts$4$1.class
 com\mycompany\qarisiqmallar\veneramarket\addNewExpenseCategoryDialog$1.class
 com\mycompany\qarisiqmallar\veneramarket\Main$52.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat$2.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$14.class
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$16.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesiMehsullar$8.class
 com\mycompany\qarisiqmallar\veneramarket\DetailedInfoAboutPurchasePayment$3.class
@@ -268,6 +281,7 @@ com\mycompany\qarisiqmallar\veneramarket\AddSecondSubCategory$2.class
 com\mycompany\qarisiqmallar\veneramarket\createNewCapitalBudget$1.class
 com\mycompany\qarisiqmallar\veneramarket\Main$45.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$24.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$21.class
 com\mycompany\qarisiqmallar\veneramarket\AddSubCategoryDialogForm.class
 com\mycompany\qarisiqmallar\veneramarket\AddNewNameDialog.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat1$9.class
@@ -275,10 +289,12 @@ com\mycompany\qarisiqmallar\veneramarket\DetailedInfoAboutPurchasePayment$2.clas
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$20.class
 com\mycompany\qarisiqmallar\veneramarket\PurchaseInvoice$12.class
 com\mycompany\qarisiqmallar\veneramarket\Main$51.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$15.class
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$15.class
 com\mycompany\qarisiqmallar\veneramarket\TestClass.class
 com\mycompany\qarisiqmallar\veneramarket\addNewExpenseCategoryDialog$2.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat1$10.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$20.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek.class
 com\mycompany\qarisiqmallar\veneramarket\AddSecondSubCategory$3.class
 com\mycompany\qarisiqmallar\veneramarket\Satis_Bolmesi$1.class
@@ -311,6 +327,7 @@ com\mycompany\qarisiqmallar\veneramarket\SatilanMallarSatisID$2.class
 com\mycompany\qarisiqmallar\veneramarket\TestJDialogForm$1.class
 com\mycompany\qarisiqmallar\veneramarket\AddCategoryDialogForm.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$13.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$13.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat$22.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$17.class
 com\mycompany\qarisiqmallar\veneramarket\SatilanMallarSatisID.class
@@ -322,7 +339,6 @@ com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat1$8.class
 com\mycompany\qarisiqmallar\veneramarket\AddThirdSubCategoryDialogForm$2.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$25.class
 com\mycompany\qarisiqmallar\veneramarket\PurchaseInvoice$14.class
-com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$12.class
 com\mycompany\qarisiqmallar\veneramarket\PayForPurchaseCredit$8.class
 com\mycompany\qarisiqmallar\veneramarket\Satis_Bolmesi.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$34.class
@@ -356,6 +372,7 @@ com\mycompany\qarisiqmallar\veneramarket\PurchaseBills$18.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesiMehsullar$12.class
 com\mycompany\qarisiqmallar\veneramarket\EditBarcode$3.class
 com\mycompany\qarisiqmallar\veneramarket\AllClientsInDetail$4.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$18.class
 com\mycompany\qarisiqmallar\veneramarket\CreateNewClient$1.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesiMehsullar$4.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$24.class
@@ -390,6 +407,7 @@ com\mycompany\qarisiqmallar\veneramarket\PayForPurchaseCredit$8$1.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat$19.class
 com\mycompany\qarisiqmallar\veneramarket\Expenses$2.class
 com\mycompany\qarisiqmallar\veneramarket\AllClientsInDetail.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$9.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$15.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$5.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$22.class
@@ -459,6 +477,7 @@ com\mycompany\qarisiqmallar\veneramarket\updateCategoryNameDialogForm.class
 com\mycompany\qarisiqmallar\veneramarket\CreateNewContractor$1.class
 com\mycompany\qarisiqmallar\veneramarket\CreateNewClient$5.class
 com\mycompany\qarisiqmallar\veneramarket\Main$67.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$8.class
 com\mycompany\qarisiqmallar\veneramarket\updateCategoryNameDialogForm$6.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$29.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$36.class
@@ -477,6 +496,7 @@ com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$3.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$23.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$6.class
 com\mycompany\qarisiqmallar\veneramarket\Main$1.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$2.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$7.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarDetalli.class
 com\mycompany\qarisiqmallar\veneramarket\Kassa$7.class
@@ -512,6 +532,7 @@ com\mycompany\qarisiqmallar\veneramarket\ExistingProducts$8.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesi$7.class
 com\mycompany\qarisiqmallar\veneramarket\GetProductForTreeView$5.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$2.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$7.class
 com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$17.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$19.class
 com\mycompany\qarisiqmallar\veneramarket\GetProductForTreeView$4.class
@@ -525,6 +546,7 @@ com\mycompany\qarisiqmallar\veneramarket\Main$26.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$1.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesi$8.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$8.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$1.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$22.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat$20.class
 com\mycompany\qarisiqmallar\veneramarket\GetProduct$5.class
@@ -558,6 +580,7 @@ com\mycompany\qarisiqmallar\veneramarket\EditBarcode$3$1.class
 com\mycompany\qarisiqmallar\veneramarket\Main$25.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesiMehsullar$16.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesi$9.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$6.class
 com\mycompany\qarisiqmallar\veneramarket\Main$5.class
 com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$11.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$27.class
@@ -571,6 +594,7 @@ com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$3.class
 com\mycompany\qarisiqmallar\veneramarket\Main$16.class
 com\mycompany\qarisiqmallar\veneramarket\Satici_Elave_Etmek$4.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$8.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$3.class
 com\mycompany\qarisiqmallar\veneramarket\ChronologyOfOperations$10.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$28.class
 com\mycompany\qarisiqmallar\veneramarket\DebtsInDetail.class
@@ -595,6 +619,7 @@ com\mycompany\qarisiqmallar\veneramarket\GetProductForTreeView$5$1.class
 com\mycompany\qarisiqmallar\veneramarket\Main$22.class
 com\mycompany\qarisiqmallar\veneramarket\PaymentForPurchaseInvoice$5.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesiMehsullar$14.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$CharToByteConverter.class
 com\mycompany\qarisiqmallar\veneramarket\AddCategoryDialogForm$3$1.class
 com\mycompany\qarisiqmallar\veneramarket\BorclarlaEmeliyyat$12.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimeleri$4.class
@@ -605,6 +630,7 @@ com\mycompany\qarisiqmallar\veneramarket\Main$23.class
 com\mycompany\qarisiqmallar\veneramarket\Kassa$14.class
 com\mycompany\qarisiqmallar\veneramarket\Main$18.class
 com\mycompany\qarisiqmallar\veneramarket\Main$7.class
+com\mycompany\qarisiqmallar\veneramarket\ProductCategories$4.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$27.class
 com\mycompany\qarisiqmallar\veneramarket\GetProduct$2.class
 com\mycompany\qarisiqmallar\veneramarket\AllClientsInDetail$7.class

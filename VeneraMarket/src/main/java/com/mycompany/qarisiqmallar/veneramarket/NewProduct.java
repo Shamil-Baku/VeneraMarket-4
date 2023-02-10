@@ -221,6 +221,12 @@ public class NewProduct extends javax.swing.JDialog {
             mehsulAdi = this.txtMehsulAdi.getText();
             priceOfBuy = Double.parseDouble(this.txtAlisQiymeti.getText());
             priceOfSell = Double.parseDouble(this.txtSatisQiymeti.getText());
+            
+            if (priceOfBuy >= priceOfSell) {
+                
+                JOptionPane.showMessageDialog(this, "Alış qiyməti satış qiymətindən böyük vəya ona bərabər ola bilməz");
+                return;
+            }
 
             if (optionForAddingProcess.equals("addToTheMainCat")) {
                 addProducToTheMainCategory_1();
