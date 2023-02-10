@@ -146,7 +146,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         });
         jPopupMenu1.add(changeNameOfClient);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 204));
 
