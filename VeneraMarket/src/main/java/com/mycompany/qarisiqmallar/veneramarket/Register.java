@@ -4,18 +4,43 @@
  */
 package com.mycompany.qarisiqmallar.veneramarket;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shamil
  */
 public class Register extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Register
-     */
+    Connection con;
+    ResultSet rs;
+    PreparedStatement pres;
+    
     public Register(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    
+     public Connection connect() {
+        try {
+
+            //Class.forName("com.mysql.jdbc.Driver");
+            String url = ("jdbc:mysql://localhost:3306/mehsullar");
+            String usercategoryOfProduct = ("root");
+            String password = ("dxdiag92");
+            con = DriverManager.getConnection(url, usercategoryOfProduct, password);
+
+        } catch (Exception ex) {
+
+        }
+
+        return con;
+
     }
 
     /**
@@ -34,11 +59,11 @@ public class Register extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        txtUserName = new javax.swing.JTextField();
+        txtSurename = new javax.swing.JTextField();
+        cbUserType = new javax.swing.JComboBox<>();
+        jPassFUserPass = new javax.swing.JPasswordField();
+        jPassFRepeatUserPass = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -62,13 +87,18 @@ public class Register extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Tekrar parol :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrator", "Satıcı", "Kassir" }));
+        cbUserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrator", "Satıcı", "Kassir" }));
 
-        jPasswordField1.setText("jPasswordField1");
+        jPassFUserPass.setText("jPasswordField1");
 
-        jPasswordField2.setText("jPasswordField1");
+        jPassFRepeatUserPass.setText("jPasswordField1");
 
         jButton1.setText("Yadda saxla");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Menu-a qayit");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -98,11 +128,11 @@ public class Register extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField2)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPasswordField1)
-                                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtUserName)
+                                .addComponent(txtSurename)
+                                .addComponent(cbUserType, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPassFUserPass)
+                                .addComponent(jPassFRepeatUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(234, 234, 234)
                         .addComponent(jLabel1)))
@@ -116,23 +146,23 @@ public class Register extends javax.swing.JDialog {
                 .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSurename, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbUserType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPassFUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPassFRepeatUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -158,6 +188,51 @@ public class Register extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        
+        String userName = txtUserName.getText();
+        String userSurename = txtSurename.getText();
+        String userType = cbUserType.getSelectedItem().toString();
+        String password = jPassFUserPass.getText();
+        String repeatPassword = jPassFRepeatUserPass.getText();
+        
+        if (userSurename.isBlank() || userSurename.isBlank() || userName.isEmpty() || userName.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Zehmet olmasa istifadeci adi ve soyadini qeyd edin!", "DIQQET!", HEIGHT);
+            return;
+        }
+        
+        
+        if (!password.equals(repeatPassword)) {
+            JOptionPane.showMessageDialog(this, "Yığdığınız parol tekrar parol ile uyğun gelmir!", "DİQQET!", HEIGHT);
+            return;
+        }
+        
+        try{
+            
+            con = connect();
+            pres = con.prepareStatement("insert into users (UserName, UserSureName, UserType, Parol, Status) values(?,?,?,?,?)");
+            pres.setString(1, userName);
+            pres.setString(2, userSurename);
+            pres.setString(3, userType);
+            pres.setString(4, password);
+            pres.setString(5, "Deactive");
+            pres.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, userName+" "+userSurename+" -adlı istifadeçi uğurla qeyd olundu" );
+            
+            
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,9 +277,9 @@ public class Register extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbUserType;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -212,9 +287,9 @@ public class Register extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField jPassFRepeatUserPass;
+    private javax.swing.JPasswordField jPassFUserPass;
+    private javax.swing.JTextField txtSurename;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

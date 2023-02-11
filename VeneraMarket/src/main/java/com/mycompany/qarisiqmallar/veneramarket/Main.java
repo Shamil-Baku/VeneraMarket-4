@@ -19,6 +19,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.Connection;
 // import java.sql.Date;
 import java.util.Date;
@@ -55,7 +57,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
  *
  * @author samil
  */
-public class Main extends javax.swing.JFrame implements KeyListener {
+public class Main extends javax.swing.JFrame implements KeyListener, WindowListener {
 
     public MehsullarDaoInter mehDao = Contex.instanceOfMehsullarDao();
     public QiymetlerDaoInter QiymetDao = Contex.instanceOfQiymetlerDao();
@@ -101,6 +103,7 @@ public class Main extends javax.swing.JFrame implements KeyListener {
         btnGeriQaytar.setVisible(false);
         setTime();
         CheckBoxForRecipeOption.doClick();
+        addWindowListener(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -3360,6 +3363,62 @@ public class Main extends javax.swing.JFrame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+       
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+      
+        String status = "Active";
+        try{
+            
+            pres = con.prepareStatement("select * from users where status = "+"'"+status+"'");
+            ResultSet rsForActiveUser = pres.executeQuery();
+            rsForActiveUser.next();
+            int userID = rsForActiveUser.getInt("id");
+            
+            pres = con.prepareStatement("update users set status =?, TheLastLogout=? where id = ?");
+            pres.setString(1, "Deactive");
+            pres.setString(2, time2);          
+            pres.setInt(3, userID);
+            pres.executeUpdate();
+            
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        
+        
+        
+        
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+       
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        
     }
 
     private class ActionListenerImpl implements ActionListener {

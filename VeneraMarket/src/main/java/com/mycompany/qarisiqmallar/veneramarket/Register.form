@@ -57,11 +57,11 @@
                                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
-                                  <Component id="jPasswordField1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jPasswordField2" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
+                                  <Component id="txtUserName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtSurename" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbUserType" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                                  <Component id="jPassFUserPass" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jPassFRepeatUserPass" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -82,27 +82,27 @@
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtUserName" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtSurename" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbUserType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPassFUserPass" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPassFRepeatUserPass" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -163,11 +163,11 @@
             <Property name="text" type="java.lang.String" value="Tekrar parol :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtUserName">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="txtSurename">
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="cbUserType">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -181,12 +181,12 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="jPassFUserPass">
           <Properties>
             <Property name="text" type="java.lang.String" value="jPasswordField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField2">
+        <Component class="javax.swing.JPasswordField" name="jPassFRepeatUserPass">
           <Properties>
             <Property name="text" type="java.lang.String" value="jPasswordField1"/>
           </Properties>
@@ -195,6 +195,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Yadda saxla"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
