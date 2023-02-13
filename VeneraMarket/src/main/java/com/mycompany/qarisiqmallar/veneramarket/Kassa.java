@@ -453,7 +453,7 @@ public class Kassa extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableExpenses = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
@@ -613,11 +613,11 @@ public class Kassa extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
         );
 
         txtAxtaris.addActionListener(new java.awt.event.ActionListener() {
@@ -671,176 +671,174 @@ public class Kassa extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbBugun, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dunen))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sonBirHefte)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(sonUcGun)
-                        .addGap(18, 18, 18)
-                        .addComponent(sonBirAy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCapitalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(26, 26, 26)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel6)
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel7)
-                        .addGap(17, 17, 17))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtKassa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UmumiSatis, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotalExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotalProfit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(216, 216, 216))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbBugun, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dunen))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sonBirHefte)
+                                    .addComponent(sonUcGun)))
+                            .addComponent(sonBirAy))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(sonTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ilkTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(24, 24, 24)))))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(ilkTarix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(sonTarix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(76, 76, 76)
+                                        .addGap(45, 45, 45)
                                         .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtSearchForExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel12)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel13)
+                                        .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel10)))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnHesabla)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6)
-                        .addGap(217, 217, 217))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPayment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(45, 45, 45))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton7)
+                                            .addComponent(txtCapitalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(20, 20, 20)
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(9, 9, 9)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtKassa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(UmumiSatis, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtTotalExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtTotalProfit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addGap(69, 69, 69)
+                                                .addComponent(jLabel5)
+                                                .addGap(93, 93, 93)
+                                                .addComponent(jLabel6)
+                                                .addGap(39, 39, 39)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtTotalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addGap(12, 12, 12))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnHesabla)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton6)))))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtKassa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCapitalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(UmumiSatis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTotalExpenses)
-                                .addComponent(txtTotalProfit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTotalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton7)
-                                .addGap(26, 26, 26)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbBugun)
-                            .addComponent(sonUcGun)
-                            .addComponent(sonBirAy))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dunen)
-                            .addComponent(sonBirHefte))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtKassa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCapitalBudget, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UmumiSatis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTotalExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTotalProfit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTotalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtPayment, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton6)
-                                .addComponent(btnHesabla))
-                            .addGap(23, 23, 23)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)))
+                            .addComponent(jLabel3)
                             .addGap(4, 4, 4)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
                                 .addComponent(ilkTarix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(sonTarix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2)
-                                        .addComponent(txtSearchForExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel11))))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1))
+                            .addGap(4, 4, 4)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(sonTarix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel13)))
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                .addComponent(rbBugun)
+                                .addComponent(sonUcGun))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(dunen)
+                                .addComponent(sonBirHefte))
+                            .addGap(4, 4, 4)
+                            .addComponent(sonBirAy))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton6)
+                            .addComponent(btnHesabla)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSearchForExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         jScrollPane1.setBackground(new java.awt.Color(255, 51, 51));
@@ -854,11 +852,11 @@ public class Kassa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Malin Adi", "Satis Miqdari", "Satis Meblegi Cem", "Alis Qiymeti", "Satis Qiymeti", "Umumi Satis Miqdari", "Satis Tarixi", "Gelir", "Umumi Xeyir", "Qismen_Odenis", "Qaytarilan_Mehsulun_Meblegi", "Musteriye_Geri_Odenis", "Borc alanin adi", "Yeni goturulen mehsul", "Borcdan-Gelen_Mebleg"
+                "ID", "Malin Adi", "Ödenişin növü", "Miqdarı", "Cem Mebleğ", "Alis Qiymeti", "Satis Qiymeti", "Umumi Satis Miqdari", "Satis Tarixi", "Gelir", "Umumi Xeyir", "Qismen_Odenis", "Qaytarilan_Mehsulun_Meblegi", "Musteriye_Geri_Odenis", "Borc alanin adi", "Yeni goturulen mehsul", "Borcdan-Gelen_Mebleg", "Kassir", "Çek nömresi"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -874,10 +872,10 @@ public class Kassa extends javax.swing.JFrame {
             tblGelirCedveli.getColumnModel().getColumn(0).setPreferredWidth(40);
             tblGelirCedveli.getColumnModel().getColumn(0).setMaxWidth(80);
             tblGelirCedveli.getColumnModel().getColumn(1).setPreferredWidth(200);
-            tblGelirCedveli.getColumnModel().getColumn(2).setPreferredWidth(50);
-            tblGelirCedveli.getColumnModel().getColumn(3).setPreferredWidth(110);
-            tblGelirCedveli.getColumnModel().getColumn(6).setPreferredWidth(120);
-            tblGelirCedveli.getColumnModel().getColumn(8).setPreferredWidth(40);
+            tblGelirCedveli.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tblGelirCedveli.getColumnModel().getColumn(4).setPreferredWidth(110);
+            tblGelirCedveli.getColumnModel().getColumn(7).setPreferredWidth(120);
+            tblGelirCedveli.getColumnModel().getColumn(9).setPreferredWidth(40);
         }
 
         jButton5.setText("Bagla");
@@ -926,6 +924,8 @@ public class Kassa extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane2)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -937,27 +937,22 @@ public class Kassa extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1346, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(17, 17, 17))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -967,9 +962,11 @@ public class Kassa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1345, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(1, 1, 1)))
+                .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1145,6 +1142,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1156,7 +1156,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
                     + "WHERE\n"
-                    + "	s.Satis_Tarixi BETWEEN" + "'" + sss + "'" + "and CURRENT_DATE");
+                    + "	DATE(s.Satis_Tarixi BETWEEN)" + "'" + sss + "'" + "and CURRENT_DATE");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1170,6 +1170,7 @@ public class Kassa extends javax.swing.JFrame {
                 for (int i = 0; i < a; i++) {
                     v2.add(rs.getInt("id"));
                     v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
                     v2.add(rs.getDouble("Miqdari"));
                     v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                     v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1184,6 +1185,8 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getString("Borc_Alanin_Adi"));
                     v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                     v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
                 }
                 df.addRow(v2);
 
@@ -1232,6 +1235,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1243,7 +1249,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
                     + "WHERE\n"
-                    + "	s.Satis_Tarixi BETWEEN" + "'" + sss + "'" + "and CURRENT_DATE" + " and s.Borc_Alanin_Adi = " + "'" + nameClient + "'");
+                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + sss + "'" + "and CURRENT_DATE" + " and s.Borc_Alanin_Adi = " + "'" + nameClient + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1254,9 +1260,9 @@ public class Kassa extends javax.swing.JFrame {
 
             while (rs.next()) {
                 Vector v2 = new Vector();
-
                 v2.add(rs.getInt("id"));
                 v2.add(rs.getString("Malin_adi"));
+                v2.add(rs.getString("OdenisinNovu"));
                 v2.add(rs.getDouble("Miqdari"));
                 v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                 v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1265,17 +1271,19 @@ public class Kassa extends javax.swing.JFrame {
                 v2.add(rs.getString("Satis_Tarixi"));
                 v2.add(rs.getDouble("Xeyir"));
                 v2.add(rs.getDouble("Umumi_Xeyir"));
-                qismenOdenis = (rs.getDouble("QiemenOdenis"));
-                allpartialPayment += qismenOdenis;
                 v2.add(rs.getDouble("QiemenOdenis"));
                 v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
                 v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
                 v2.add(rs.getString("Borc_Alanin_Adi"));
                 v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                 v2.add(rs.getDouble("Borcdan_Gelen"));
+                v2.add(rs.getString("ActiveUser"));
+                v2.add(rs.getFloat("cekNomresi"));
+
+                qismenOdenis = (rs.getDouble("QiemenOdenis"));
+                allpartialPayment += qismenOdenis;
 
                 df.addRow(v2);
-
             }
 
             txtPayment.setText(Double.toString(allpartialPayment));
@@ -1311,6 +1319,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
                     + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
                     + "	s.Satis_Tarixi,\n"
                     + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
@@ -1331,6 +1342,7 @@ public class Kassa extends javax.swing.JFrame {
                 for (int i = 0; i < a; i++) {
                     v2.add(rs.getInt("id"));
                     v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
                     v2.add(rs.getDouble("Miqdari"));
                     v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                     v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1345,6 +1357,8 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getString("Borc_Alanin_Adi"));
                     v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                     v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
 
                 }
                 df.addRow(v2);
@@ -1382,6 +1396,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1403,9 +1420,9 @@ public class Kassa extends javax.swing.JFrame {
 
             while (rs.next()) {
                 Vector v2 = new Vector();
-
                 v2.add(rs.getInt("id"));
                 v2.add(rs.getString("Malin_adi"));
+                v2.add(rs.getString("OdenisinNovu"));
                 v2.add(rs.getDouble("Miqdari"));
                 v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                 v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1414,17 +1431,19 @@ public class Kassa extends javax.swing.JFrame {
                 v2.add(rs.getString("Satis_Tarixi"));
                 v2.add(rs.getDouble("Xeyir"));
                 v2.add(rs.getDouble("Umumi_Xeyir"));
-                qismenOdenis = (rs.getDouble("QiemenOdenis"));
-                allpartialPayment += qismenOdenis;
                 v2.add(rs.getDouble("QiemenOdenis"));
                 v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
                 v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
                 v2.add(rs.getString("Borc_Alanin_Adi"));
                 v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                 v2.add(rs.getDouble("Borcdan_Gelen"));
+                v2.add(rs.getString("ActiveUser"));
+                v2.add(rs.getFloat("cekNomresi"));
+
+                qismenOdenis = (rs.getDouble("QiemenOdenis"));
+                allpartialPayment += qismenOdenis;
 
                 df.addRow(v2);
-
             }
 
         } catch (SQLException ex) {
@@ -1517,6 +1536,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1542,6 +1564,7 @@ public class Kassa extends javax.swing.JFrame {
                 for (int i = 0; i < a; i++) {
                     v2.add(rs.getInt("id"));
                     v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
                     v2.add(rs.getDouble("Miqdari"));
                     v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                     v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1556,6 +1579,8 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getString("Borc_Alanin_Adi"));
                     v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                     v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
 
                 }
                 df.addRow(v2);
@@ -1600,6 +1625,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1611,7 +1639,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
                     + "WHERE\n"
-                    + "	s.Satis_Tarixi BETWEEN" + "'" + sss + "'" + "and CURRENT_DATE and s.Borc_Alanin_Adi = " + "'" + nameClient + "'");
+                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + sss + "'" + "and CURRENT_DATE and s.Borc_Alanin_Adi = " + "'" + nameClient + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1625,6 +1653,7 @@ public class Kassa extends javax.swing.JFrame {
 
                 v2.add(rs.getInt("id"));
                 v2.add(rs.getString("Malin_adi"));
+                v2.add(rs.getString("OdenisinNovu"));
                 v2.add(rs.getDouble("Miqdari"));
                 v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                 v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1633,17 +1662,19 @@ public class Kassa extends javax.swing.JFrame {
                 v2.add(rs.getString("Satis_Tarixi"));
                 v2.add(rs.getDouble("Xeyir"));
                 v2.add(rs.getDouble("Umumi_Xeyir"));
-                qismenOdenis = (rs.getDouble("QiemenOdenis"));
-                allpartialPayment += qismenOdenis;
                 v2.add(rs.getDouble("QiemenOdenis"));
                 v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
                 v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
                 v2.add(rs.getString("Borc_Alanin_Adi"));
                 v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                 v2.add(rs.getDouble("Borcdan_Gelen"));
+                v2.add(rs.getString("ActiveUser"));
+                v2.add(rs.getFloat("cekNomresi"));
+
+                qismenOdenis = (rs.getDouble("QiemenOdenis"));
+                allpartialPayment += qismenOdenis;
 
                 df.addRow(v2);
-
             }
 
             txtPayment.setText(Double.toString(allpartialPayment));
@@ -1684,6 +1715,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
                     + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
                     + "	s.Satis_Tarixi,\n"
                     + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
@@ -1705,6 +1739,7 @@ public class Kassa extends javax.swing.JFrame {
                 for (int i = 0; i < a; i++) {
                     v2.add(rs.getInt("id"));
                     v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
                     v2.add(rs.getDouble("Miqdari"));
                     v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                     v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1719,6 +1754,8 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getString("Borc_Alanin_Adi"));
                     v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                     v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
 
                 }
                 df.addRow(v2);
@@ -1763,6 +1800,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1774,7 +1814,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
                     + "WHERE\n"
-                    + "	s.Satis_Tarixi BETWEEN" + "'" + sss + "'" + "and CURRENT_DATE and Borc_Alanin_Adi = " + "'" + nameClient + "'");
+                    + "	DATE(s.Satis_Tarixi) BETWEEN " + "'" + sss + "'" + " and CURRENT_DATE and Borc_Alanin_Adi = " + "'" + nameClient + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1785,9 +1825,9 @@ public class Kassa extends javax.swing.JFrame {
 
             while (rs.next()) {
                 Vector v2 = new Vector();
-
                 v2.add(rs.getInt("id"));
                 v2.add(rs.getString("Malin_adi"));
+                v2.add(rs.getString("OdenisinNovu"));
                 v2.add(rs.getDouble("Miqdari"));
                 v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                 v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1796,17 +1836,19 @@ public class Kassa extends javax.swing.JFrame {
                 v2.add(rs.getString("Satis_Tarixi"));
                 v2.add(rs.getDouble("Xeyir"));
                 v2.add(rs.getDouble("Umumi_Xeyir"));
-                qismenOdenis = (rs.getDouble("QiemenOdenis"));
-                allpartialPayment += qismenOdenis;
                 v2.add(rs.getDouble("QiemenOdenis"));
                 v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
                 v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
                 v2.add(rs.getString("Borc_Alanin_Adi"));
                 v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                 v2.add(rs.getDouble("Borcdan_Gelen"));
+                v2.add(rs.getString("ActiveUser"));
+                v2.add(rs.getFloat("cekNomresi"));
+
+                qismenOdenis = (rs.getDouble("QiemenOdenis"));
+                allpartialPayment += qismenOdenis;
 
                 df.addRow(v2);
-
             }
 
             txtPayment.setText(Double.toString(allpartialPayment));
@@ -1901,7 +1943,7 @@ public class Kassa extends javax.swing.JFrame {
     }
 
     private void btnHesablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHesablaMouseClicked
-         
+
         calculateAll();
 
     }//GEN-LAST:event_btnHesablaMouseClicked
@@ -1919,10 +1961,10 @@ public class Kassa extends javax.swing.JFrame {
 
         for (int i = 0; i < df.getRowCount(); i++) {
 
-            Gelir = Double.parseDouble(df.getValueAt(i, 8).toString());
+            Gelir = Double.parseDouble(df.getValueAt(i, 9).toString());
 
             String formattedGelir = dformater.format(Gelir);
-            double roundedGelir = Math.round(Gelir * 100.000)/100.000;
+            double roundedGelir = Math.round(Gelir * 100.000) / 100.000;
 
             boolean yoxla = UmumiSatis.getText().isEmpty();
 
@@ -1933,12 +1975,12 @@ public class Kassa extends javax.swing.JFrame {
                 double kohneMebleg = Double.parseDouble(UmumiSatis.getText());
 
                 String formattedKohneMebleg = dformater.format(kohneMebleg);
-                double roundedMebleg = Math.round(kohneMebleg * 100.000)/100.000;
+                double roundedMebleg = Math.round(kohneMebleg * 100.000) / 100.000;
 
                 double netice = roundedMebleg + roundedGelir;
 
                 String formatterNetice = dformater.format(netice);
-                double roundedNetice = Math.round(netice * 100.000)/100.000;
+                double roundedNetice = Math.round(netice * 100.000) / 100.000;
 
                 UmumiSatis.setText(Double.toString(roundedNetice));
             }
@@ -1947,12 +1989,12 @@ public class Kassa extends javax.swing.JFrame {
         txtKassa.setText("");
         for (int i = 0; i < df.getRowCount(); i++) {
 
-            SatisQiymeti = Double.parseDouble(df.getValueAt(i, 5).toString());
-            Miqdari = Double.parseDouble(df.getValueAt(i, 2).toString());
-            musteriyeGeriQaytarilanMebleg = Double.parseDouble(df.getValueAt(i, 12).toString());
-            GeriQaytarilanMehsulunMebleg = Double.parseDouble(df.getValueAt(i, 14).toString());
-            qismenOdenis = Double.parseDouble(df.getValueAt(i, 10).toString());
-            borcdanGelen = Double.parseDouble(df.getValueAt(i, 15).toString());
+            SatisQiymeti = Double.parseDouble(df.getValueAt(i, 6).toString());
+            Miqdari = Double.parseDouble(df.getValueAt(i, 3).toString());
+            musteriyeGeriQaytarilanMebleg = Double.parseDouble(df.getValueAt(i, 13).toString());
+            GeriQaytarilanMehsulunMebleg = Double.parseDouble(df.getValueAt(i, 15).toString());
+            qismenOdenis = Double.parseDouble(df.getValueAt(i, 11).toString());
+            borcdanGelen = Double.parseDouble(df.getValueAt(i, 16).toString());
 
             boolean yoxla1 = txtKassa.getText().isEmpty();
 
@@ -1961,7 +2003,7 @@ public class Kassa extends javax.swing.JFrame {
                 double umumiSatis = SatisQiymeti * Miqdari - musteriyeGeriQaytarilanMebleg + qismenOdenis - (borcdanGelen);
 
                 String formatted = dformater.format(umumiSatis);
-                double roundedGelir = Math.round(umumiSatis * 100.000)/100.000;
+                double roundedGelir = Math.round(umumiSatis * 100.000) / 100.000;
 
                 txtKassa.setText(Double.toString(roundedGelir));
 
@@ -1973,15 +2015,15 @@ public class Kassa extends javax.swing.JFrame {
                 if (umumiSatis == qismenOdenis) {
                     double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg - borcdanGelen + qismenOdenis;
                     String formatted = dformater.format(sonNetice);
-                    double roundedSonNetice = Math.round(sonNetice * 100.000)/100.000;
+                    double roundedSonNetice = Math.round(sonNetice * 100.000) / 100.000;
                     txtKassa.setText(Double.toString(roundedSonNetice));
 
                 } else {
 
                     double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg + qismenOdenis - borcdanGelen;
                     String formatted = dformater.format(sonNetice);
-                    double roundedSonNetice = Math.round(sonNetice * 100.000)/100.000;
-                    txtKassa.setText(Double.toString(roundedSonNetice));                   
+                    double roundedSonNetice = Math.round(sonNetice * 100.000) / 100.000;
+                    txtKassa.setText(Double.toString(roundedSonNetice));
                 }
 
             }
@@ -2049,6 +2091,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
                     + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
                     + "	s.Satis_Tarixi,\n"
                     + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
@@ -2069,6 +2114,7 @@ public class Kassa extends javax.swing.JFrame {
                 for (int i = 0; i < a; i++) {
                     v2.add(rs.getInt("id"));
                     v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
                     v2.add(rs.getDouble("Miqdari"));
                     v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                     v2.add(rs.getDouble("Alis_qiymeti"));
@@ -2083,6 +2129,8 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getString("Borc_Alanin_Adi"));
                     v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                     v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
                 }
                 df.addRow(v2);
 
@@ -2130,6 +2178,9 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -2151,9 +2202,9 @@ public class Kassa extends javax.swing.JFrame {
 
             while (rs.next()) {
                 Vector v2 = new Vector();
-
                 v2.add(rs.getInt("id"));
                 v2.add(rs.getString("Malin_adi"));
+                v2.add(rs.getString("OdenisinNovu"));
                 v2.add(rs.getDouble("Miqdari"));
                 v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                 v2.add(rs.getDouble("Alis_qiymeti"));
@@ -2163,16 +2214,18 @@ public class Kassa extends javax.swing.JFrame {
                 v2.add(rs.getDouble("Xeyir"));
                 v2.add(rs.getDouble("Umumi_Xeyir"));
                 v2.add(rs.getDouble("QiemenOdenis"));
-                qismenOdenis = (rs.getDouble("QiemenOdenis"));
-                allpartialPayment += qismenOdenis;
                 v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
                 v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
                 v2.add(rs.getString("Borc_Alanin_Adi"));
                 v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                 v2.add(rs.getDouble("Borcdan_Gelen"));
+                v2.add(rs.getString("ActiveUser"));
+                v2.add(rs.getFloat("cekNomresi"));
+
+                qismenOdenis = (rs.getDouble("QiemenOdenis"));
+                allpartialPayment += qismenOdenis;
 
                 df.addRow(v2);
-
             }
 
         } catch (Exception ex) {

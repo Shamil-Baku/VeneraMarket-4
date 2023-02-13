@@ -1688,14 +1688,30 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
                         borcSiyahisi.setVisible(true);
 
                     } else {
-                        int say = 1;
+                        float say = 0;
                         Statement stmt = con.createStatement();
-                        stmt.execute("select * from satilan_mallar");
+                        stmt.execute("select * from satilan_mallar order by Satis_ID DESC limit 1");
                         ResultSet rs = stmt.getResultSet();
                         while (rs.next()) {
-                            say++;
+                            say = rs.getFloat("Satis_ID");
                         }
+                        String status = "Active";
+                        pres = con.prepareStatement("select * from users where status = " + "'"+status+"'");
+                        ResultSet rsForActiveUser = pres.executeQuery();
 
+                        rsForActiveUser.next();
+
+                        String activeUserName = rsForActiveUser.getString("UserName");
+                        String activeUserSurename = rsForActiveUser.getString("UserSureName");
+
+                        pres = con.prepareStatement("select * from satilan_mallar order by cekNomresi desc limit 1");
+                        ResultSet rsForBillNum = pres.executeQuery();
+                        
+                        rsForBillNum.next();
+                        
+                        float bilNum = rsForBillNum.getFloat("cekNomresi");
+                        
+                        
                         for (int i = 0; i < df.getRowCount(); i++) {
 
                             // Burada "tblAlinanMallar" table-da bezi sutunlar gizledilmisdir.
@@ -1709,11 +1725,11 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
                             Ümumi_Məbləğ = df.getValueAt(i, 8).toString();
                             Tarix = time555;
 
-                            String query = "insert into satilan_mallar( Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti, Movsum_id, Kateqoriya_id, Alt_kateqoriya_id, Umumi_Mebleg, Satis_Tarixi ) values(?,?,?,?,?,?,?,?,?,?)";
+                            String query = "insert into satilan_mallar( Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti, Movsum_id, Kateqoriya_id, Alt_kateqoriya_id, Umumi_Mebleg, Satis_Tarixi, ActiveUser, cekNomresi, OdenisinNovu ) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                             pres = con.prepareStatement(query);
 
-                            pres.setInt(1, say);
+                            pres.setFloat(1, say + 1);
                             pres.setString(2, ID);
                             pres.setString(3, Malin_adi);
                             pres.setString(4, Miqdari);
@@ -1723,7 +1739,11 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
                             pres.setString(8, Alt_Kateqoriya_ID);
                             pres.setString(9, Ümumi_Məbləğ);
                             pres.setString(10, time2);
+                            pres.setString(11, activeUserName + " " + activeUserSurename);
+                            pres.setFloat(12, bilNum+1);
+                            pres.setString(13, "Nağd");
                             pres.execute();
+                            say++;
                         }
 
                         satis();
@@ -2128,8 +2148,6 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
             }
         });
 
-        
-        
         fileMenu.add(Stock);
         fileMenu.add(Saticilar);
         fileMenu.add(AddClient);
@@ -2496,93 +2514,12 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
     }
 
-    private void cbAltKateqoriyalarMouseClicked(java.awt.event.MouseEvent evt) {
+    private void TextMalinAdiActionPerformed(java.awt.event.ActionEvent evt) {
 
     }
-
-    private void TextMalinAdiActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TextMalinAdiActionPerformed
-
-    }
-
-    private void cbMehsullarItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_cbMehsullarItemStateChanged
-
-    }// GEN-LAST:event_cbMehsullarItemStateChanged
-
-    private void cbMehsullarMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbMehsullarMousePressed
-
-    }// GEN-LAST:event_cbMehsullarMousePressed
-
-    private void cbMehsullarMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbMehsullarMouseEntered
-
-    }// GEN-LAST:event_cbMehsullarMouseEntered
-
-    private void cbMehsullar_2ItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_cbMehsullar_2ItemStateChanged
-
-    }// GEN-LAST:event_cbMehsullar_2ItemStateChanged
-
-    private void cbMehsullar_2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cbMehsullar_2ActionPerformed
-
-    }// GEN-LAST:event_cbMehsullar_2ActionPerformed
-
-    private void cbMehsullarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cbMehsullarActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_cbMehsullarActionPerformed
-
-    private void cbMehsullar_2PropertyChange(java.beans.PropertyChangeEvent evt) {// GEN-FIRST:event_cbMehsullar_2PropertyChange
-
-    }// GEN-LAST:event_cbMehsullar_2PropertyChange
-
-    private void cbMehsullar_2MousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbMehsullar_2MousePressed
-
-    }// GEN-LAST:event_cbMehsullar_2MousePressed
-
-    private void cbMehsullar_2MouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbMehsullar_2MouseReleased
-
-    }// GEN-LAST:event_cbMehsullar_2MouseReleased
-
-    private void cbMehsullar_2CaretPositionChanged(java.awt.event.InputMethodEvent evt) {// GEN-FIRST:event_cbMehsullar_2CaretPositionChanged
-
-    }// GEN-LAST:event_cbMehsullar_2CaretPositionChanged
-
-    private void cbMehsullar_2InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {// GEN-FIRST:event_cbMehsullar_2InputMethodTextChanged
-
-    }// GEN-LAST:event_cbMehsullar_2InputMethodTextChanged
-
-    private void cbMehsullar_2MouseMoved(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbMehsullar_2MouseMoved
-
-    }// GEN-LAST:event_cbMehsullar_2MouseMoved
-
-    private void cbMehsullar_2KeyPressed(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cbMehsullar_2KeyPressed
-
-    }// GEN-LAST:event_cbMehsullar_2KeyPressed
-
-    private void cbMehsullar_2MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbMehsullar_2MouseEntered
-
-    }// GEN-LAST:event_cbMehsullar_2MouseEntered
-
-    private void cbMehsullar_2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbMehsullar_2MouseClicked
-
-    }// GEN-LAST:event_cbMehsullar_2MouseClicked
-
-    private void cbQadinMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cbQadinMouseClicked
-
-    }// GEN-LAST:event_cbQadinMouseClicked
-
-    private void TextMalinAdiPropertyChange(java.beans.PropertyChangeEvent evt) {// GEN-FIRST:event_TextMalinAdiPropertyChange
-        // boolean yoxla = TextMalinAdi.getText().isEmpty();
-        //
-        // if(yoxla != true){
-        // int id = Integer.parseInt(txtBarcode_reader.getText());
-        // Mehsullar mm = mehDao.getMehsulByCategoryId(id);
-        //
-        // TextMalinAdi.setText(mm.getName());
-        //
-        //
-        //
-        // }
-        //
-        //
-
+  
+    private void TextMalinAdiPropertyChange(java.beans.PropertyChangeEvent evt) {
+        
     }
 
     private void TextMalinMiqdariActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2616,7 +2553,7 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
         }
 
-    }// GEN-LAST:event_TextMalinMiqdariActionPerformed
+    }
 
     private void btnElaveEtActionPerformed(java.awt.event.ActionEvent evt) {
 
@@ -2643,10 +2580,6 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
         String date2 = sdf.format(date);
 
         txtSatisTarixi.setText(date2);
-
-    }
-
-    private void txtAlisQiymetiActionPerformed(java.awt.event.ActionEvent evt) {
 
     }
 
@@ -2690,29 +2623,27 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
             currency = ".00 AZN";
         }
 
-        
         String projectPath = System.getProperty("user.dir");
         System.out.println(projectPath);
         String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
         System.out.println(filePath);
-  
+
         JasperDesign jdesign;
         try {
             Connection c = connect();
-            jdesign = JRXmlLoader.load(projectPath+filePath);
+            jdesign = JRXmlLoader.load(projectPath + filePath);
             JasperReport jr = null;
 
             HashMap<String, Object> parametrs;
             parametrs = new HashMap<>();
             parametrs.put("date", time2);
             parametrs.put("totalSum", totalSum + currency);
-            
+
             if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
                 printerName = "TSC TDP-225";
-            }else{
-                printerName = "Xprinter XP-365B";  
+            } else {
+                printerName = "Xprinter XP-365B";
             }
-            
 
             jr = JasperCompileManager.compileReport(jdesign);
 
@@ -3191,7 +3122,7 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
         }
         if (s == 81) {
-           
+
             ProductCategories products = new ProductCategories();
             products.setVisible(true);
         }
@@ -3367,58 +3298,54 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
     @Override
     public void windowOpened(WindowEvent e) {
-       
+
     }
 
     @Override
     public void windowClosing(WindowEvent e) {
-      
+
         String status = "Active";
-        try{
-            
-            pres = con.prepareStatement("select * from users where status = "+"'"+status+"'");
+        try {
+
+            pres = con.prepareStatement("select * from users where status = " + "'" + status + "'");
             ResultSet rsForActiveUser = pres.executeQuery();
             rsForActiveUser.next();
             int userID = rsForActiveUser.getInt("id");
-            
+
             pres = con.prepareStatement("update users set status =?, TheLastLogout=? where id = ?");
             pres.setString(1, "Deactive");
-            pres.setString(2, time2);          
+            pres.setString(2, time2);
             pres.setInt(3, userID);
             pres.executeUpdate();
-            
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        
-        
-        
-        
+
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        
+
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        
+
     }
 
     @Override
     public void windowActivated(WindowEvent e) {
-       
+
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        
+
     }
 
     private class ActionListenerImpl implements ActionListener {
