@@ -1231,7 +1231,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         jMenuItem9.setText("Legv et");
         jPopupMenu2.add(jMenuItem9);
 
-        open.setText("Aç");
+        open.setText("jMenuItem10");
         open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openActionPerformed(evt);
@@ -1239,7 +1239,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         });
         OptionsForProductsTable.add(open);
 
-        correction.setText("Düzəliş et");
+        correction.setText("jMenuItem10");
         correction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correctionActionPerformed(evt);
@@ -1247,7 +1247,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         });
         OptionsForProductsTable.add(correction);
 
-        delete.setText("Sil");
+        delete.setText("jMenuItem10");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
@@ -1255,7 +1255,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         });
         OptionsForProductsTable.add(delete);
 
-        ShowOrPrintBarcode.setText("Barkodu göstər/Çap et");
+        ShowOrPrintBarcode.setText("jMenuItem10");
         ShowOrPrintBarcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowOrPrintBarcodeActionPerformed(evt);
@@ -1263,10 +1263,10 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         });
         OptionsForProductsTable.add(ShowOrPrintBarcode);
 
-        Cancel.setText("Bağla");
+        Cancel.setText("jMenuItem10");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
@@ -1431,7 +1431,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
 
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ada göre", "Barkoda göre" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barkoda göre", "Ada göre" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -2165,7 +2165,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
     public void Ok() {
 
         try {
-            NewProduct obj = new NewProduct(this, true);
+            NewProduct1 obj = new NewProduct1(this, true);
             DefaultMutableTreeNode treeModel = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
             node1 = treeModel.getUserObject().toString();
             TreeNode node2 = treeModel.getParent();
@@ -2451,7 +2451,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         try {
 
             Connection c = connect();
-            if (typeOfSerach == 0) {
+            if (typeOfSerach == 1) {
                 pres = con.prepareCall("select * from mehsullar m where m.Malin_adi like " + "'" + "%" + text + "%" + "'");
             } else {
                 pres = con.prepareCall("select * from mehsullar m where m.Barcode = " + "'"+text+"'");
@@ -2589,7 +2589,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
 
     private void correctionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correctionActionPerformed
 
-        EditProducts edit = new EditProducts(this, false);
+        EditProducts1 edit = new EditProducts1(this, false);
 
         int selectedRow = 0;
         int id = 0;

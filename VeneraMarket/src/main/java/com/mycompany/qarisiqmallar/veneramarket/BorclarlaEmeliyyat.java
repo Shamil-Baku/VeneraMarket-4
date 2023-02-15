@@ -803,6 +803,14 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             df = (DefaultTableModel) tblBorcSiyahisi.getModel();
             Double qaliqBorc;
 
+            float say = 0;
+            Statement stmt = con.createStatement();
+            stmt.execute("select * from satilan_mallar order by Satis_ID DESC limit 1");
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()) {
+                say = rs.getFloat("Satis_ID");
+            }
+
             for (int i = 0; i < df.getRowCount(); i++) {
 
                 qaliqBorc = Double.parseDouble(df.getValueAt(i, 8).toString());
@@ -839,7 +847,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
                         double QaliqBorc2, qiymeti, umumimebleg, qismenOdenis, Miqdari2;
                         String borcAlaninAdi, Mehsul, SatisTarixi;
-                        int MehsulID2;
+                        int MehsulID2, BorcID;
 
                         int selected = tblBorcSiyahisi.getSelectedRow();
                         System.out.println(selected);
@@ -848,6 +856,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                         borcAlaninAdi = df.getValueAt(i, 0).toString();
                         Mehsul = df.getValueAt(i, 1).toString();
                         MehsulID2 = Integer.parseInt(df.getValueAt(i, 2).toString());
+                        BorcID = Integer.parseInt(df.getValueAt(i, 3).toString());
                         Miqdari2 = Double.parseDouble(df.getValueAt(i, 4).toString());
                         qiymeti = Double.parseDouble(df.getValueAt(i, 5).toString());
                         umumimebleg = Double.parseDouble(df.getValueAt(i, 6).toString());
@@ -864,18 +873,10 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                         String activeUserName = rsForActiveUser.getString("UserName");
                         String activeUserSurename = rsForActiveUser.getString("UserSureName");
 
-                        int say = 1;
-                        Statement stmt = con.createStatement();
-                        stmt.execute("select * from satilan_mallar");
-                        ResultSet rs = stmt.getResultSet();
-                        while (rs.next()) {
-                            say++;
-                        }
-
-                        String query = "insert into satilan_mallar ( Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Satis_Tarixi, Borc_Alanin_Adi,OdenisinNovu, QiemenOdenis, Borcdan_Gelen, ActiveUser, Kassir) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String query = "insert into satilan_mallar ( Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Satis_Tarixi, Borc_Alanin_Adi,OdenisinNovu, QiemenOdenis, Borcdan_Gelen, ActiveUser, Kassir, BorcID ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                         pres = con.prepareStatement(query);
-                        pres.setInt(1, say);
+                        pres.setFloat(1, say+1);
                         pres.setInt(2, 0);
                         pres.setString(3, "Borcdan-" + Mehsul);
                         pres.setDouble(4, Miqdari2);
@@ -888,9 +889,10 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                         pres.setDouble(11, umumimebleg);
                         pres.setString(12, activeUserName + " " + activeUserSurename);
                         pres.setString(13, optionForCashierName);
+                        pres.setInt(14, BorcID);
 
                         pres.execute();
-
+                        say++;
                         JOptionPane.showMessageDialog(this, "Borc ugurla yenilendi!");
 
                     }
@@ -971,6 +973,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                 borcAlaninAdi = df.getValueAt(i, 0).toString();
                 Mehsul = df.getValueAt(i, 1).toString();
                 MehsulID = Integer.parseInt(df.getValueAt(i, 2).toString());
+                BorcID = Integer.parseInt(df.getValueAt(i, 3).toString());
                 Miqdari = Double.parseDouble(df.getValueAt(i, 4).toString());
                 qiymeti = Double.parseDouble(df.getValueAt(i, 5).toString());
                 umumimebleg = Double.parseDouble(df.getValueAt(i, 6).toString());
@@ -989,7 +992,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                     String activeUserName = rsForActiveUser.getString("UserName");
                     String activeUserSurename = rsForActiveUser.getString("UserSureName");
 
-                    String query = "insert into satilan_mallar (Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti,  Umumi_Mebleg, Satis_Tarixi, Borcdan_Gelen, QiemenOdenis, Borc_Alanin_Adi, OdenisinNovu, Kassir, ActiveUser ) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    String query = "insert into satilan_mallar (Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti,  Umumi_Mebleg, Satis_Tarixi, Borcdan_Gelen, QiemenOdenis, Borc_Alanin_Adi, OdenisinNovu, Kassir, ActiveUser, BorcID ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                     pres = con.prepareStatement(query);
 
@@ -1007,6 +1010,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                     pres.setString(11, "Borcdan");
                     pres.setString(12, optionCashier);
                     pres.setString(13, activeUserName + " " + activeUserSurename);
+                    pres.setInt(14, BorcID);
                     pres.execute();
                     say++;
 
@@ -1627,7 +1631,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
                     while (rsForPaidProduct.next()) {
 
-                        String query = "insert into satilan_mallar (Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti,  Umumi_Mebleg, Satis_Tarixi, Borcdan_Gelen, QiemenOdenis, Borc_Alanin_Adi, OdenisinNovu, Kassir, ActiveUser) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String query = "insert into satilan_mallar (Satis_ID, id, Malin_adi, Miqdari, Satis_qiymeti,  Umumi_Mebleg, Satis_Tarixi, Borcdan_Gelen, QiemenOdenis, Borc_Alanin_Adi, OdenisinNovu, Kassir, ActiveUser, BorcID) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                         pres = con.prepareStatement(query);
 
@@ -1645,6 +1649,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
                         pres.setString(11, "Borcdan");
                         pres.setString(12, cashierName);
                         pres.setString(13, activeUserName + " " + activeUserSurename);
+                        pres.setInt(14, borcID);
                         pres.execute();
                         say++;
 

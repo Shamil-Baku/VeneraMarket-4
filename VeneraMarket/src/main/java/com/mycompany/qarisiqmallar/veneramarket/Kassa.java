@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.bouncycastle.math.Primes;
 
 /**
  *
@@ -46,6 +47,11 @@ public class Kassa extends javax.swing.JFrame {
         buttonGroup1.add(sonBirHefte);
         buttonGroup1.add(sonBirAy);
         rbBugun.doClick();
+        Date dt = new Date();
+        sdf = new SimpleDateFormat("HH:mm:ss");
+        sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        time = sdf2.format(dt);
 
     }
     Date date = new Date();
@@ -205,7 +211,7 @@ public class Kassa extends javax.swing.JFrame {
         String ss = sdf.format(cal.getTime());
         cal.add(Calendar.DAY_OF_MONTH, -7);
         String lastThreeDay = sdf.format(cal.getTime());
-        String clientName = txtSearchForExpenses.getText();
+        String clientName = txtAxtaris.getText();
         getTodaysExpensesWithName(clientName);
 
     }
@@ -332,7 +338,7 @@ public class Kassa extends javax.swing.JFrame {
 
     public void startSearchForExpenses() {
 
-        String nameOfClient = txtSearchForExpenses.getText();
+        String nameOfClient = txtAxtaris.getText();
 
         boolean checkLastMonth = sonBirAy.isSelected();
         boolean checkLastWeek = sonBirHefte.isSelected();
@@ -437,11 +443,11 @@ public class Kassa extends javax.swing.JFrame {
         txtAxtaris = new javax.swing.JTextField();
         txtPayment = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtSearchForExpenses = new javax.swing.JTextField();
         cbOption = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        cBoxOptionFoorSearch = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGelirCedveli = new javax.swing.JTable();
@@ -452,6 +458,7 @@ public class Kassa extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableExpenses = new javax.swing.JTable();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
@@ -642,30 +649,21 @@ public class Kassa extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Ödeniş");
 
-        txtSearchForExpenses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchForExpensesActionPerformed(evt);
-            }
-        });
-        txtSearchForExpenses.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchForExpensesKeyReleased(evt);
-            }
-        });
-
         cbOption.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seçim edin..", "Ad ve Soyada gore", "Xercin tipine gore", "Komentariye gore" }));
 
         jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Xerc axtar..");
+        jLabel11.setText("Ne axtarılsın..");
 
         jLabel12.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Müşteri ödenişi..");
+        jLabel12.setText("Axtar..");
 
         jLabel13.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Xerc üçün seçim..");
+
+        cBoxOptionFoorSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Müşteri axtar..", "Xerc axtar..", "Mehsul axtar.." }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -701,70 +699,68 @@ public class Kassa extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(24, 24, 24)))))
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton7)
+                                    .addComponent(txtCapitalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtSearchForExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtKassa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPayment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addGap(45, 45, 45))))
+                                        .addComponent(UmumiSatis, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtTotalExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtTotalProfit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(69, 69, 69)
+                                        .addComponent(jLabel5)
+                                        .addGap(93, 93, 93)
+                                        .addComponent(jLabel6)
+                                        .addGap(39, 39, 39)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTotalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(12, 12, 12))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton7)
-                                            .addComponent(txtCapitalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(9, 9, 9)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtKassa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(UmumiSatis, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtTotalExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtTotalProfit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addGap(69, 69, 69)
-                                                .addComponent(jLabel5)
-                                                .addGap(93, 93, 93)
-                                                .addComponent(jLabel6)
-                                                .addGap(39, 39, 39)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtTotalBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addGap(12, 12, 12))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnHesabla)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton6)))))))
+                                .addComponent(btnHesabla)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton6))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAxtaris, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                    .addComponent(cBoxOptionFoorSearch, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPayment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(45, 45, 45)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -827,8 +823,8 @@ public class Kassa extends javax.swing.JFrame {
                             .addComponent(jLabel12))
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSearchForExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(cBoxOptionFoorSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -852,11 +848,11 @@ public class Kassa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Malin Adi", "Ödenişin növü", "Miqdarı", "Cem Mebleğ", "Alis Qiymeti", "Satis Qiymeti", "Umumi Satis Miqdari", "Satis Tarixi", "Gelir", "Umumi Xeyir", "Qismen_Odenis", "Qaytarilan_Mehsulun_Meblegi", "Musteriye_Geri_Odenis", "Borc alanin adi", "Yeni goturulen mehsul", "Borcdan-Gelen_Mebleg", "Kassir", "Çek nömresi"
+                "ID", "Malin Adi", "Ödenişin növü", "Miqdarı", "Cem Mebleğ", "Alis Qiymeti", "Satis Qiymeti", "Umumi Satis Miqdari", "Satis Tarixi", "Gelir", "Umumi Xeyir", "Qismen_Odenis", "Qaytarilan_Mehsulun_Meblegi", "Musteriye_Geri_Odenis", "Borc alanin adi", "Yeni goturulen mehsul", "Borcdan-Gelen_Mebleg", "Kassir", "Çek nömresi", "Satış-İD", "Borc-ID"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -920,14 +916,23 @@ public class Kassa extends javax.swing.JFrame {
             jtableExpenses.getColumnModel().getColumn(0).setMaxWidth(40);
         }
 
+        jButton8.setText("Geri qaytarilma");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
             .addComponent(jScrollPane2)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -937,21 +942,23 @@ public class Kassa extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addGap(29, 29, 29))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton5)
+                        .addComponent(jButton8))
                     .addComponent(jButton1))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1145,6 +1152,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.OdenisinNovu,\n"
                     + "	s.cekNomresi,\n"
                     + "	s.ActiveUser,\n"
+                    + "	s.Satis_ID,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1156,7 +1164,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
                     + "WHERE\n"
-                    + "	DATE(s.Satis_Tarixi BETWEEN)" + "'" + sss + "'" + "and CURRENT_DATE");
+                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + sss + "'" + "and CURRENT_DATE");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1187,6 +1195,7 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getDouble("Borcdan_Gelen"));
                     v2.add(rs.getString("ActiveUser"));
                     v2.add(rs.getFloat("cekNomresi"));
+                    v2.add(rs.getFloat("Satis_ID"));
                 }
                 df.addRow(v2);
 
@@ -1315,6 +1324,8 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.Satis_ID,\n"
+                    + "	s.BorcID,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1359,6 +1370,8 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getDouble("Borcdan_Gelen"));
                     v2.add(rs.getString("ActiveUser"));
                     v2.add(rs.getFloat("cekNomresi"));
+                    v2.add(rs.getFloat("Satis_ID"));
+                    v2.add(rs.getInt("BorcID"));
 
                 }
                 df.addRow(v2);
@@ -1539,6 +1552,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.OdenisinNovu,\n"
                     + "	s.cekNomresi,\n"
                     + "	s.ActiveUser,\n"
+                    + "	s.Satis_ID,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1581,7 +1595,7 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getDouble("Borcdan_Gelen"));
                     v2.add(rs.getString("ActiveUser"));
                     v2.add(rs.getFloat("cekNomresi"));
-
+                    v2.add(rs.getFloat("Satis_ID"));
                 }
                 df.addRow(v2);
 
@@ -1711,6 +1725,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.Satis_ID,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1756,7 +1771,7 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getDouble("Borcdan_Gelen"));
                     v2.add(rs.getString("ActiveUser"));
                     v2.add(rs.getFloat("cekNomresi"));
-
+                    v2.add(rs.getFloat("Satis_ID"));
                 }
                 df.addRow(v2);
 
@@ -1891,6 +1906,10 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
+                    + "	s.Satis_ID,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -1916,6 +1935,7 @@ public class Kassa extends javax.swing.JFrame {
                 for (int i = 0; i < a; i++) {
                     v2.add(rs.getInt("id"));
                     v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
                     v2.add(rs.getDouble("Miqdari"));
                     v2.add(rs.getDouble("Satis_Meblegi_Cem"));
                     v2.add(rs.getDouble("Alis_qiymeti"));
@@ -1930,6 +1950,9 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getString("Borc_Alanin_Adi"));
                     v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
                     v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
+                    v2.add(rs.getFloat("Satis_ID"));
                 }
                 df.addRow(v2);
 
@@ -2057,6 +2080,205 @@ public class Kassa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    public void returnProductToTheCreditsList() {
+
+        String id, tarix, satisID, malinAdi, borcID, borcAlaninAdi;
+        double qismenOdenis = 0;
+
+        df = (DefaultTableModel) tblGelirCedveli.getModel();
+        int selected = tblGelirCedveli.getSelectedRow();
+
+        id = df.getValueAt(selected, 0).toString();
+        malinAdi = df.getValueAt(selected, 1).toString();
+        String tamAd = malinAdi.substring(8);
+        tarix = df.getValueAt(selected, 8).toString();
+        borcAlaninAdi = df.getValueAt(selected, 14).toString();
+        satisID = df.getValueAt(selected, 19).toString();
+        borcID = df.getValueAt(selected, 20).toString();
+        qismenOdenis = Double.parseDouble(df.getValueAt(selected, 11).toString());
+
+        try {
+            con = connect();
+            pres = con.prepareStatement("update borclar_siyahisi set Qismen_odenis = Qismen_odenis - ?, Qaliq_borc = Qaliq_borc + ? where Borca_goturduyu_mehsul = " + "'" + tamAd + "'" + " and id = " + borcID);
+            pres.setDouble(1, qismenOdenis);
+            pres.setDouble(2, qismenOdenis);
+            int result = pres.executeUpdate();
+
+            if (result == 1) {
+                JOptionPane.showMessageDialog(this, "Müşteri -" + borcAlaninAdi + "-in " + tamAd + "- adli mehsuldan " + qismenOdenis + "-AZN mebleğde ödenişi geri qaytarıldı!");
+            }
+            if (result == 0) {
+                JOptionPane.showMessageDialog(this, "Emeliyyat ugursuz oldu!", "DIQQET!", HEIGHT);
+            }
+
+            pres = con.prepareStatement("update satilan_mallar set Malin_adi = ?, QiemenOdenis = ?, BorcID = ? where BorcID = ?");
+            pres.setString(1, "Ödeniş geri qaytarıldı -" + tamAd);
+            pres.setDouble(2, 0.0);
+            pres.setInt(3, 0);
+            pres.setString(4, borcID);
+            pres.executeUpdate();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void tamOdenisiGeriQaytarmaq() {
+        // Deyisenler yaradilir
+        String id, tarix, satisID, malinAdi, borcID, borcAlaninAdi;
+        double miqdari, satisQiymeti, cemMebleg, qismenOdenis = 0;
+        int mehsulID;
+
+        //Aktiv istifadeci tapilir
+        String activeUser = activeUser();
+
+        df = (DefaultTableModel) tblGelirCedveli.getModel();
+        int selected = tblGelirCedveli.getSelectedRow();
+
+        mehsulID = Integer.parseInt(df.getValueAt(selected, 0).toString());
+        malinAdi = df.getValueAt(selected, 1).toString();
+        String tamAd = malinAdi.substring(8);
+        tarix = df.getValueAt(selected, 8).toString();
+        borcAlaninAdi = df.getValueAt(selected, 14).toString();
+        satisID = df.getValueAt(selected, 19).toString();
+        borcID = df.getValueAt(selected, 20).toString();
+        qismenOdenis = Double.parseDouble(df.getValueAt(selected, 11).toString());
+        miqdari = Double.parseDouble(df.getValueAt(selected, 3).toString());
+        satisQiymeti = Double.parseDouble(df.getValueAt(selected, 6).toString());
+        cemMebleg = Double.parseDouble(df.getValueAt(selected, 4).toString());
+        double qaliqBorc = cemMebleg - (cemMebleg - qismenOdenis);
+
+        try {
+            con = connect();
+            pres = con.prepareStatement("insert into borclar_siyahisi (Borc_alanin_adi, Borca_goturduyu_mehsul, Mehsul_ID, Miqdari, Qiymeti, Umumi_mebleg, Qismen_odenis, Qaliq_borc, Borc_alma_tarixi, Kassir, ActiveUser ) values(?,?,?,?,?,?,?,?,?,?,?)");
+            pres.setString(1, borcAlaninAdi);
+            pres.setString(2, tamAd + "- geri qaytarildi");
+            pres.setInt(3, mehsulID);
+            pres.setDouble(4, miqdari);
+            pres.setDouble(5, satisQiymeti);
+            pres.setDouble(6, cemMebleg);
+            pres.setDouble(7, qismenOdenis);
+            pres.setDouble(8, qaliqBorc);
+            pres.setString(9, time);
+            pres.setString(10, activeUser);
+            pres.setString(11, activeUser);
+            int result = pres.executeUpdate();
+
+            System.out.println(result);
+
+            if (result == 1) {
+                JOptionPane.showMessageDialog(this, "Müşteri -" + borcAlaninAdi + "-in " + tamAd + "- adli mehsuldan tam ödenilmiş " + qismenOdenis + "-AZN mebleğ geri qaytarıldı!");
+            }
+            if (result == 0) {
+                JOptionPane.showMessageDialog(this, "Emeliyyat ugursuz oldu!", "DIQQET!", HEIGHT);
+            }
+
+            pres = con.prepareStatement("update satilan_mallar set Malin_adi = ?, id = ?, QiemenOdenis = ?, BorcID = ? where BorcID = ?");
+            pres.setString(1, "Ödeniş geri qaytarıldı -" + tamAd);
+            pres.setDouble(2, 0.0);
+            pres.setDouble(3, 0);
+            pres.setInt(4, 0);
+            pres.setString(5, borcID);
+            pres.executeUpdate();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    String time;
+
+    public void time() {
+
+    }
+
+    public String activeUser() {
+        String activeUser = null;
+        String activeUserName = null;
+        String activeUserSurename = null;
+
+        try {
+            String status = "Active";
+            pres = con.prepareStatement("select * from users where status = " + "'" + status + "'");
+            ResultSet rsForActiveUser = pres.executeQuery();
+
+            rsForActiveUser.next();
+
+            activeUserName = rsForActiveUser.getString("UserName");
+            activeUserSurename = rsForActiveUser.getString("UserSureName");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        activeUser = activeUserName + activeUserSurename;
+        return activeUser;
+    }
+
+    public void returnProductToTheStock() {
+
+        String id, tarix, satisID, malinAdi, borcID;
+
+        try {
+
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            int selected = tblGelirCedveli.getSelectedRow();
+
+            id = df.getValueAt(selected, 0).toString();
+            tarix = df.getValueAt(selected, 8).toString();
+            satisID = df.getValueAt(selected, 19).toString();
+            malinAdi = df.getValueAt(selected, 1).toString();
+            borcID = df.getValueAt(selected, 20).toString();
+
+            pres = con.prepareStatement("update satilan_mallar set Malin_adi = ?, id = ?, QiemenOdenis = ?, BorcID = ? where id = ?");
+            pres.setString(1, "Satış geri qaytarıldı -" + malinAdi);
+            pres.setDouble(2, 0.0);
+            pres.setDouble(3, 0);
+            pres.setInt(4, 0);
+            pres.setString(5, id);
+            pres.executeUpdate();
+
+            geriQaytarma();
+
+            JOptionPane.showMessageDialog(this, "Mehsul ugurla silindi!");
+
+        } catch (SQLException ex) {
+            System.out.println("Gosterilen mehsul satilan mallar siyahisinda yoxdur!");
+        }
+
+    }
+
+    public void geriQaytarma() {
+        try {
+            connect();
+
+            String id, miqdari, umumiMebleg;
+
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            int selected = tblGelirCedveli.getSelectedRow();
+
+            id = df.getValueAt(selected, 0).toString();
+            miqdari = df.getValueAt(selected, 3).toString();
+            umumiMebleg = df.getValueAt(selected, 4).toString();
+
+            String query2 = "update mehsullar set Satis_miqdari = Satis_miqdari - ?,  Satisin_toplam_deyeri = Satisin_toplam_deyeri - ?, Qaliq_say = Qaliq_say + ? where id = ?";
+
+            pres = con.prepareStatement(query2);
+
+            pres.setString(1, miqdari);
+            pres.setString(2, umumiMebleg);
+            pres.setString(3, miqdari);
+            pres.setString(4, id);
+            pres.executeUpdate();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+    }
+
+
     private void dunenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dunenActionPerformed
 
         txtPayment.setText("");
@@ -2087,6 +2309,7 @@ public class Kassa extends javax.swing.JFrame {
                     + "	s.Borc_Alanin_Adi,\n"
                     + "	s.Yeni_goturulen_Mebleg,\n"
                     + "	s.Borcdan_Gelen,\n"
+                    + "	s.Satis_ID,\n"
                     + " m.Satis_miqdari, \n"
                     + "	m.Alis_qiymeti,\n"
                     + " m.Satisin_toplam_deyeri, \n"
@@ -2131,6 +2354,7 @@ public class Kassa extends javax.swing.JFrame {
                     v2.add(rs.getDouble("Borcdan_Gelen"));
                     v2.add(rs.getString("ActiveUser"));
                     v2.add(rs.getFloat("cekNomresi"));
+                    v2.add(rs.getFloat("Satis_ID"));
                 }
                 df.addRow(v2);
 
@@ -2347,8 +2571,300 @@ public class Kassa extends javax.swing.JFrame {
 
     private void txtAxtarisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAxtarisKeyReleased
 
-        searchForTheCllient();
+        String searchOption = cBoxOptionFoorSearch.getSelectedItem().toString();
+
+        if (searchOption.equals("Xerc axtar..")) {
+            startSearchForExpenses();
+            calculateAll();
+        }
+        if (searchOption.equals("Müşteri axtar..")) {
+            searchForTheCllient();
+        }
+        if (searchOption.equals("Mehsul axtar..")) {
+            findProduct();
+            calculateAll();
+        }
+
+
     }//GEN-LAST:event_txtAxtarisKeyReleased
+
+    public void findProduct() {
+
+        String find = txtAxtaris.getText();
+
+        boolean checkLastMonth = sonBirAy.isSelected();
+        boolean checkLastWeek = sonBirHefte.isSelected();
+        boolean checLastThreeDay = sonUcGun.isSelected();
+        boolean chechYesterday = dunen.isSelected();
+        boolean checkToday = rbBugun.isSelected();
+        Date firstDate2 = ilkTarix.getDate();
+        Date secondDate2 = sonTarix.getDate();
+
+        Calendar cal = new GregorianCalendar();
+
+        if (firstDate2 != null && secondDate2 != null) {
+            System.out.println("Beli qaqaw tarix null dan ferqlidir. Budur.. " + firstDate2);
+
+            String firstDate1 = sdf.format(ilkTarix.getDate());
+            String secondDAte = sdf.format(sonTarix.getDate());
+
+        } else {
+
+            if (checkToday == true) {
+
+                findToday(find);
+            }
+            if (chechYesterday == true) {
+
+                cal.add(Calendar.DAY_OF_MONTH, -1);
+                String lastThreeDay = sdf.format(cal.getTime());
+                findYesterday(find, lastThreeDay);
+
+            }
+            if (checLastThreeDay == true) {
+
+                cal.add(Calendar.DAY_OF_MONTH, -3);
+                String lastThreeDay = sdf.format(cal.getTime());
+                findByTime(find, lastThreeDay);
+
+            }
+            if (checkLastWeek == true) {
+
+                cal.add(Calendar.DAY_OF_MONTH, -7);
+                String theLastWeek = sdf.format(cal.getTime());
+                findByTime(find, theLastWeek);
+
+            }
+            if (checkLastMonth == true) {
+
+                cal.add(Calendar.DAY_OF_MONTH, -30);
+                String theLastMonth = sdf.format(cal.getTime());
+                findByTime(find, theLastMonth);
+
+            }
+
+        }
+
+    }
+
+    public void findToday(String findProduct) {
+
+        try {
+            int a;
+            pres = con.prepareStatement("SELECT\n"
+                    + "	s.id,\n"
+                    + "	s.Malin_adi,\n"
+                    + "	s.Miqdari,\n"
+                    + "	s.Umumi_Mebleg AS Satis_Meblegi_Cem,\n"
+                    + "	s.QiemenOdenis,\n"
+                    + "	s.Qaytarilan_Mehsul_Miqdari,\n"
+                    + "	s.Musteriye_Geri_Odenis,\n"
+                    + "	s.Borc_Alanin_Adi,\n"
+                    + "	s.Yeni_goturulen_Mebleg,\n"
+                    + "	s.Borcdan_Gelen,\n"
+                    + " m.Satis_miqdari, \n"
+                    + "	m.Alis_qiymeti,\n"
+                    + " m.Satisin_toplam_deyeri, \n"
+                    + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
+                    + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
+                    + "	s.Satis_Tarixi,\n"
+                    + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
+                    + "FROM\n"
+                    + "	satilan_mallar s\n"
+                    + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
+                    + "WHERE Date (s.Satis_Tarixi) = CURRENT_DATE and s.Malin_adi like '%' " + "'" + findProduct + "'" + " '%'");
+
+            ResultSet rs = pres.executeQuery();
+
+            ResultSetMetaData rd = rs.getMetaData();
+            a = rd.getColumnCount();
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            df.setRowCount(0);
+
+            while (rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 0; i < a; i++) {
+                    v2.add(rs.getInt("id"));
+                    v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
+                    v2.add(rs.getDouble("Miqdari"));
+                    v2.add(rs.getDouble("Satis_Meblegi_Cem"));
+                    v2.add(rs.getDouble("Alis_qiymeti"));
+                    v2.add(rs.getDouble("Satis_qiymeti"));
+                    v2.add(rs.getInt("Umumi_Satis_Miqdari"));
+                    v2.add(rs.getString("Satis_Tarixi"));
+                    v2.add(rs.getDouble("Xeyir"));
+                    v2.add(rs.getDouble("Umumi_Xeyir"));
+                    v2.add(rs.getDouble("QiemenOdenis"));
+                    v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
+                    v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
+                    v2.add(rs.getString("Borc_Alanin_Adi"));
+                    v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
+                    v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
+
+                }
+                df.addRow(v2);
+
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+
+        }
+
+    }
+
+    public void findYesterday(String findProduct, String date) {
+
+        try {
+            int a;
+            pres = con.prepareStatement("SELECT\n"
+                    + "	s.id,\n"
+                    + "	s.Malin_adi,\n"
+                    + "	s.Miqdari,\n"
+                    + "	s.Umumi_Mebleg AS Satis_Meblegi_Cem,\n"
+                    + "	s.QiemenOdenis,\n"
+                    + "	s.Qaytarilan_Mehsul_Miqdari,\n"
+                    + "	s.Musteriye_Geri_Odenis,\n"
+                    + "	s.Borc_Alanin_Adi,\n"
+                    + "	s.Yeni_goturulen_Mebleg,\n"
+                    + "	s.Borcdan_Gelen,\n"
+                    + " m.Satis_miqdari, \n"
+                    + "	m.Alis_qiymeti,\n"
+                    + " m.Satisin_toplam_deyeri, \n"
+                    + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
+                    + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
+                    + "	s.Satis_Tarixi,\n"
+                    + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
+                    + "FROM\n"
+                    + "	satilan_mallar s\n"
+                    + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
+                    + "WHERE Date (s.Satis_Tarixi) = " + "'" + date + "'" + " and s.Malin_adi like '%' " + "'" + findProduct + "'" + " '%'");
+
+            ResultSet rs = pres.executeQuery();
+
+            ResultSetMetaData rd = rs.getMetaData();
+            a = rd.getColumnCount();
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            df.setRowCount(0);
+
+            while (rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 0; i < a; i++) {
+                    v2.add(rs.getInt("id"));
+                    v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
+                    v2.add(rs.getDouble("Miqdari"));
+                    v2.add(rs.getDouble("Satis_Meblegi_Cem"));
+                    v2.add(rs.getDouble("Alis_qiymeti"));
+                    v2.add(rs.getDouble("Satis_qiymeti"));
+                    v2.add(rs.getInt("Umumi_Satis_Miqdari"));
+                    v2.add(rs.getString("Satis_Tarixi"));
+                    v2.add(rs.getDouble("Xeyir"));
+                    v2.add(rs.getDouble("Umumi_Xeyir"));
+                    v2.add(rs.getDouble("QiemenOdenis"));
+                    v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
+                    v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
+                    v2.add(rs.getString("Borc_Alanin_Adi"));
+                    v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
+                    v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
+
+                }
+                df.addRow(v2);
+
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+
+        }
+
+    }
+
+    public void findByTime(String findProduct, String date) {
+
+        try {
+            int a;
+            pres = con.prepareStatement("SELECT\n"
+                    + "	s.id,\n"
+                    + "	s.Malin_adi,\n"
+                    + "	s.Miqdari,\n"
+                    + "	s.Umumi_Mebleg AS Satis_Meblegi_Cem,\n"
+                    + "	s.QiemenOdenis,\n"
+                    + "	s.Qaytarilan_Mehsul_Miqdari,\n"
+                    + "	s.Musteriye_Geri_Odenis,\n"
+                    + "	s.Borc_Alanin_Adi,\n"
+                    + "	s.Yeni_goturulen_Mebleg,\n"
+                    + "	s.Borcdan_Gelen,\n"
+                    + " m.Satis_miqdari, \n"
+                    + "	m.Alis_qiymeti,\n"
+                    + " m.Satisin_toplam_deyeri, \n"
+                    + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
+                    + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
+                    + "	s.Satis_Tarixi,\n"
+                    + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
+                    + "FROM\n"
+                    + "	satilan_mallar s\n"
+                    + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
+                    + " where DATE (s.Satis_Tarixi) BETWEEN " + "'" + date + "'" + " and CURRENT_DATE and s.Malin_adi like '%' " + "'" + findProduct + "'" + " '%'");
+
+            ResultSet rs = pres.executeQuery();
+
+            ResultSetMetaData rd = rs.getMetaData();
+            a = rd.getColumnCount();
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            df.setRowCount(0);
+
+            while (rs.next()) {
+                Vector v2 = new Vector();
+
+                v2.add(rs.getInt("id"));
+                v2.add(rs.getString("Malin_adi"));
+                v2.add(rs.getString("OdenisinNovu"));
+                v2.add(rs.getDouble("Miqdari"));
+                v2.add(rs.getDouble("Satis_Meblegi_Cem"));
+                v2.add(rs.getDouble("Alis_qiymeti"));
+                v2.add(rs.getDouble("Satis_qiymeti"));
+                v2.add(rs.getInt("Umumi_Satis_Miqdari"));
+                v2.add(rs.getString("Satis_Tarixi"));
+                v2.add(rs.getDouble("Xeyir"));
+                v2.add(rs.getDouble("Umumi_Xeyir"));
+                v2.add(rs.getDouble("QiemenOdenis"));
+                v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
+                v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
+                v2.add(rs.getString("Borc_Alanin_Adi"));
+                v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
+                v2.add(rs.getDouble("Borcdan_Gelen"));
+                v2.add(rs.getString("ActiveUser"));
+                v2.add(rs.getFloat("cekNomresi"));
+
+                df.addRow(v2);
+
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+
+        }
+
+    }
+
 
     private void listNameOfClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listNameOfClientsMouseClicked
 
@@ -2389,18 +2905,78 @@ public class Kassa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAxtarisActionPerformed
 
-    private void txtSearchForExpensesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchForExpensesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchForExpensesActionPerformed
-
-    private void txtSearchForExpensesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchForExpensesKeyReleased
-        startSearchForExpenses();
-        calculateAll();
-    }//GEN-LAST:event_txtSearchForExpensesKeyReleased
-
     private void txtPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaymentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPaymentActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+        df = (DefaultTableModel) tblGelirCedveli.getModel();
+        int selected = tblGelirCedveli.getSelectedRow();
+
+        String TypeOfPayment = df.getValueAt(selected, 2).toString();
+        int id = Integer.parseInt(df.getValueAt(selected, 0).toString());
+        int borcID = Integer.parseInt(df.getValueAt(selected, 20).toString());
+
+        if (TypeOfPayment.equals("Nağd")) {
+            if (id == 0) {
+                JOptionPane.showMessageDialog(this, "Bu mehsul satışı artıq geri qaytarılmışdı");
+                return;
+            }
+            returnProductToTheStock();
+            refreshAfterUpdate();
+            calculateAll();
+        }
+        if (TypeOfPayment.equals("Borcdan")) {
+
+            if (id == 0) {
+                if (borcID == 0) {
+                    JOptionPane.showMessageDialog(this, "Bu ödeniş artıq geri qaytarılmışdı");
+                    return;
+                }
+                returnProductToTheCreditsList();
+                refreshAfterUpdate();
+                calculateAll();
+            }
+            if (id != 0) {
+                if (borcID == 0) {
+                    JOptionPane.showMessageDialog(this, "Bu ödeniş artıq geri qaytarılmışdı");
+                    return;
+                }
+                tamOdenisiGeriQaytarmaq();
+                refreshAfterUpdate();
+                calculateAll();
+            }
+
+        }
+
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    public void refreshAfterUpdate() {
+
+        boolean checkLastMonth = sonBirAy.isSelected();
+        boolean checkLastWeek = sonBirHefte.isSelected();
+        boolean checLastThreeDay = sonUcGun.isSelected();
+        boolean chechYesterday = dunen.isSelected();
+        boolean checkToday = rbBugun.isSelected();
+
+        if (checkToday == true) {
+            rbBugun.doClick();
+        }
+        if (chechYesterday == true) {
+            dunen.doClick();
+        }
+        if (checLastThreeDay == true) {
+            sonUcGun.doClick();
+        }
+        if (checkLastWeek == true) {
+            sonBirHefte.doClick();
+        }
+        if (checkLastMonth == true) {
+            sonBirAy.doClick();
+        }
+    }
 
     public void getInfoAboutClientsPayment() {
 
@@ -2460,6 +3036,7 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JTextField UmumiSatis;
     private javax.swing.JButton btnHesabla;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cBoxOptionFoorSearch;
     private javax.swing.JComboBox<String> cbOption;
     private javax.swing.JRadioButton dunen;
     private com.toedter.calendar.JDateChooser ilkTarix;
@@ -2470,6 +3047,7 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2502,7 +3080,6 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JTextField txtCapitalBudget;
     private javax.swing.JTextField txtKassa;
     private javax.swing.JTextField txtPayment;
-    private javax.swing.JTextField txtSearchForExpenses;
     private javax.swing.JTextField txtTotalBudget;
     private javax.swing.JTextField txtTotalExpenses;
     private javax.swing.JTextField txtTotalProfit;

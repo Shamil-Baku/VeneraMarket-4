@@ -1295,7 +1295,7 @@ public class TreeView1 extends javax.swing.JFrame {
         jMenuItem9.setText("Legv et");
         jPopupMenu2.add(jMenuItem9);
 
-        open.setText("Aç");
+        open.setText("jMenuItem10");
         open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openActionPerformed(evt);
@@ -1303,7 +1303,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(open);
 
-        correction.setText("Düzəliş et");
+        correction.setText("jMenuItem10");
         correction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correctionActionPerformed(evt);
@@ -1311,7 +1311,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(correction);
 
-        delete.setText("Sil");
+        delete.setText("jMenuItem10");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
@@ -1319,7 +1319,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(delete);
 
-        ShowOrPrintBarcode.setText("Barkodu göstər/Çap et");
+        ShowOrPrintBarcode.setText("jMenuItem10");
         ShowOrPrintBarcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowOrPrintBarcodeActionPerformed(evt);
@@ -1327,10 +1327,10 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(ShowOrPrintBarcode);
 
-        Cancel.setText("Bağla");
+        Cancel.setText("jMenuItem10");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
@@ -1421,7 +1421,6 @@ public class TreeView1 extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
 
         txtNameAndSurename.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        txtNameAndSurename.setForeground(new java.awt.Color(0, 0, 0));
         txtNameAndSurename.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameAndSurenameActionPerformed(evt);
@@ -1456,22 +1455,18 @@ public class TreeView1 extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Имя и фамилия :");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Комментарий :");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Номер накладной :");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Дата создания :");
 
@@ -1523,7 +1518,6 @@ public class TreeView1 extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Поставщик :");
 
@@ -1608,7 +1602,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "№", "наименование товара", "количество", "Цена продажи", "Сумма", "id", "peiceBuy"
+                "№", "Mehsul adı", "Say", "Alış qiymeti", "Satış qiymeti", "Toplam", "id"
             }
         ));
         tblYeniMehsullar.setRowHeight(25);
@@ -1631,12 +1625,9 @@ public class TreeView1 extends javax.swing.JFrame {
             tblYeniMehsullar.getColumnModel().getColumn(2).setMinWidth(50);
             tblYeniMehsullar.getColumnModel().getColumn(2).setPreferredWidth(120);
             tblYeniMehsullar.getColumnModel().getColumn(2).setMaxWidth(150);
-            tblYeniMehsullar.getColumnModel().getColumn(5).setMinWidth(0);
-            tblYeniMehsullar.getColumnModel().getColumn(5).setPreferredWidth(0);
-            tblYeniMehsullar.getColumnModel().getColumn(5).setMaxWidth(0);
             tblYeniMehsullar.getColumnModel().getColumn(6).setMinWidth(0);
             tblYeniMehsullar.getColumnModel().getColumn(6).setPreferredWidth(0);
-            tblYeniMehsullar.getColumnModel().getColumn(6).setMaxWidth(1);
+            tblYeniMehsullar.getColumnModel().getColumn(6).setMaxWidth(0);
         }
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -2202,7 +2193,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
                                 int SecondSubCatID = rs.getInt("id");
 
-                                pres = con.prepareStatement("delete from 3ndsubcategory s where s.name = " + "'" + node1 + "'" + " and `index-3rdSubCat` =" + SecondSubCatID+" and `index-season` ="+mainCatID +" and `index-gender` = " + genderID);
+                                pres = con.prepareStatement("delete from 3ndsubcategory s where s.name = " + "'" + node1 + "'" + " and `index-3rdSubCat` =" + SecondSubCatID + " and `index-season` =" + mainCatID + " and `index-gender` = " + genderID);
                                 pres.executeUpdate();
 
                                 JOptionPane.showMessageDialog(this, "Kateqoriya ugurla silindi");
@@ -2708,26 +2699,6 @@ public class TreeView1 extends javax.swing.JFrame {
                 double total2 = numberOfProduct * price;
                 double roundedTotal = Math.round(total2 * 100.000) / 100.000;
 
-//                con = connect();
-//                pres = con.prepareStatement("select * from qaimemehsullari_copy1 where say =?");
-//                pres.setInt(1, idTable);
-//                rs = pres.executeQuery();
-//                rs.next();
-//                int say1 = rs.getInt("say");
-//                int id1 = rs.getInt("id");
-//                String productName = rs.getString("productName");
-//                int numberOfProduct1 = rs.getInt("numberOfProduct");
-//                double priceOfSale1 = rs.getDouble("priceOfSale");
-//                double total = rs.getDouble("total");
-//
-//                pres = con.prepareStatement("insert into updatedProducts (say, id, productName, numberOfProduct, priceOfSale, total) values(?,?,?,?,?,?)");
-//                pres.setInt(1, say1);
-//                pres.setInt(2, id1);
-//                pres.setString(3, productName);
-//                pres.setInt(4, numberOfProduct1);
-//                pres.setDouble(5, priceOfSale1);
-//                pres.setDouble(6, total);
-//                pres.executeUpdate();
                 String query2 = "update qaimemehsullariTreeView set say = ?, productName = ?, numberOfProduct =?, priceOfSale = ?, total = ? where say = ? ";
 
                 pres = con.prepareStatement(query2);
@@ -3300,23 +3271,27 @@ public class TreeView1 extends javax.swing.JFrame {
             df = (DefaultTableModel) tblYeniMehsullar.getModel();
 
             pres = con.prepareStatement("select * from qaimemehsullaritreeview");
-            rs = pres.executeQuery();
+            ResultSet rs = pres.executeQuery();
 
             while (rs.next()) {
 
                 int id = rs.getInt("id");
-                String name = rs.getString("productName");
+                String name55 = rs.getString("productName");
                 int number = rs.getInt("numberOfProduct");
-                double priceOfProduct = rs.getDouble("priceOfSale");
+                double priceOfProduct = rs.getDouble("priceOfProductBuy");
                 double total2 = rs.getDouble("total");
 
-                String query2 = "update mehsullar set Miqdari = Miqdari + ?, Qaliq_say = Qaliq_say + ? where id = ?";
+                String query2 = "update mehsullar set Miqdari = Miqdari + ?, Qaliq_say = Qaliq_say + ?, Alis_qiymeti = ?, Alis_Tarixi =?, Alisin_toplam_deyer = Alisin_toplam_deyer + ? where id = ?";
 
                 pres = con.prepareStatement(query2);
 
                 pres.setInt(1, number);
                 pres.setInt(2, number);
-                pres.setInt(3, id);
+                pres.setDouble(3, priceOfProduct);
+                pres.setString(4, time);
+                pres.setDouble(5, total2);
+                pres.setInt(6, id);
+
                 pres.executeUpdate();
 
             }
@@ -3324,13 +3299,6 @@ public class TreeView1 extends javax.swing.JFrame {
             pres = c.prepareStatement("truncate table qaimemehsullaritreeview;");
             pres.executeUpdate();
 
-//            con = connect();
-//            pres = con.prepareStatement("truncate table autoinsertofpurchaseinvoice");
-//            pres.executeUpdate();
-//
-//            con = connect();
-//            pres = con.prepareStatement("truncate table totalsumforautoinsert");
-//            pres.executeUpdate();
             load();
 
         } catch (Exception ex) {
@@ -3351,59 +3319,54 @@ public class TreeView1 extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(this, "Zehmet olmasa müşteri adını qeyd edin!", "DİQQET!!", HEIGHT);
             txtNameAndSurename.requestFocus();
+            return;
         }
 
         boolean yoxlaKursDollar = kursDollar.isBlank();
         if (yoxlaKursDollar == true) {
             JOptionPane.showMessageDialog(this, "Zehmet olmasa valyuta mezennesini qeyd edin", "DİQQET!!", HEIGHT);
             txtDollarkurs.requestFocus();
+            return;
         } else {
 
             if (name.equals("Брак")) {
 
                 addExpense();
             }
-            try {
-
-                pres = con.prepareStatement("select * from qaimemehsullaritreeview");
-                ResultSet rs5 = pres.executeQuery();
-
-                while (rs5.next()) {
-
-                    int id = rs5.getInt("id");
-                    String name55 = rs5.getString("productName");
-                    int number = rs5.getInt("numberOfProduct");
-                    double priceOfProduct = rs5.getDouble("priceOfProductBuy");
-                    double total2 = rs5.getDouble("total");
-
-                    String query2 = "update mehsullar set Miqdari = Miqdari + ?, Qaliq_say = Qaliq_say + ?, Alis_qiymeti = ?, Alis_Tarixi =? where id = ?";
-
-                    pres = con.prepareStatement(query2);
-
-                    pres.setInt(1, number);
-                    pres.setInt(2, number);
-                    pres.setDouble(3, priceOfProduct);
-                    pres.setString(4, time);
-                    pres.setInt(5, id);
-
-                    pres.executeUpdate();
-
-                }
-
-                pres = con.prepareStatement("truncate table qaimemehsullaritreeview;");
-                pres.executeUpdate();
-
-//                    con = connect();
-//                    pres = con.prepareStatement("truncate table autoinsertofpurchaseinvoice");
+//            try {
+//
+//                pres = con.prepareStatement("select * from qaimemehsullaritreeview");
+//                ResultSet rs5 = pres.executeQuery();
+//
+//                while (rs5.next()) {
+//
+//                    int id = rs5.getInt("id");
+//                    String name55 = rs5.getString("productName");
+//                    int number = rs5.getInt("numberOfProduct");
+//                    double priceOfProduct = rs5.getDouble("priceOfProductBuy");
+//                    double total2 = rs5.getDouble("total");
+//
+//                    String query2 = "update mehsullar set Miqdari = Miqdari + ?, Qaliq_say = Qaliq_say + ?, Alis_qiymeti = ?, Alis_Tarixi =? where id = ?";
+//
+//                    pres = con.prepareStatement(query2);
+//
+//                    pres.setInt(1, number);
+//                    pres.setInt(2, number);
+//                    pres.setDouble(3, priceOfProduct);
+//                    pres.setString(4, time);
+//                    pres.setInt(5, id);
+//
 //                    pres.executeUpdate();
 //
-//                    con = connect();
-//                    pres = con.prepareStatement("truncate table totalsumforautoinsert");
-//                    pres.executeUpdate();
-//                    load();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+//                }
+//
+//                pres = con.prepareStatement("truncate table qaimemehsullaritreeview;");
+//                pres.executeUpdate();
+//
+////                   
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
 
             writeFileFromJtableToFile();
             Save();
@@ -3699,6 +3662,7 @@ public class TreeView1 extends javax.swing.JFrame {
     public void open() {
 
         panelSearch.setVisible(false);
+        Double alis = null;
         GetProductForTreeView getProduct = new GetProductForTreeView(this, true);
 
         df = (DefaultTableModel) jTableMehsullar.getModel();
@@ -3736,7 +3700,7 @@ public class TreeView1 extends javax.swing.JFrame {
                     stmt.execute("select m.* from qaimemehsullariTreeView m order by say desc limit 1");
                     ResultSet rs = stmt.getResultSet();
                     rs.next();
-
+                    alis = Double.parseDouble(getProduct.txtProductPrice.getText());
                     say = rs.getInt("say");
 
                     Connection c2 = connect();
@@ -3748,7 +3712,7 @@ public class TreeView1 extends javax.swing.JFrame {
                     pres.setString(3, name);
                     pres.setInt(4, say2);
                     pres.setDouble(5, satisQiymeti);
-                    pres.setDouble(6, alisQiymeti * say2);
+                    pres.setDouble(6, alis * say2);
 
                     if (name == "Долг") {
 
@@ -3757,7 +3721,7 @@ public class TreeView1 extends javax.swing.JFrame {
                         pres.setDouble(7, totalRounded * say2 + say2);
                     } else {
                         pres.setDouble(7, satisQiymeti * say2);
-                        pres.setDouble(8, alisQiymeti);
+                        pres.setDouble(8, alis);
 
                     }
 
@@ -3779,7 +3743,7 @@ public class TreeView1 extends javax.swing.JFrame {
                         pres.setString(3, name);
                         pres.setInt(4, say2);
                         pres.setDouble(5, satisQiymeti);
-                        pres.setDouble(6, alisQiymeti * say2);
+                        pres.setDouble(6, alis * say2);
                         if (name.equals("Долг")) {
 
                             double total = priceOfSale - 10 * priceOfSale / 100;
@@ -3787,7 +3751,7 @@ public class TreeView1 extends javax.swing.JFrame {
                             pres.setDouble(7, totalRounded * say2 + say2);
                         } else {
                             pres.setDouble(7, satisQiymeti * say2);  // burada + say2 ni pozdum
-                            pres.setDouble(8, alisQiymeti);  // burada + say2 ni pozdum
+                            pres.setDouble(8, alis);  // burada + say2 ni pozdum
 
                         }
 
@@ -4283,7 +4247,8 @@ public class TreeView1 extends javax.swing.JFrame {
     }
 
     public void printOrShowBarcode(int say) {
-
+        
+        String printerName;
         String currency;
         df = (DefaultTableModel) jTableMehsullar.getModel();
         int selectedRow = jTableMehsullar.getSelectedRow();
@@ -4301,11 +4266,15 @@ public class TreeView1 extends javax.swing.JFrame {
 
         String productColor = "******";
         String productSize = "******";
-        String projectPath = "C:\\GitHubProject\\VeneraMarket\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\BarcodePrinter.jrxml";
+        String projectPath = System.getProperty("user.dir");
+        System.out.println(projectPath);
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
+        System.out.println(filePath);
+
         JasperDesign jdesign;
         try {
             Connection c = connect();
-            jdesign = JRXmlLoader.load(projectPath);
+            jdesign = JRXmlLoader.load(projectPath + filePath);
             JasperReport jr = null;
 
             HashMap<String, Object> parametrs;
@@ -4315,7 +4284,11 @@ public class TreeView1 extends javax.swing.JFrame {
             parametrs.put("productSize", productSize);
             parametrs.put("productColor", productColor);
             parametrs.put("productPrice", productPrice + currency);
-            String printerName = "Xprinter XP-365B";
+            if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
+                printerName = "TSC TDP-225";
+            } else {
+                printerName = "Xprinter XP-365B";
+            }
 
             jr = JasperCompileManager.compileReport(jdesign);
 
@@ -4440,23 +4413,16 @@ public class TreeView1 extends javax.swing.JFrame {
                     v2.add(rs.getInt("say"));
                     v2.add(rs.getString("productName"));
                     v2.add(rs.getInt("numberOfProduct"));
+                    v2.add(rs.getDouble("priceOfProductBuy"));
                     v2.add(rs.getDouble("priceOfSale"));
                     v2.add(roundTotal);
                     v2.add(rs.getInt("id"));
-                    v2.add(rs.getDouble("PriceOfBuy"));
+
                 }
                 df.addRow(v2);
 
             }
 
-//            int rowCount = df.getRowCount();
-//            if (rowCount == 0) {
-//                txtCemMebleg.setText("");
-//                txtSetPrice.setText("");
-//                txtDollarkurs.setText("");
-//                txtNameAndSurename.setText("");
-//                txtCommentary.setText("");
-//            }
         } catch (Exception ex) {
             System.out.println(ex);
 
@@ -4594,7 +4560,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
         for (int i = 0; i < df.getRowCount(); i++) {
 
-            toplam = Double.parseDouble(df.getValueAt(i, 4).toString());
+            toplam = Double.parseDouble(df.getValueAt(i, 5).toString());
             cem += toplam;
             //String formattedGelir = dformater.format((cem));
             double roundedTotal = Math.round(cem * 100.000) / 100.000;

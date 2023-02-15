@@ -489,23 +489,23 @@ public class OpenBillPurchase extends javax.swing.JFrame {
                 String mehsulAdi = df.getValueAt(i, 1).toString();
                 int miqdari = Integer.parseInt(df.getValueAt(i, 2).toString());
                 double alisQiymeti = Double.parseDouble(df.getValueAt(i, 3).toString());
-                double umumiMebleg = Double.parseDouble(df.getValueAt(i, 4).toString());
-                int id2 = Integer.parseInt(df.getValueAt(i, 5).toString());
+                double satisQiymeti = Double.parseDouble(df.getValueAt(i, 4).toString());
+                double umumiMebleg = Double.parseDouble(df.getValueAt(i, 5).toString());
+                int id2 = Integer.parseInt(df.getValueAt(i, 6).toString());
                 String kimden = txtNameAndSurename.getText();
                 String qurum = txtCommentary.getText();
                 String qaimeNum = (txtNumberOfContract.getText());
                 try {
-                    pres = con.prepareCall("insert into openpurchasedinvoice ( say, id, productName, numberOfProduct, priceOfSale, total, kimden) values (?,?,?,?,?,?,?)");
+                    pres = con.prepareCall("insert into openpurchasedinvoice ( say, id, productName, numberOfProduct,PriceOfBuy, priceOfSale, total, kimden) values (?,?,?,?,?,?,?,?)");
 
                     pres.setInt(1, id);
                     pres.setInt(2, id2);
                     pres.setString(3, mehsulAdi);
                     pres.setInt(4, miqdari);
                     pres.setDouble(5, alisQiymeti);
-                    pres.setDouble(6, umumiMebleg);
-                    pres.setString(7, kimden);
-//                    pres.setString(7, qurum);
-//                    pres.setString(8, qaimeNum);
+                    pres.setDouble(6, satisQiymeti);
+                    pres.setDouble(7, umumiMebleg);
+                    pres.setString(8, kimden);
                     pres.executeUpdate();
 
                 } catch (SQLException ex) {
@@ -974,7 +974,7 @@ public class OpenBillPurchase extends javax.swing.JFrame {
         jMenuItem9.setText("Legv et");
         jPopupMenu2.add(jMenuItem9);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1539, 650));
@@ -1059,7 +1059,6 @@ public class OpenBillPurchase extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
 
         txtNameAndSurename.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        txtNameAndSurename.setForeground(new java.awt.Color(0, 0, 0));
         txtNameAndSurename.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameAndSurenameActionPerformed(evt);
@@ -1089,22 +1088,18 @@ public class OpenBillPurchase extends javax.swing.JFrame {
         txtTime.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Имя и фамилия :");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Комментарий :");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Номер накладной :");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Дата создания :");
 
@@ -1193,7 +1188,7 @@ public class OpenBillPurchase extends javax.swing.JFrame {
 
             },
             new String [] {
-                "№", "Наименование товара", "количество", "Цена продажи", "Сумма", "id"
+                "№", "Mehsul adı", "Miqdarı", "Alış qiymeti", "Satış qiymeti", "Toplam", "id"
             }
         ));
         tblYeniMehsullar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1218,9 +1213,9 @@ public class OpenBillPurchase extends javax.swing.JFrame {
             tblYeniMehsullar.getColumnModel().getColumn(2).setMinWidth(50);
             tblYeniMehsullar.getColumnModel().getColumn(2).setPreferredWidth(120);
             tblYeniMehsullar.getColumnModel().getColumn(2).setMaxWidth(150);
-            tblYeniMehsullar.getColumnModel().getColumn(5).setMinWidth(0);
-            tblYeniMehsullar.getColumnModel().getColumn(5).setPreferredWidth(0);
-            tblYeniMehsullar.getColumnModel().getColumn(5).setMaxWidth(0);
+            tblYeniMehsullar.getColumnModel().getColumn(6).setMinWidth(0);
+            tblYeniMehsullar.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tblYeniMehsullar.getColumnModel().getColumn(6).setMaxWidth(0);
         }
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -2703,6 +2698,7 @@ public class OpenBillPurchase extends javax.swing.JFrame {
                     v2.add(rs.getInt("say"));
                     v2.add(rs.getString("productName"));
                     v2.add(rs.getInt("numberOfProduct"));
+                    v2.add(rs.getDouble("PriceOfBuy"));
                     v2.add(rs.getDouble("priceOfSale"));
                     v2.add(rs.getDouble("total"));
                     v2.add(rs.getInt("id"));
@@ -2761,7 +2757,7 @@ public class OpenBillPurchase extends javax.swing.JFrame {
 
         for (int i = 0; i < df.getRowCount(); i++) {
 
-            toplam = Double.parseDouble(df.getValueAt(i, 4).toString());
+            toplam = Double.parseDouble(df.getValueAt(i, 5).toString());
             cem += toplam;
             double roundedTotal = Math.round(cem * 100.000) / 100.000;
             txtCemMebleg.setText(Double.toString(roundedTotal));
