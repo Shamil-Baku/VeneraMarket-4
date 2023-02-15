@@ -21,12 +21,20 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import org.bouncycastle.math.Primes;
 
 /**
@@ -448,6 +456,9 @@ public class Kassa extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         cBoxOptionFoorSearch = new javax.swing.JComboBox<>();
+        cBoxOptionForBill = new javax.swing.JComboBox<>();
+        txtBillNumberForPrint = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGelirCedveli = new javax.swing.JTable();
@@ -665,6 +676,15 @@ public class Kassa extends javax.swing.JFrame {
 
         cBoxOptionFoorSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Müşteri axtar..", "Xerc axtar..", "Mehsul axtar.." }));
 
+        cBoxOptionForBill.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sonuncu satiş", "Çek nömreine esasen" }));
+
+        jButton9.setText("Çek çap edin");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -691,15 +711,15 @@ public class Kassa extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(sonTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sonTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
                                     .addComponent(ilkTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                                         .addGap(24, 24, 24)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -738,7 +758,14 @@ public class Kassa extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton6))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cBoxOptionForBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton9))
+                            .addComponent(txtBillNumberForPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
@@ -818,13 +845,21 @@ public class Kassa extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(cBoxOptionFoorSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(cBoxOptionFoorSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cBoxOptionForBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtBillNumberForPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2953,6 +2988,164 @@ public class Kassa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        int saySebetUcun = 1;
+        double allTolat =0;
+        String optionForPaymentBill = cBoxOptionForBill.getSelectedItem().toString();
+
+        if (optionForPaymentBill.equals("Sonuncu satiş")) {
+            try {
+                
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+                
+                con = connect();
+                pres = con.prepareStatement("select * from satilan_mallar order by cekNomresi desc limit 1");
+                ResultSet rs = pres.executeQuery();
+
+                rs.next();
+
+                float billNumber = rs.getFloat("cekNomresi");
+                System.out.println("Sonuncu cek nomresi budu---->" + billNumber);
+
+                pres = con.prepareStatement("select * from satilan_mallar where cekNomresi = " + billNumber);
+                ResultSet rsForProducts = pres.executeQuery();
+
+                while (rsForProducts.next()) {
+                    String mehsul = rsForProducts.getString("Malin_adi");
+                    int mehsulID = rsForProducts.getInt("id");
+                    int miqdari = rsForProducts.getInt("Miqdari");
+                    double total = rsForProducts.getDouble("Umumi_Mebleg");
+                    double satisQiymeti = rsForProducts.getDouble("Satis_qiymeti");
+                    
+                    allTolat+=total;
+                    
+                    pres = con.prepareStatement(
+                            "insert into sebet ( id2, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Tarix ) values(?,?,?,?,?,?,? )");
+
+                    pres.setInt(1, saySebetUcun);
+                    pres.setInt(2, mehsulID);
+                    pres.setString(3, mehsul);
+                    pres.setInt(4, miqdari);
+                    pres.setDouble(5, satisQiymeti);
+                    pres.setDouble(6, total);
+                    pres.setString(7, time);
+                    pres.executeUpdate();
+                    saySebetUcun++;
+
+                }
+                
+                printRecipe(allTolat);
+                
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (optionForPaymentBill.equals("Çek nömreine esasen")) {
+
+            try {
+                
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+                
+                float billNumber = Float.parseFloat(txtBillNumberForPrint.getText());
+
+                pres = con.prepareStatement("select * from satilan_mallar where cekNomresi = " + billNumber);
+                ResultSet rsForProducts = pres.executeQuery();
+
+                while (rsForProducts.next()) {
+                    String mehsul = rsForProducts.getString("Malin_adi");
+                    int mehsulID = rsForProducts.getInt("id");
+                    int miqdari = rsForProducts.getInt("Miqdari");
+                    double total = rsForProducts.getDouble("Umumi_Mebleg");
+                    double satisQiymeti = rsForProducts.getDouble("Satis_qiymeti");
+                    allTolat+=total;
+
+                    pres = con.prepareStatement(
+                            "insert into sebet ( id2, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Tarix ) values(?,?,?,?,?,?,? )");
+
+                    pres.setInt(1, saySebetUcun);
+                    pres.setInt(2, mehsulID);
+                    pres.setString(3, mehsul);
+                    pres.setInt(4, miqdari);
+                    pres.setDouble(5, satisQiymeti);
+                    pres.setDouble(6, total);
+                    pres.setString(7, time);
+                    pres.executeUpdate();
+                    saySebetUcun++;
+                    
+                }
+
+                printRecipe(allTolat);
+                
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+        }
+
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    
+    public void printRecipe(double total) {
+        String printerName;
+        String currency = "AZN";
+        String totalSum = Double.toString(total);
+        
+        boolean yoxla = totalSum.contains(".");
+        if (yoxla == true) {
+            currency = "0 qepik";
+        } else {
+            currency = ".00 AZN";
+        }
+
+        String projectPath = System.getProperty("user.dir");
+        System.out.println(projectPath);
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
+        System.out.println(filePath);
+
+        JasperDesign jdesign;
+        try {
+            Connection c = connect();
+            jdesign = JRXmlLoader.load(projectPath + filePath);
+            JasperReport jr = null;
+
+            HashMap<String, Object> parametrs;
+            parametrs = new HashMap<>();
+            parametrs.put("date", time);
+            parametrs.put("totalSum", totalSum + currency);
+
+            if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
+                printerName = "TSC TDP-225";
+            } else {
+                printerName = "Xprinter XP-365B";
+            }
+
+            jr = JasperCompileManager.compileReport(jdesign);
+
+            JasperPrint jprint = JasperFillManager.fillReport(jr, parametrs, c);
+
+            SilentPrint ss = new SilentPrint();
+            SilentPrint2 sp = new SilentPrint2();
+            //ss.printReport(jr, productPrice, parametrs, c);
+
+            sp.PrintReportToPrinter(jprint, printerName, 1);
+
+            //JasperViewer.viewReport(jprint, false);
+        } catch (JRException ex) {
+            Logger.getLogger(TreeView1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    
     public void refreshAfterUpdate() {
 
         boolean checkLastMonth = sonBirAy.isSelected();
@@ -3037,6 +3230,7 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JButton btnHesabla;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cBoxOptionFoorSearch;
+    private javax.swing.JComboBox<String> cBoxOptionForBill;
     private javax.swing.JComboBox<String> cbOption;
     private javax.swing.JRadioButton dunen;
     private com.toedter.calendar.JDateChooser ilkTarix;
@@ -3048,6 +3242,7 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3077,6 +3272,7 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JRadioButton sonUcGun;
     private javax.swing.JTable tblGelirCedveli;
     private javax.swing.JTextField txtAxtaris;
+    private javax.swing.JTextField txtBillNumberForPrint;
     private javax.swing.JTextField txtCapitalBudget;
     private javax.swing.JTextField txtKassa;
     private javax.swing.JTextField txtPayment;
