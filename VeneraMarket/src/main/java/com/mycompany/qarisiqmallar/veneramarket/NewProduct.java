@@ -272,113 +272,6 @@ public class NewProduct extends javax.swing.JDialog {
 
         createNewProduct();
 
-//        try {
-//            mehsulAdi = this.txtMehsulAdi.getText();
-//            priceOfBuy = Double.parseDouble(this.txtAlisQiymeti.getText());
-//            priceOfSell = Double.parseDouble(this.txtSatisQiymeti.getText());
-//            Connection c2 = connect();
-//
-//            pres = c2.prepareStatement("select * from category where categories = " + "'" + mainCat + "'");
-//            ResultSet rs2 = pres.executeQuery();
-//
-//            rs2.next();
-//            String mainCatName = rs2.getString("categories");
-//            int mainCatID = rs2.getInt("id");
-//
-//            pres = c2.prepareStatement("select * from subcategory where name = " + "'" + subCat + "'");
-//            ResultSet rs3 = pres.executeQuery();
-//
-//            rs3.next();
-//            String subCatName = rs3.getString("name");
-//            int subCatID = rs3.getInt("id");
-//
-//            pres = c2.prepareStatement("select * from 2ndsubcategory where name = " + "'" + secondSubCat + "'");
-//            ResultSet rs4 = pres.executeQuery();
-//
-//            rs4.next();
-//            String SecondSubCatName = rs4.getString("name");
-//            int SecondSubCatID = rs4.getInt("id");
-//
-//            pres = c2.prepareStatement("select * from 3ndsubcategory where name = " + "'" + thirdSubCat + "'");
-//            ResultSet rs5 = pres.executeQuery();
-//
-//            rs5.next();
-//            String thirdSubCatName = rs5.getString("name");
-//            int thirdSubCatName2 = rs5.getInt("id");
-//
-//            try {
-//
-//                System.out.println("Image path.." + filename);
-//                System.out.println("Image name.." + f.getName());
-//                File f = new File(filename);
-//                InputStream is = new FileInputStream(f);
-//
-//                Connection c = connect();
-//                pres = c.prepareStatement("insert into mehsullar (Malin_adi,mainCategory, subCategory, 2ndsubcategory,3ndsubcategory, Alis_qiymeti, Satis_qiymeti, Alisin_toplam_deyer, Satis_miqdari, Satisin_toplam_deyeri,Qaliq_say,imagePath ) values(?,?,?,?,?,?,?,?,?,?,?)");
-//                pres.setString(1, mehsulAdi);
-//                pres.setInt(2, mainCatID);
-//                pres.setInt(3, subCatID);
-//                pres.setInt(4, SecondSubCatID);
-//                pres.setInt(5, thirdSubCatName2);
-//                pres.setDouble(6, priceOfBuy);
-//                pres.setDouble(7, priceOfSell);
-//                pres.setDouble(8, 0.0);
-//                pres.setDouble(9, 0.0);
-//                pres.setDouble(10, 0.0);
-//                pres.setDouble(11, 0.0);
-//                pres.setBlob(12, is);
-//                pres.executeUpdate();
-//
-//            } catch (Exception ex) {
-//
-//                ex.printStackTrace();
-//
-//                Connection c = connect();
-//                pres = c.prepareStatement("insert into mehsullar (Malin_adi,mainCategory, subCategory, 2ndsubcategory,3ndsubcategory, Alis_qiymeti, Satis_qiymeti, Alisin_toplam_deyer, Satis_miqdari, Satisin_toplam_deyeri,Qaliq_say ) values(?,?,?,?,?,?,?,?,?,?,?)");
-//                pres.setString(1, mehsulAdi);
-//                pres.setInt(2, mainCatID);
-//                pres.setInt(3, subCatID);
-//                pres.setInt(4, SecondSubCatID);
-//                pres.setInt(5, thirdSubCatName2);
-//                pres.setDouble(6, priceOfBuy);
-//                pres.setDouble(7, priceOfSell);
-//                pres.setDouble(8, 0.0);
-//                pres.setDouble(9, 0.0);
-//                pres.setDouble(10, 0.0);
-//                pres.setDouble(11, 0.0);
-//                pres.executeUpdate();
-//
-//            }
-//            try {
-//
-//                Connection c = connect();
-//                Statement stmt = c.createStatement();
-//                stmt.execute("select m.* from mehsullar m order by id desc limit 1");
-//                ResultSet rs = stmt.getResultSet();
-//
-//                while (rs.next()) {
-//
-//                    int id = rs.getInt("id");
-//
-//                    pres = c.prepareStatement("update mehsullar set Barcode=? where id =" + id);
-//                    pres.setString(1, "1234500" + id);
-//                    pres.executeUpdate();
-//
-//                }
-//
-//            } catch (Exception ex) {
-//                ex.printStackTrace();
-//
-//            }
-//
-//            JOptionPane.showMessageDialog(this, "Yeni mehsul ugurla elave olundu");
-//            TreeView1.mouseClicked();
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//
-//        this.dispose();
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void addProductToTheThirdSubCat() {
@@ -433,7 +326,7 @@ public class NewProduct extends javax.swing.JDialog {
             String mainCatName = rs2.getString("categories");
             mainCatID = rs2.getInt("id");
 
-            pres = con.prepareStatement("select * from subcategory where name = " + "'" + thirdSubCat + "'");
+            pres = con.prepareStatement("select * from subcategory s where name = " + "'" + thirdSubCat + "'" +" and s.index = " + mainCatID);
             ResultSet rs3 = pres.executeQuery();
 
             rs3.next();
@@ -771,7 +664,7 @@ public class NewProduct extends javax.swing.JDialog {
                 pres.executeUpdate();
 
             }
-            ProductCategories.mouseClicked();
+            TreeView1.mouseClicked();
 
         } catch (Exception ex) {
             ex.printStackTrace();

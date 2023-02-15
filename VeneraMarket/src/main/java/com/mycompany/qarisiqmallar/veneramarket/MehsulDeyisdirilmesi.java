@@ -121,7 +121,7 @@ public class MehsulDeyisdirilmesi extends javax.swing.JFrame {
         btnGeriQaytar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1311, 789));
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 153));
@@ -656,7 +656,6 @@ public class MehsulDeyisdirilmesi extends javax.swing.JFrame {
         btnSil.setBackground(new java.awt.Color(255, 51, 0));
         btnSil.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnSil.setForeground(new java.awt.Color(255, 255, 255));
-        btnSil.setIcon(new javax.swing.ImageIcon("C:\\GitHubProject\\VeneraMarket-2\\VeneraMarket\\src\\main\\java\\pictures\\Delete-icon.png")); // NOI18N
         btnSil.setText("Sil");
         btnSil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1546,7 +1545,7 @@ public class MehsulDeyisdirilmesi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSilActionPerformed
 
     private void btnGeriQaytarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeriQaytarActionPerformed
-       String id, Malin_adi, Miqdari, Qiymeti, Movsum_ID, Kateqoriya_ID, Alt_Kateqoriya_ID, Ümumi_Məbləğ, tarix, satisID;
+       String id, tarix, satisID;
          try {
              
              

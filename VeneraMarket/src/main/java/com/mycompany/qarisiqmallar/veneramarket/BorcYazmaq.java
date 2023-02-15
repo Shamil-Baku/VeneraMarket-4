@@ -832,8 +832,20 @@ public class BorcYazmaq extends javax.swing.JFrame {
                         QismenOdenis = Double.parseDouble(df.getValueAt(i, 6).toString());
                         QaliqBorc = Double.parseDouble(df.getValueAt(i, 7).toString());
                         Tarix = df.getValueAt(i, 8).toString();
+                        
+                        String status = "Active";
+                        pres = con.prepareStatement("select * from users where status = " + "'"+status+"'");
+                        ResultSet rsForActiveUser = pres.executeQuery();
 
-                        String query = "insert into borclar_siyahisi( Borc_alanin_adi, Borca_goturduyu_mehsul, Mehsul_ID, Miqdari, Qiymeti, Umumi_mebleg, Qismen_odenis, Qaliq_borc, Borc_alma_tarixi ) values(?,?,?,?,?,?,?,?,?)";
+                        rsForActiveUser.next();
+
+                        String activeUserName = rsForActiveUser.getString("UserName");
+                        String activeUserSurename = rsForActiveUser.getString("UserSureName");
+                        
+                        
+                        String kassirName = comboBoxOptionForCashier.getSelectedItem().toString();
+                        
+                        String query = "insert into borclar_siyahisi( Borc_alanin_adi, Borca_goturduyu_mehsul, Mehsul_ID, Miqdari, Qiymeti, Umumi_mebleg, Qismen_odenis, Qaliq_borc, Borc_alma_tarixi, Kassir, ActiveUser ) values(?,?,?,?,?,?,?,?,?,?,?)";
 
                         pres = con.prepareStatement(query);
                         pres.setString(1, BorcAlaninAdi);
@@ -845,11 +857,13 @@ public class BorcYazmaq extends javax.swing.JFrame {
                         pres.setDouble(7, QismenOdenis);
                         pres.setDouble(8, QaliqBorc);
                         pres.setString(9, Tarix);
+                        pres.setString(10, kassirName);
+                        pres.setString(11, activeUserName+" "+activeUserSurename);
                         pres.execute();
 
                         if (QaliqBorc != UmumiMebleg) {
 
-                            String query2 = "insert into satilan_mallar ( id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Satis_Tarixi, Borc_Alanin_Adi,OdenisinNovu, QiemenOdenis, Borcdan_Gelen) values(?,?,?,?,?,?,?,?,?,?)";
+                            String query2 = "insert into satilan_mallar ( id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Satis_Tarixi, Borc_Alanin_Adi,OdenisinNovu, QiemenOdenis, Borcdan_Gelen, Kassir, ActiveUser) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
                             pres = con.prepareStatement(query2);
                             pres.setInt(1, 0);
@@ -862,6 +876,8 @@ public class BorcYazmaq extends javax.swing.JFrame {
                             pres.setString(8, "Borcdan gələn");
                             pres.setDouble(9, QismenOdenis);
                             pres.setDouble(10, UmumiMebleg);
+                            pres.setString(11, kassirName);
+                            pres.setString(12, activeUserName+" "+activeUserSurename);
 
                             pres.execute();
 
