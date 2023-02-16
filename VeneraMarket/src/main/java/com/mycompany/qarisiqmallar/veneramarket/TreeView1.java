@@ -1330,7 +1330,7 @@ public class TreeView1 extends javax.swing.JFrame {
         Cancel.setText("jMenuItem10");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
@@ -4268,7 +4268,7 @@ public class TreeView1 extends javax.swing.JFrame {
         String productSize = "******";
         String projectPath = System.getProperty("user.dir");
         System.out.println(projectPath);
-        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\BarcodePrinter.jrxml";
         System.out.println(filePath);
 
         JasperDesign jdesign;

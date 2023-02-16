@@ -264,7 +264,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
         comboBoxOptionForCashier = new javax.swing.JComboBox<>();
         checkBoxOptionFotPrintRecipe = new javax.swing.JCheckBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 204));
 

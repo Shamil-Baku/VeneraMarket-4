@@ -974,7 +974,7 @@ public class OpenBillPurchase extends javax.swing.JFrame {
         jMenuItem9.setText("Legv et");
         jPopupMenu2.add(jMenuItem9);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1539, 650));
