@@ -140,7 +140,7 @@
 			<componentElement>
 				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="37" y="0" width="94" height="25" uuid="58bf3831-805a-4a77-8f5e-08ff2efe1dc4"/>
 				<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" moduleWidth="0.9" textPosition="bottom">
-					<jr:codeExpression><![CDATA[$F{Barcode}]]></jr:codeExpression>
+					<jr:codeExpression><![CDATA[$P{barcodeNumber}]]></jr:codeExpression>
 				</jr:Code128>
 			</componentElement>
 			<line>
