@@ -1266,7 +1266,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         Cancel.setText("jMenuItem10");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
@@ -2805,13 +2805,13 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
 
     public void printOrShowBarcode() {
 
-        df = (DefaultTableModel) jTableMehsullar.getModel();
-        int selectedRow = jTableMehsullar.getSelectedRow();
+        df = (DefaultTableModel) ProductCategories.jTableMehsullar.getModel();
+        int selectedRow = ProductCategories.jTableMehsullar.getSelectedRow();
 
-        int id = Integer.parseInt(jTableMehsullar.getValueAt(selectedRow, 0).toString());
-        String productName = jTableMehsullar.getValueAt(selectedRow, 1).toString();
-        String productPrice = jTableMehsullar.getValueAt(selectedRow, 4).toString();
-        String barcode = jTableMehsullar.getValueAt(selectedRow, 6).toString();
+        int id = Integer.parseInt(ProductCategories.jTableMehsullar.getValueAt(selectedRow, 0).toString());
+        String productName = ProductCategories.jTableMehsullar.getValueAt(selectedRow, 1).toString();
+        String productPrice = ProductCategories.jTableMehsullar.getValueAt(selectedRow, 4).toString();
+        String barcode = ProductCategories.jTableMehsullar.getValueAt(selectedRow, 6).toString();
         String currency = null;
 
         boolean yoxla = productPrice.contains(".0");
