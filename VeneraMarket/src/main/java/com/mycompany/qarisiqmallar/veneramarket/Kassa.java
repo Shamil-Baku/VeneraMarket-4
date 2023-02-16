@@ -1045,7 +1045,7 @@ public class Kassa extends javax.swing.JFrame {
 
         try {
             Connection c = connect();
-            pres = c.prepareStatement("select * from clients c where c.NameAndSurename like " + "'" + "%" + s + "%" + "'");
+            pres = c.prepareStatement("select * from clients_permanently c where c.NameAndSurename like " + "'" + "%" + s + "%" + "'");
 
             ResultSet rs = pres.executeQuery();
 

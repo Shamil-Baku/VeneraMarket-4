@@ -4318,13 +4318,26 @@ public class TreeView1 extends javax.swing.JFrame {
 
     public void printOrShowBarcode() {
 
-        df = (DefaultTableModel) jTableMehsullar.getModel();
-        int selectedRow = jTableMehsullar.getSelectedRow();
+        df = (DefaultTableModel) TreeView1.jTableMehsullar.getModel();
+        int selectedRow = TreeView1.jTableMehsullar.getSelectedRow();
 
-        int id = Integer.parseInt(jTableMehsullar.getValueAt(selectedRow, 0).toString());
-        String productName = jTableMehsullar.getValueAt(selectedRow, 1).toString();
-        String productPrice = jTableMehsullar.getValueAt(selectedRow, 4).toString();
-        String barcode = jTableMehsullar.getValueAt(selectedRow, 6).toString();
+        int id = Integer.parseInt(TreeView1.jTableMehsullar.getValueAt(selectedRow, 0).toString());
+        String productName = TreeView1.jTableMehsullar.getValueAt(selectedRow, 1).toString();
+        String productPrice = TreeView1.jTableMehsullar.getValueAt(selectedRow, 4).toString();
+        String barcode2 = null;
+        try{
+            con = connect();
+            pres = con.prepareStatement("select * from mehsullar where id = "+id);
+            ResultSet rsForProduct = pres.executeQuery();
+            
+            while (rsForProduct.next()) {                
+                barcode2 = rsForProduct.getString("Barcode");
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        String barcode = TreeView1.jTableMehsullar.getValueAt(selectedRow, 6).toString();
         String currency = null;
 
         boolean yoxla = productPrice.contains(".0");
@@ -4349,7 +4362,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
             HashMap<String, Object> parametrs;
             parametrs = new HashMap<>();
-            parametrs.put("barcodeNumber", barcode);
+            parametrs.put("barcodeNumber", barcode2);
             parametrs.put("productName", productName);
             parametrs.put("productSize", productSize);
             parametrs.put("productColor", productColor);
