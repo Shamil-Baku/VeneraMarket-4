@@ -58,7 +58,7 @@ public class Kassa extends javax.swing.JFrame {
         Date dt = new Date();
         sdf = new SimpleDateFormat("HH:mm:ss");
         sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+        txtBillNumberForPrint.disable();
         time = sdf2.format(dt);
 
     }
@@ -471,7 +471,7 @@ public class Kassa extends javax.swing.JFrame {
         jtableExpenses = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
@@ -588,13 +588,14 @@ public class Kassa extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Xeyir");
+        jLabel5.setText("Ümumi Xercler");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Xalis Gəlir");
 
         txtTotalExpenses.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtTotalExpenses.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -611,7 +612,7 @@ public class Kassa extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Ümumi Xercler");
+        jLabel9.setText("Xeyir");
 
         jButton7.setText("Redakte et");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -677,6 +678,11 @@ public class Kassa extends javax.swing.JFrame {
         cBoxOptionFoorSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Müşteri axtar..", "Xerc axtar..", "Mehsul axtar.." }));
 
         cBoxOptionForBill.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sonuncu satiş", "Çek nömreine esasen" }));
+        cBoxOptionForBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxOptionForBillActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Çek çap edin");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -711,15 +717,15 @@ public class Kassa extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(sonTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                    .addComponent(sonTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                                     .addComponent(ilkTarix, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
                                         .addGap(24, 24, 24)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,9 +749,9 @@ public class Kassa extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel9)
-                                        .addGap(69, 69, 69)
+                                        .addGap(59, 59, 59)
                                         .addComponent(jLabel5)
-                                        .addGap(93, 93, 93)
+                                        .addGap(54, 54, 54)
                                         .addComponent(jLabel6)
                                         .addGap(39, 39, 39)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1003,12 +1009,9 @@ public class Kassa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(1, 1, 1)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(6, 6, 6))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3092,6 +3095,14 @@ public class Kassa extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void cBoxOptionForBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxOptionForBillActionPerformed
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_cBoxOptionForBillActionPerformed
 
     
     public void printRecipe(double total) {
