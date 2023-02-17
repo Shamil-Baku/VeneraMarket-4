@@ -247,7 +247,6 @@ public class BorcYazmaq extends javax.swing.JFrame {
         tblBorcSiyahisi = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         txtUmumiBorc = new javax.swing.JTextField();
         txtOdenis = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -264,7 +263,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
         comboBoxOptionForCashier = new javax.swing.JComboBox<>();
         checkBoxOptionFotPrintRecipe = new javax.swing.JCheckBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 204));
 
@@ -364,21 +363,6 @@ public class BorcYazmaq extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(51, 255, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 0, 0));
-        jButton2.setText("Yenile");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -386,14 +370,12 @@ public class BorcYazmaq extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1184, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -404,8 +386,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
 
@@ -669,8 +650,8 @@ public class BorcYazmaq extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtQismenOdenisActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // bura
+    public void updateCreditInfo() {
+
         try {
             if (txtBorcAlaninAdi.getText().isEmpty()) {
 
@@ -774,11 +755,9 @@ public class BorcYazmaq extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }
 
-    }//GEN-LAST:event_jButton2ActionPerformed
     String optionForCashier = null;
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
@@ -788,9 +767,9 @@ public class BorcYazmaq extends javax.swing.JFrame {
         if (optionForCashier.equals("Secim edin..")) {
             JOptionPane.showMessageDialog(this, "Zehmet olmasa kassir adini secin!", "DIQQET", HEIGHT);
         } else {
-            if (yoxla == true) {
-                printCreditRecipe();
-            }
+//            if (yoxla == true) {
+//                printCreditRecipe();
+//            }
 
             df = (DefaultTableModel) tblBorcSiyahisi.getModel();
             if (df.getRowCount() == 0) {
@@ -821,7 +800,16 @@ public class BorcYazmaq extends javax.swing.JFrame {
                             ex.printStackTrace();
                         }
                         if (clientName == 0) {
-                            Ok(BorcAlaninAdi);
+
+                            int response = JOptionPane.showConfirmDialog(this, "Müşteri bazada mövcud deyil!\n Yeni müşteri olaraq bazaya elave edilsin?", "DIQQET!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+                            if (response == JOptionPane.YES_OPTION) {
+                                Ok(BorcAlaninAdi);
+                            } else if (response == JOptionPane.NO_OPTION) {
+                                updateCreditInfo();
+                                return;
+                            }
+
                         }
 
                         Mehsul = df.getValueAt(i, 1).toString();
@@ -832,19 +820,18 @@ public class BorcYazmaq extends javax.swing.JFrame {
                         QismenOdenis = Double.parseDouble(df.getValueAt(i, 6).toString());
                         QaliqBorc = Double.parseDouble(df.getValueAt(i, 7).toString());
                         Tarix = df.getValueAt(i, 8).toString();
-                        
+
                         String status = "Active";
-                        pres = con.prepareStatement("select * from users where status = " + "'"+status+"'");
+                        pres = con.prepareStatement("select * from users where status = " + "'" + status + "'");
                         ResultSet rsForActiveUser = pres.executeQuery();
 
                         rsForActiveUser.next();
 
                         String activeUserName = rsForActiveUser.getString("UserName");
                         String activeUserSurename = rsForActiveUser.getString("UserSureName");
-                        
-                        
+
                         String kassirName = comboBoxOptionForCashier.getSelectedItem().toString();
-                        
+
                         String query = "insert into borclar_siyahisi( Borc_alanin_adi, Borca_goturduyu_mehsul, Mehsul_ID, Miqdari, Qiymeti, Umumi_mebleg, Qismen_odenis, Qaliq_borc, Borc_alma_tarixi, Kassir, ActiveUser ) values(?,?,?,?,?,?,?,?,?,?,?)";
 
                         pres = con.prepareStatement(query);
@@ -858,7 +845,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
                         pres.setDouble(8, QaliqBorc);
                         pres.setString(9, Tarix);
                         pres.setString(10, kassirName);
-                        pres.setString(11, activeUserName+" "+activeUserSurename);
+                        pres.setString(11, activeUserName + " " + activeUserSurename);
                         pres.execute();
 
                         if (QaliqBorc != UmumiMebleg) {
@@ -877,7 +864,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
                             pres.setDouble(9, QismenOdenis);
                             pres.setDouble(10, UmumiMebleg);
                             pres.setString(11, kassirName);
-                            pres.setString(12, activeUserName+" "+activeUserSurename);
+                            pres.setString(12, activeUserName + " " + activeUserSurename);
 
                             pres.execute();
 
@@ -993,11 +980,11 @@ public class BorcYazmaq extends javax.swing.JFrame {
             parametrs.put("oldCredit", roundedOldCredit + currencyRoundedOldCredit);
             parametrs.put("finalCredit", finalCredit + currencyFinalCredit);
             parametrs.put("cashier", optionForCashier);
-            
+
             if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
                 printerName = "TSC TDP-225";
-            }else{
-                printerName = "Xprinter XP-365B";  
+            } else {
+                printerName = "Xprinter XP-365B";
             }
 
             jr = JasperCompileManager.compileReport(jdesign);
@@ -1122,6 +1109,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
         txtBorcAlaninAdi.setText(selectedClientName);
         modelList.removeAllElements();
         panelTest.setVisible(false);
+        updateCreditInfo();
 
     }//GEN-LAST:event_listNameOfClientsMouseClicked
 
@@ -1213,7 +1201,6 @@ public class BorcYazmaq extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkBoxOptionFotPrintRecipe;
     private javax.swing.JComboBox<String> comboBoxOptionForCashier;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

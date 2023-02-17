@@ -9,8 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,7 +32,8 @@ public class LoginOrRegister extends javax.swing.JFrame {
 
     public LoginOrRegister() {
         initComponents();
-        getSavedUser();
+        //getSavedUser();
+        JPanelSearch.setVisible(false);
     }
 
     /**
@@ -53,6 +56,9 @@ public class LoginOrRegister extends javax.swing.JFrame {
         jPassFUserPass = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         chechBoxForSave = new javax.swing.JCheckBox();
+        JPanelSearch = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JListUsers = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +75,12 @@ public class LoginOrRegister extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        txtUserName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUserNameKeyReleased(evt);
             }
         });
 
@@ -91,38 +103,57 @@ public class LoginOrRegister extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Meni yadda saxla :");
 
+        JListUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JListUsersMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(JListUsers);
+
+        javax.swing.GroupLayout JPanelSearchLayout = new javax.swing.GroupLayout(JPanelSearch);
+        JPanelSearch.setLayout(JPanelSearchLayout);
+        JPanelSearchLayout.setHorizontalGroup(
+            JPanelSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        JPanelSearchLayout.setVerticalGroup(
+            JPanelSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(164, 164, 164)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(132, 132, 132)
-                                .addComponent(chechBoxForSave))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))))
+                        .addGap(132, 132, 132)
+                        .addComponent(chechBoxForSave))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPassFUserPass, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSurename, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                             .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSurename, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(115, Short.MAX_VALUE))
+                            .addComponent(JPanelSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPassFUserPass))))
+                .addGap(11, 97, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,16 +161,18 @@ public class LoginOrRegister extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JPanelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtSurename, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtSurename, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jPassFUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jPassFUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(chechBoxForSave))
@@ -147,7 +180,7 @@ public class LoginOrRegister extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,6 +246,63 @@ public class LoginOrRegister extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPassFUserPassKeyReleased
 
+    DefaultListModel modelList = new DefaultListModel();
+    private void txtUserNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserNameKeyReleased
+
+        JPanelSearch.setVisible(true);
+        modelList.removeAllElements();
+        String find = txtUserName.getText();
+
+        try {
+
+            con = connect();
+            pres = con.prepareStatement("select * from saveduser where userName like  '%' " + "'" + find + "'" + " '%'");
+            ResultSet rs = pres.executeQuery();
+
+            while (rs.next()) {
+
+                modelList.addElement(rs.getString("userName"));
+                JListUsers.setModel(modelList);
+
+            }
+
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+
+        }
+
+
+    }//GEN-LAST:event_txtUserNameKeyReleased
+
+    private void JListUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JListUsersMouseClicked
+
+        String selectedUserName = JListUsers.getSelectedValue();
+        txtUserName.setText(selectedUserName);
+        modelList.removeAllElements();
+        JPanelSearch.setVisible(false);
+
+        try {
+
+            con = connect();
+            pres = con.prepareStatement("select * from saveduser where userName = " + "'" + selectedUserName + "'");
+            ResultSet rs = pres.executeQuery();
+
+            rs.next();
+
+            String userSurename = rs.getString("userSureName");
+            String userPass = rs.getString("userPassword");
+
+            txtSurename.setText(userSurename);
+            jPassFUserPass.setText(userPass);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+    }//GEN-LAST:event_JListUsersMouseClicked
+
     public void login() {
 
         String userName = txtUserName.getText();
@@ -253,14 +343,43 @@ public class LoginOrRegister extends javax.swing.JFrame {
 
             if (yoxla == true) {
 
-                pres = con.prepareStatement("truncate table saveduser");
-                pres.executeUpdate();
+                String savedUserSurename;
+                String savedUsername;
+                String userPass;
 
-                pres = con.prepareStatement("insert into saveduser (userName, userSureName, userPassword) values(?,?,?)");
-                pres.setString(1, userName);
-                pres.setString(2, userSurename);
-                pres.setString(3, password);
-                pres.executeUpdate();
+                pres = con.prepareStatement("select * from saveduser where userName = " + "'" + userName + "'");
+                ResultSet rsForSavedUser = pres.executeQuery();
+
+                rsForSavedUser.next();
+
+                try {
+
+                    savedUsername = rsForSavedUser.getString("userName");
+                    savedUserSurename = rsForSavedUser.getString("userSureName");
+                    userPass = rsForSavedUser.getString("userPassword");
+
+                    if (savedUserSurename.equals(userSurename) || savedUsername.equals(userName) || userPass.equals(password)) {
+
+                    } else {
+                        pres = con.prepareStatement("insert into saveduser (userName, userSureName, userPassword) values(?,?,?)");
+                        pres.setString(1, userName);
+                        pres.setString(2, userSurename);
+                        pres.setString(3, password);
+                        pres.executeUpdate();
+                        System.out.println("Saxlanildi");
+                    }
+
+                } catch (Exception ex) {
+                    String errorMessage = ex.getMessage();
+                    System.out.println(errorMessage);
+                    pres = con.prepareStatement("insert into saveduser (userName, userSureName, userPassword) values(?,?,?)");
+                    pres.setString(1, userName);
+                    pres.setString(2, userSurename);
+                    pres.setString(3, password);
+                    pres.executeUpdate();
+                    System.out.println("Saxlanildi");
+                }
+
             }
 
             Main main = new Main();
@@ -268,7 +387,7 @@ public class LoginOrRegister extends javax.swing.JFrame {
             this.dispose();
 
         } catch (Exception ex) {
-            //ex.printStackTrace();
+            ex.printStackTrace();
             String errorMessage = ex.getMessage();
             System.out.println(errorMessage);
             if (errorMessage.equals("Illegal operation on empty result set.")) {
@@ -279,7 +398,7 @@ public class LoginOrRegister extends javax.swing.JFrame {
 
     }
 
-     public void getSavedUser() {
+    public void getSavedUser() {
 
         try {
 
@@ -303,7 +422,6 @@ public class LoginOrRegister extends javax.swing.JFrame {
 
     }
 
-    
     /**
      * @param args the command line arguments
      */
@@ -340,6 +458,8 @@ public class LoginOrRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> JListUsers;
+    private javax.swing.JPanel JPanelSearch;
     private javax.swing.JCheckBox chechBoxForSave;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -349,6 +469,7 @@ public class LoginOrRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPassFUserPass;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtSurename;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
