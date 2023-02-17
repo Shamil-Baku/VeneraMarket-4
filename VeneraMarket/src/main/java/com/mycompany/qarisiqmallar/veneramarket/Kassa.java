@@ -471,7 +471,7 @@ public class Kassa extends javax.swing.JFrame {
         jtableExpenses = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
@@ -983,13 +983,13 @@ public class Kassa extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(34, 34, 34))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -998,8 +998,8 @@ public class Kassa extends javax.swing.JFrame {
                         .addComponent(jButton5)
                         .addComponent(jButton8))
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3098,8 +3098,14 @@ public class Kassa extends javax.swing.JFrame {
 
     private void cBoxOptionForBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxOptionForBillActionPerformed
         
-        
-        
+      boolean yoxla = txtBillNumberForPrint.isEnabled();
+      String selected = cBoxOptionForBill.getSelectedItem().toString();
+      
+        if (selected.equals("Sonuncu satiş")) {
+            txtBillNumberForPrint.disable();
+        }else{
+            txtBillNumberForPrint.enable();
+        }
         
         
     }//GEN-LAST:event_cBoxOptionForBillActionPerformed
