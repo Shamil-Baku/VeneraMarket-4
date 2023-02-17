@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="164" pageHeight="263" columnWidth="164" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8d4f5a1f-072b-4cde-a399-8879f23cc0bf">
+	<property name="ireport.zoom" value="3.725527938354931"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<parameter name="currentTime" class="java.lang.String"/>
+	<parameter name="clientName" class="java.lang.String"/>
+	<parameter name="firstDebt" class="java.lang.String"/>
+	<parameter name="payment" class="java.lang.String"/>
+	<parameter name="finalDebt" class="java.lang.String"/>
+	<parameter name="cashier" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select *  from sebet]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Malin_adi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Miqdari" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Satis_qiymeti" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="15" width="135" height="16" uuid="48c2146b-67f6-468c-90c4-4eadfd8c0213"/>
+				<textElement>
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Geyim ve Tekstil Dünyası]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="4" width="46" height="27" uuid="c93f39f4-f61a-4a39-bb04-edd3d52caccf"/>
+				<textElement>
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VENERA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="31" width="141" height="9" uuid="a961aab1-66d5-4887-a9c4-5622c0640093"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Ünvan : Kürdexanı qes, Kenan inşaatın yanı.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="42" width="142" height="11" uuid="da9cdff9-6083-4270-ae36-e8f73554e8f1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[  Elaqe nömresi : +994(70) 245-08-70]]></text>
+			</staticText>
+			<line>
+				<reportElement x="152" y="3" width="1" height="56" uuid="26a5c132-c1bf-4848-b520-560fee5a09f2"/>
+			</line>
+			<line>
+				<reportElement x="7" y="3" width="145" height="1" uuid="b84024d0-4299-47f6-aec0-8f562dd0281e"/>
+			</line>
+			<line>
+				<reportElement x="7" y="3" width="1" height="56" uuid="34eb2ebd-a8c7-48aa-98b7-49aa9e1065c4"/>
+			</line>
+			<line>
+				<reportElement x="7" y="58" width="145" height="1" uuid="d33fe304-4098-49a3-a5ad-e410a77aa10b"/>
+			</line>
+			<staticText>
+				<reportElement x="33" y="57" width="100" height="13" uuid="7038f7f4-1f4e-4329-a64d-51093f888d3d"/>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Borcun ödeniş qebzi]]></text>
+			</staticText>
+			<line>
+				<reportElement x="33" y="70" width="100" height="1" uuid="1b038820-6864-4d04-be61-017ba341039f"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="126" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="4" width="57" height="11" uuid="3144ccd4-bdbd-4e7e-b734-ea05f9dbaddd"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Müşterinin adı :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="19" width="69" height="11" uuid="210a4468-d7e5-49a0-bb8f-21579d9442c9"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[İlkin borc mebleği :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="32" width="50" height="11" uuid="17b96556-452e-4e57-84be-22a62dd840ed"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cari ödeniş  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="45" width="48" height="11" uuid="81823b08-1d97-4bb4-84d8-633ff8176f1d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Yekun borc :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="74" y="4" width="88" height="11" uuid="54f189d3-610b-46e6-a7dd-2910ef84f0fd"/>
+				<textElement>
+					<font size="8" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{clientName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="74" y="19" width="88" height="11" uuid="13ea32c9-fa31-4ed7-957b-abdf83f733b1"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{firstDebt}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="74" y="32" width="88" height="11" uuid="8f8e45cd-477a-46f2-be94-5ca9eb3e5c5b"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{payment}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="74" y="45" width="88" height="11" uuid="01c3b516-4938-441f-aa56-b7bfb8ff558d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{finalDebt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="97" width="87" height="11" uuid="47826033-5e22-46a7-b69b-e10261d1ca12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{currentTime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="58" width="38" height="11" uuid="d1c79fc8-fef2-4564-bde7-8d36aded5564"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[  Kassa №]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="58" width="16" height="11" uuid="753089db-472b-48bb-95b2-a46a3cb57ce6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="71" width="29" height="11" uuid="36e89490-e39d-4721-9620-ff3580c1c279"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Kassir :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="71" width="88" height="11" uuid="d752c6b3-345c-4429-90f9-a0e8176db609"/>
+				<textElement>
+					<font size="8" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cashier}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="97" width="29" height="11" uuid="20c12a14-dc8d-404b-95b0-922791ff3516"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tarix :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="74" y="14" width="86" height="1" uuid="967a3bf8-0e4e-4a13-8220-31742148bd4f"/>
+			</line>
+			<line>
+				<reportElement x="74" y="82" width="86" height="1" uuid="0604e82c-08ab-4869-b4e8-243e3289a757"/>
+			</line>
+		</band>
+	</pageHeader>
+</jasperReport>

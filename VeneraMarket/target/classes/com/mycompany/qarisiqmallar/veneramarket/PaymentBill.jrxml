@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="166" pageHeight="297" columnWidth="166" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f3a82c66-1eed-479a-9fe3-724f83e42cc7">
+	<property name="ireport.zoom" value="2.5937424601000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="kassadanCek" uuid="6fea70fc-b66f-4794-ae78-dfea25475161">
+		<queryString language="SQL">
+			<![CDATA[select * from satilan_mallar]]>
+		</queryString>
+		<field name="Malin_adi" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Miqdari" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Satis_qiymeti" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Umumi_Mebleg" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select * from satilan_mallar]]>
+	</queryString>
+	<field name="Malin_adi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Miqdari" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Satis_qiymeti" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Umumi_Mebleg" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement x="62" y="4" width="46" height="27" uuid="cbb80b34-7c98-4ebb-9402-40cb4c2befd4"/>
+				<textElement>
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VENERA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="15" width="134" height="16" uuid="9ce28c1b-ca8c-4006-a50c-cc99007671af"/>
+				<textElement>
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Geyim ve Tekstil Dünyası]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="31" width="149" height="11" uuid="22da5621-e49b-42a8-91d1-fba8a732d13d"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[  Ünvan : Kürdəxanı qəs, Kənan inşaatın yanı]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="42" width="135" height="11" uuid="dff3d77a-fb6d-45f6-9dd4-56402da2b700"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[  Əlaqə nömrəsi : +994(70) 245-08-70]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="3" width="1" height="56" uuid="ffb95a0e-672f-4ba2-8a6c-ec9b0aaab125"/>
+			</line>
+			<line>
+				<reportElement x="152" y="4" width="1" height="55" uuid="31b89fda-0ef8-4356-b8cd-d340fff10c0a"/>
+			</line>
+			<line>
+				<reportElement x="10" y="59" width="143" height="1" uuid="73dc3e4c-5582-401a-a69a-2dd014172281"/>
+			</line>
+			<line>
+				<reportElement x="11" y="3" width="142" height="1" uuid="1509200d-55db-4bf0-93d3-d4940ea78f3b"/>
+			</line>
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="87" y="25" width="360" height="80" uuid="66815d3d-9789-4e31-b0ac-8e09cfcfbf71"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="kassadanCek" uuid="a74d2c5c-ea1e-4b10-9cae-2567429d2a93">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="36328d67-7d91-4059-90b5-82df367a7e1a">
+						<jr:tableHeader style="table 2_TH" height="30"/>
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d92d150c-1c54-4b0a-a2a8-293823fac429"/>
+								<text><![CDATA[Malin_adi]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="02abe61d-8c45-4581-a24f-80ca385768f5"/>
+								<textFieldExpression><![CDATA[$F{Malin_adi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="44d7eb41-e4e0-4ce0-a360-feacdf5de463">
+						<jr:tableHeader style="table 2_TH" height="30"/>
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8f5bc8ae-36bf-4713-aea3-6370ddd750b4"/>
+								<text><![CDATA[Miqdari]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="c99b4b9e-6341-43a4-a890-9d63d9eb7bda"/>
+								<textFieldExpression><![CDATA[$F{Miqdari}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c156f0f9-a799-4689-8ee7-fedff121b337">
+						<jr:tableHeader style="table 2_TH" height="30"/>
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="54de7fc7-02da-4d41-8f60-5d5ae36bbdee"/>
+								<text><![CDATA[Satis_qiymeti]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a34af09b-4301-4975-8203-018ce5a36ecb"/>
+								<textFieldExpression><![CDATA[$F{Satis_qiymeti}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="312c0974-fe73-4dff-9c5b-31b01c31db3a">
+						<jr:tableHeader style="table 2_TH" height="30"/>
+						<jr:columnHeader style="table 2_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d6915e85-9fa4-4482-b8eb-0d051310c2b4"/>
+								<text><![CDATA[Umumi_Mebleg]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="9bcfd106-e8a4-4f8b-b292-74099830920e"/>
+								<textFieldExpression><![CDATA[$F{Umumi_Mebleg}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="96" splitType="Stretch"/>
+	</pageHeader>
+</jasperReport>
