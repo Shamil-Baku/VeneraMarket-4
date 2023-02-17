@@ -247,6 +247,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
         tblBorcSiyahisi = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         txtUmumiBorc = new javax.swing.JTextField();
         txtOdenis = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -363,6 +364,21 @@ public class BorcYazmaq extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(51, 255, 51));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 0, 0));
+        jButton5.setText("Yenile");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -370,12 +386,14 @@ public class BorcYazmaq extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1184, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1185, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -383,11 +401,12 @@ public class BorcYazmaq extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         txtUmumiBorc.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -785,6 +804,11 @@ public class BorcYazmaq extends javax.swing.JFrame {
                     for (int i = 0; i < df.getRowCount(); i++) {
 
                         BorcAlaninAdi = df.getValueAt(i, 0).toString();
+
+                        if (BorcAlaninAdi.equals(null)) {
+                            System.out.println("Beli ad nulldur");
+                        }
+
                         int clientName = 0;
                         try {
 
@@ -801,14 +825,16 @@ public class BorcYazmaq extends javax.swing.JFrame {
                         }
                         if (clientName == 0) {
 
-                            int response = JOptionPane.showConfirmDialog(this, "Müşteri bazada mövcud deyil!\n Yeni müşteri olaraq bazaya elave edilsin?", "DIQQET!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+                            int response = JOptionPane.showConfirmDialog(this, "Müşteri bazada mövcud deyil!\n Yeni müşteri olaraq bazaya elave edilsin?", "DIQQET!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
                             if (response == JOptionPane.YES_OPTION) {
                                 Ok(BorcAlaninAdi);
-                            } else if (response == JOptionPane.NO_OPTION) {
-                                updateCreditInfo();
+                            }                         
+                             if (response == JOptionPane.NO_OPTION) {
                                 return;
-                            }
+                            }else{
+                                 return;
+                             }
 
                         }
 
@@ -1109,9 +1135,18 @@ public class BorcYazmaq extends javax.swing.JFrame {
         txtBorcAlaninAdi.setText(selectedClientName);
         modelList.removeAllElements();
         panelTest.setVisible(false);
-        updateCreditInfo();
+        //updateCreditInfo();
 
     }//GEN-LAST:event_listNameOfClientsMouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+
+        updateCreditInfo();
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     public void Ok(String nameAndSurename) {
 
@@ -1203,6 +1238,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

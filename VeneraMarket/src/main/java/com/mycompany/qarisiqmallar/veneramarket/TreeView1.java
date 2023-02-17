@@ -1,5 +1,8 @@
 package com.mycompany.qarisiqmallar.veneramarket;
 
+import static com.mycompany.qarisiqmallar.veneramarket.ProductCategories.con;
+import static com.mycompany.qarisiqmallar.veneramarket.ProductCategories.df;
+import static com.mycompany.qarisiqmallar.veneramarket.ProductCategories.pres;
 import static com.mycompany.qarisiqmallar.veneramarket.TestClass.con;
 import static com.mycompany.qarisiqmallar.veneramarket.TestClass.pres;
 import static com.mycompany.qarisiqmallar.veneramarket.TestClass.rs;
@@ -83,6 +86,7 @@ public class TreeView1 extends javax.swing.JFrame {
         txtSetPrice.disable();
         panelTest.setVisible(false);
         panelSearch.setVisible(false);
+        rbtnOptionForSearch.setVisible(false);
         txtNumOfCopies.disable();
 
     }
@@ -1232,6 +1236,7 @@ public class TreeView1 extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         cbNumberOfCopies = new javax.swing.JComboBox<>();
         txtNumOfCopies = new javax.swing.JTextField();
+        rbtnOptionForSearch = new javax.swing.JRadioButton();
 
         jMenuItem1.setText("Kateqoriya elave et");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -1330,7 +1335,7 @@ public class TreeView1 extends javax.swing.JFrame {
         Cancel.setText("jMenuItem10");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
@@ -1799,6 +1804,8 @@ public class TreeView1 extends javax.swing.JFrame {
             }
         });
 
+        rbtnOptionForSearch.setText("Barkoda əsasən");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1835,9 +1842,11 @@ public class TreeView1 extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(122, 122, 122)
                                 .addComponent(panelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(129, 129, 129)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rbtnOptionForSearch)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(chcekOtbor, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1890,12 +1899,12 @@ public class TreeView1 extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chcekOtbor)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(chcekOtbor)
+                                .addComponent(rbtnOptionForSearch))
+                            .addComponent(panelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel11)
@@ -2783,7 +2792,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
         Integer i = 0;
 
-        try ( Connection c = connect()) {
+        try (Connection c = connect()) {
             GetProduct getProduct = new GetProduct(this, true);
             int numberOfProduct = (getProduct.number);
             String numberOfProduct2 = (getProduct.txtMiqdar.getText());
@@ -3607,6 +3616,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
 
+        boolean yoxla = rbtnOptionForSearch.isSelected();
         txtSearch.requestFocus();
         String text = txtSearch.getText();
 
@@ -3614,20 +3624,23 @@ public class TreeView1 extends javax.swing.JFrame {
         try {
 
             Connection c = connect();
-            pres = c.prepareCall("select * from mehsullar c where c.Malin_adi like  '%' " + "'" + text + "'" + " '%'");
+
+            if (yoxla == false) {
+                pres = c.prepareStatement("select * from mehsullar c where c.Malin_adi like  '%' " + "'" + text + "'" + " '%'");
+            } else {
+                pres = con.prepareStatement("select * from mehsullar m where m.Barcode = " + text);
+            }
 
             ResultSet rs2 = pres.executeQuery();
-
-            while (rs2.next()) {
-
-                ResultSetMetaData rd = rs2.getMetaData();
+            
+               ResultSetMetaData rd = rs2.getMetaData();
                 a = rd.getColumnCount();
                 df = (DefaultTableModel) jTableMehsullar.getModel();
                 df.setRowCount(0);
 
-                while (rs2.next()) {
-                    Vector v2 = new Vector();
-
+                 while (rs2.next()) {
+                Vector v2 = new Vector();
+                for (int i = 0; i < a; i++) {
                     int id2 = rs2.getInt("id");
                     v2.add(id2);
                     String malinAdi = rs2.getString("Malin_adi");
@@ -3635,15 +3648,13 @@ public class TreeView1 extends javax.swing.JFrame {
                     v2.add(rs2.getInt("Qaliq_say"));
                     v2.add(rs2.getDouble("Alis_qiymeti"));
                     v2.add(rs2.getDouble("Satis_qiymeti"));
-                    //v2.add(satisQiymeti);
                     v2.add(rs2.getString("Alis_Tarixi"));
                     v2.add(rs2.getString("Barcode"));
-
-                    df.addRow(v2);
-
                 }
-
+                df.addRow(v2);
             }
+
+            
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -3656,7 +3667,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
         panelSearch.setVisible(true);
         txtSearch.requestFocus();
-
+        rbtnOptionForSearch.setVisible(true);
     }//GEN-LAST:event_jTableMehsullarKeyReleased
 
     public void open() {
@@ -3834,6 +3845,7 @@ public class TreeView1 extends javax.swing.JFrame {
             if (clickSayi == 1) {
 
                 panelSearch.setVisible(false);
+                rbtnOptionForSearch.setVisible(false);
                 txtSearch.setText("");
                 df = (DefaultTableModel) jTableMehsullar.getModel();
 
@@ -3892,7 +3904,8 @@ public class TreeView1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-
+        
+        rbtnOptionForSearch.setVisible(true);       
         panelSearch.setVisible(true);
         txtSearch.requestFocus();
 
@@ -4247,7 +4260,7 @@ public class TreeView1 extends javax.swing.JFrame {
     }
 
     public void printOrShowBarcode(int say) {
-        
+
         String printerName;
         String currency;
         df = (DefaultTableModel) jTableMehsullar.getModel();
@@ -4325,18 +4338,18 @@ public class TreeView1 extends javax.swing.JFrame {
         String productName = TreeView1.jTableMehsullar.getValueAt(selectedRow, 1).toString();
         String productPrice = TreeView1.jTableMehsullar.getValueAt(selectedRow, 4).toString();
         String barcode2 = null;
-        try{
+        try {
             con = connect();
-            pres = con.prepareStatement("select * from mehsullar where id = "+id);
+            pres = con.prepareStatement("select * from mehsullar where id = " + id);
             ResultSet rsForProduct = pres.executeQuery();
-            
-            while (rsForProduct.next()) {                
+
+            while (rsForProduct.next()) {
                 barcode2 = rsForProduct.getString("Barcode");
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         String barcode = TreeView1.jTableMehsullar.getValueAt(selectedRow, 6).toString();
         String currency = null;
 
@@ -4727,6 +4740,7 @@ public class TreeView1 extends javax.swing.JFrame {
     private javax.swing.JPanel panelTest;
     private javax.swing.JPanel panelTreeView;
     private javax.swing.JRadioButton rb_mergeOfFile;
+    private javax.swing.JRadioButton rbtnOptionForSearch;
     public javax.swing.JTable tblYeniMehsullar;
     public javax.swing.JTextField txtCemMebleg;
     private javax.swing.JTextField txtCommentary;
