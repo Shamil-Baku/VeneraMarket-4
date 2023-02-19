@@ -10,6 +10,7 @@ com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$23.class
 com\mycompany\qarisiqmallar\veneramarket\Main$17.class
 com\mycompany\qarisiqmallar\veneramarket\Main$4.class
 com\mycompany\qarisiqmallar\veneramarket\OpenBillPurchase$7.class
+com\mycompany\qarisiqmallar\veneramarket\LoginOrRegister$6.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$10.class
 com\mycompany\qarisiqmallar\veneramarket\Main$57.class
 com\mycompany\qarisiqmallar\veneramarket\IdentificationOfProduuctBarcodes$5.class
@@ -17,6 +18,7 @@ com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$4.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$33.class
 com\mycompany\qarisiqmallar\veneramarket\CreateNewClient$2.class
 com\mycompany\qarisiqmallar\veneramarket\RandomCodeGenerator.class
+com\mycompany\qarisiqmallar\veneramarket\Kassa$24.class
 com\mycompany\qarisiqmallar\veneramarket\Kassa$16.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$3.class
 com\mycompany\qarisiqmallar\veneramarket\GetProductForTreeView$2.class
@@ -390,13 +392,16 @@ com\mycompany\qarisiqmallar\veneramarket\CreateNewClient$1.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesiMehsullar$4.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$24.class
 com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$16.class
+com\mycompany\qarisiqmallar\veneramarket\Kassa$23.class
 com\mycompany\qarisiqmallar\veneramarket\AddThirdSubCategoryDialogForm.class
 com\mycompany\qarisiqmallar\veneramarket\ExistingProducts$7.class
 com\mycompany\qarisiqmallar\veneramarket\MehsulDeyisdirilmesi$20.class
+com\mycompany\qarisiqmallar\veneramarket\LoginOrRegister$5.class
 com\mycompany\qarisiqmallar\veneramarket\TreeView1$2.class
 com\mycompany\qarisiqmallar\veneramarket\ChangeNameOfClient$1.class
 com\mycompany\qarisiqmallar\veneramarket\LoginOrRegister.class
 com\mycompany\qarisiqmallar\veneramarket\IdentificationOfProduuctBarcodes.class
+com\mycompany\qarisiqmallar\veneramarket\Kassa$25.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesi$13.class
 com\mycompany\qarisiqmallar\veneramarket\TestJDialogForm$2$1.class
 com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$4.class
@@ -661,7 +666,6 @@ com\mycompany\qarisiqmallar\veneramarket\Mehsul_Elave_etmek$27.class
 com\mycompany\qarisiqmallar\veneramarket\GetProduct$2.class
 com\mycompany\qarisiqmallar\veneramarket\NewProduct1$2.class
 com\mycompany\qarisiqmallar\veneramarket\AllClientsInDetail$7.class
-com\mycompany\qarisiqmallar\veneramarket\TreeView1$CharToByteConverter.class
 com\mycompany\qarisiqmallar\veneramarket\PaymentForPurchaseInvoice$4.class
 com\mycompany\qarisiqmallar\veneramarket\AlisQaimesiMehsullar$15.class
 com\mycompany\qarisiqmallar\veneramarket\BorcYazmaq$13.class

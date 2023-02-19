@@ -1696,7 +1696,7 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
                             say = rs.getFloat("Satis_ID");
                         }
                         String status = "Active";
-                        pres = con.prepareStatement("select * from users where status = " + "'"+status+"'");
+                        pres = con.prepareStatement("select * from users where status = " + "'" + status + "'");
                         ResultSet rsForActiveUser = pres.executeQuery();
 
                         rsForActiveUser.next();
@@ -1706,12 +1706,11 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
                         pres = con.prepareStatement("select * from satilan_mallar order by cekNomresi desc limit 1");
                         ResultSet rsForBillNum = pres.executeQuery();
-                        
+
                         rsForBillNum.next();
-                        
+
                         float bilNum = rsForBillNum.getFloat("cekNomresi");
-                        
-                        
+
                         for (int i = 0; i < df.getRowCount(); i++) {
 
                             // Burada "tblAlinanMallar" table-da bezi sutunlar gizledilmisdir.
@@ -1740,7 +1739,7 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
                             pres.setString(9, Ümumi_Məbləğ);
                             pres.setString(10, time2);
                             pres.setString(11, activeUserName + " " + activeUserSurename);
-                            pres.setFloat(12, bilNum+1);
+                            pres.setFloat(12, bilNum + 1);
                             pres.setString(13, "Nağd");
                             pres.execute();
                             say++;
@@ -2517,9 +2516,9 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
     private void TextMalinAdiActionPerformed(java.awt.event.ActionEvent evt) {
 
     }
-  
+
     private void TextMalinAdiPropertyChange(java.beans.PropertyChangeEvent evt) {
-        
+
     }
 
     private void TextMalinMiqdariActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2609,8 +2608,29 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
     }
 
+    public float getTheLastBillNum() {
+
+        float billNumber = 0;
+        try {
+
+            con = connect();
+            pres = con.prepareStatement("select * from satilan_mallar order by cekNomresi desc limit 1");
+            ResultSet rs = pres.executeQuery();
+
+            rs.next();
+
+            billNumber = rs.getFloat("cekNomresi");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return billNumber;
+    }
+
     public void printRecipe() {
         String printerName;
+        float theLastBillNum = getTheLastBillNum();
+        String billNum = Float.toString(theLastBillNum);
         String currency = "AZN";
         String totalSum = txtCemMebleg.getText();
         String currentTime = lblTime.getText();
@@ -2618,14 +2638,14 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
         boolean yoxla = totalSum.contains(".");
         if (yoxla == true) {
-            currency = "0 qepik";
+            currency = "0 qəpik";
         } else {
             currency = ".00 AZN";
         }
 
         String projectPath = System.getProperty("user.dir");
         System.out.println(projectPath);
-        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\PaymentBill.jrxml";
         System.out.println(filePath);
 
         JasperDesign jdesign;
@@ -2638,6 +2658,7 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
             parametrs = new HashMap<>();
             parametrs.put("date", time2);
             parametrs.put("totalSum", totalSum + currency);
+            parametrs.put("billNum", billNum);
 
             if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
                 printerName = "TSC TDP-225";
@@ -3083,8 +3104,15 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
 
         }
         if (s == 17) {
-            printRecipe();
-            satisEmeliyyati();
+            boolean yoxla = CheckBoxForRecipeOption.isSelected();
+
+            if (yoxla == true) {
+                printRecipe();
+                satisEmeliyyati();
+            } else {
+
+                satisEmeliyyati();
+            }
 
         }
         if (s == 68) {
@@ -3117,8 +3145,8 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
         }
         if (s == 75) {
 
-            txtDisplay.requestFocus();
-            txtBarcode_reader.setText("");
+            Kassa kassa = new Kassa();
+            kassa.setVisible(true);
 
         }
         if (s == 81) {
@@ -3134,9 +3162,15 @@ public class Main extends javax.swing.JFrame implements KeyListener, WindowListe
         int s = evt.getKeyCode();
 
         if (s == 10 || s == 17) {
+            boolean yoxla = CheckBoxForRecipeOption.isSelected();
 
-            satisEmeliyyati();
+            if (yoxla == true) {
+                printRecipe();
+                satisEmeliyyati();
+            } else {
 
+                satisEmeliyyati();
+            }
         }
         if (s == 37) {
 

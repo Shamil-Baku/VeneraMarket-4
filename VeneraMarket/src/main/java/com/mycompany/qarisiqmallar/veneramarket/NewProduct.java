@@ -376,14 +376,14 @@ public class NewProduct extends javax.swing.JDialog {
             String mainCatName = rs2.getString("categories");
             mainCatID = rs2.getInt("id");
 
-            pres = con.prepareStatement("select * from subcategory where name = " + "'" + secondSubCat + "'");
+            pres = con.prepareStatement("select * from subcategory s where s.name = " + "'" + secondSubCat + "'"+" and s.index ="+mainCatID);
             ResultSet rs3 = pres.executeQuery();
 
             rs3.next();
             String subCatName = rs3.getString("name");
             subCatID = rs3.getInt("id");
 
-            pres = con.prepareStatement("select * from 2ndsubcategory where name = " + "'" + thirdSubCat + "'");
+            pres = con.prepareStatement("select * from 2ndsubcategory s where name = " + "'" + thirdSubCat + "'"+" and `index-gender` = "+subCatID+" and `index-season` = "+mainCatID);
             ResultSet rs4 = pres.executeQuery();
 
             rs4.next();

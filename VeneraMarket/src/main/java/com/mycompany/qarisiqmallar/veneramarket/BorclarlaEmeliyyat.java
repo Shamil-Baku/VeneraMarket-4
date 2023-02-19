@@ -68,7 +68,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         txtAxtaris.requestFocus();
 
         setTime();
-        filterAllClients();
+        //filterAllClients();
         getCommonDebts();
         clearBarcodeText();
         addWindowListener(this);
@@ -146,7 +146,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         });
         jPopupMenu1.add(changeNameOfClient);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 204));
 
@@ -410,7 +410,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Kassir adı :");
 
-        optionForCashier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secim edin..", "Eliyeva Zülfiyye", "Eliyeva Hecer", "Eliyev Şamil", "Eliyev Ramil" }));
+        optionForCashier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secim edin..", "Əliyeva Zülfiyyə", "Əliyeva Həcər", "Əliyev Şamil", "Əliyev Ramil" }));
         optionForCashier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 optionForCashierMouseClicked(evt);
@@ -1319,7 +1319,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
             pres = con.prepareStatement("truncate table borclar_siyahisi_common");
             pres.executeUpdate();
 
-            pres = con.prepareStatement("select * from clients");
+            pres = con.prepareStatement("select * from clients_permanently");
             ResultSet rsClients = pres.executeQuery();
             while (rsClients.next()) {
 
@@ -1962,13 +1962,13 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
 
         try {
             Connection c = connect();
-            pres = c.prepareStatement("select * from clients c where c.NameAndSurename like " + "'" + "%" + s + "%" + "'");
+            pres = c.prepareStatement("select * from borclar_siyahisi_common c where c.Borc_alanin_adi like " + "'" + "%" + s + "%" + "'"+ " and Qaliq_borc > 0");
 
             ResultSet rs = pres.executeQuery();
 
             while (rs.next()) {
 
-                modelList.addElement(rs.getString("NameAndSurename"));
+                modelList.addElement(rs.getString("Borc_alanin_adi"));
                 listNameOfClients.setModel(modelList);
             }
 
@@ -2256,7 +2256,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         if (stringFirstdebt.contains(".0")) {
             currencyFirstdebt = "0 AZN";
         } else {
-            currencyFirstdebt = "0 qepik";
+            currencyFirstdebt = "0 qəpik";
         }
 
         String resultString = Double.toString(roundedResult);
@@ -2264,7 +2264,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         if (resultString.contains(".0")) {
             currencyResult = "0 AZN";
         } else {
-            currencyResult = "0 qepik";
+            currencyResult = "0 qəpik";
         }
 
         String stringFinalDebtAfterPayment = Double.toString(roundedFinalDebt);
@@ -2272,7 +2272,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         if (stringFinalDebtAfterPayment.contains(".0")) {
             currencyAfterPayment = "0 AZN";
         } else {
-            currencyAfterPayment = "0 qepik";
+            currencyAfterPayment = "0 qəpik";
         }
 
         String projectPath = System.getProperty("user.dir");

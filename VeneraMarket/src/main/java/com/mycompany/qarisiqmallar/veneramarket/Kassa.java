@@ -8,6 +8,8 @@ package com.mycompany.qarisiqmallar.veneramarket;
 import com.mycompany.DaoInter.MehsullarDaoInter;
 import com.mycompany.entity.Mehsullar;
 import com.mycompany.main.Contex;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.Connection;
 // import java.sql.Date;
 import java.sql.DriverManager;
@@ -41,12 +43,13 @@ import org.bouncycastle.math.Primes;
  *
  * @author samil
  */
-public class Kassa extends javax.swing.JFrame {
+public class Kassa extends javax.swing.JFrame implements WindowListener {
 
     public MehsullarDaoInter mehDao = Contex.instanceOfMehsullarDao();
 
-    public Kassa() throws Exception {
+    public Kassa() {
         initComponents();
+        addWindowListener(this);
         connect();
         jPanel2.setVisible(false);
         buttonGroup1.add(rbBugun);
@@ -459,6 +462,7 @@ public class Kassa extends javax.swing.JFrame {
         cBoxOptionForBill = new javax.swing.JComboBox<>();
         txtBillNumberForPrint = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGelirCedveli = new javax.swing.JTable();
@@ -471,7 +475,7 @@ public class Kassa extends javax.swing.JFrame {
         jtableExpenses = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
@@ -684,10 +688,23 @@ public class Kassa extends javax.swing.JFrame {
             }
         });
 
+        txtBillNumberForPrint.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBillNumberForPrintKeyPressed(evt);
+            }
+        });
+
         jButton9.setText("Çek çap edin");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Axtar..");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
             }
         });
 
@@ -765,13 +782,16 @@ public class Kassa extends javax.swing.JFrame {
                                 .addComponent(jButton6))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cBoxOptionForBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton9))
-                            .addComponent(txtBillNumberForPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtBillNumberForPrint)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton9)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 438, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
@@ -863,9 +883,11 @@ public class Kassa extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(cBoxOptionForBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton9))
+                                    .addComponent(jButton10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBillNumberForPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtBillNumberForPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton9))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -913,6 +935,9 @@ public class Kassa extends javax.swing.JFrame {
             tblGelirCedveli.getColumnModel().getColumn(4).setPreferredWidth(110);
             tblGelirCedveli.getColumnModel().getColumn(7).setPreferredWidth(120);
             tblGelirCedveli.getColumnModel().getColumn(9).setPreferredWidth(40);
+            tblGelirCedveli.getColumnModel().getColumn(20).setMinWidth(0);
+            tblGelirCedveli.getColumnModel().getColumn(20).setPreferredWidth(0);
+            tblGelirCedveli.getColumnModel().getColumn(20).setMaxWidth(0);
         }
 
         jButton5.setText("Bagla");
@@ -1340,6 +1365,82 @@ public class Kassa extends javax.swing.JFrame {
 
         }
 
+    }
+
+    public void findProductsWithBillNum(float billNum) {
+
+        int a;
+        try {
+
+            pres = con.prepareCall("SELECT\n"
+                    + "	s.id,\n"
+                    + "	s.Malin_adi,\n"
+                    + "	s.Miqdari,\n"
+                    + "	s.Umumi_Mebleg AS Satis_Meblegi_Cem,\n"
+                    + "	s.QiemenOdenis,\n"
+                    + "	s.Qaytarilan_Mehsul_Miqdari,\n"
+                    + "	s.Musteriye_Geri_Odenis,\n"
+                    + "	s.Borc_Alanin_Adi,\n"
+                    + "	s.Yeni_goturulen_Mebleg,\n"
+                    + "	s.Borcdan_Gelen,\n"
+                    + "	s.Satis_ID,\n"
+                    + "	s.BorcID,\n"
+                    + " m.Satis_miqdari, \n"
+                    + "	m.Alis_qiymeti,\n"
+                    + " m.Satisin_toplam_deyeri, \n"
+                    + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
+                    + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
+                    + "	s.Satis_Tarixi,\n"
+                    + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
+                    + "FROM\n"
+                    + "	satilan_mallar s\n"
+                    + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
+                    + "WHERE cekNomresi = " + billNum);
+
+            ResultSet rs = pres.executeQuery();
+
+            ResultSetMetaData rd = rs.getMetaData();
+            a = rd.getColumnCount();
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            df.setRowCount(0);
+
+            while (rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 0; i < a; i++) {
+                    v2.add(rs.getInt("id"));
+                    v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
+                    v2.add(rs.getDouble("Miqdari"));
+                    v2.add(rs.getDouble("Satis_Meblegi_Cem"));
+                    v2.add(rs.getDouble("Alis_qiymeti"));
+                    v2.add(rs.getDouble("Satis_qiymeti"));
+                    v2.add(rs.getInt("Umumi_Satis_Miqdari"));
+                    v2.add(rs.getString("Satis_Tarixi"));
+                    v2.add(rs.getDouble("Xeyir"));
+                    v2.add(rs.getDouble("Umumi_Xeyir"));
+                    v2.add(rs.getDouble("QiemenOdenis"));
+                    v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
+                    v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
+                    v2.add(rs.getString("Borc_Alanin_Adi"));
+                    v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
+                    v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
+                    v2.add(rs.getFloat("Satis_ID"));
+                    v2.add(rs.getInt("BorcID"));
+
+                }
+                df.addRow(v2);
+
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
     }
 
 
@@ -2639,12 +2740,15 @@ public class Kassa extends javax.swing.JFrame {
         Date secondDate2 = sonTarix.getDate();
 
         Calendar cal = new GregorianCalendar();
+        sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         if (firstDate2 != null && secondDate2 != null) {
             System.out.println("Beli qaqaw tarix null dan ferqlidir. Budur.. " + firstDate2);
 
             String firstDate1 = sdf.format(ilkTarix.getDate());
             String secondDAte = sdf.format(sonTarix.getDate());
+            
+            findBetweenTwoDays(find, firstDate1, secondDAte);
 
         } else {
 
@@ -2758,6 +2862,80 @@ public class Kassa extends javax.swing.JFrame {
 
     }
 
+     public void findBetweenTwoDays(String findProduct, String firstDate, String secondDate) {
+
+        try {
+            int a;
+            pres = con.prepareStatement("SELECT\n"
+                    + "	s.id,\n"
+                    + "	s.Malin_adi,\n"
+                    + "	s.Miqdari,\n"
+                    + "	s.Umumi_Mebleg AS Satis_Meblegi_Cem,\n"
+                    + "	s.QiemenOdenis,\n"
+                    + "	s.Qaytarilan_Mehsul_Miqdari,\n"
+                    + "	s.Musteriye_Geri_Odenis,\n"
+                    + "	s.Borc_Alanin_Adi,\n"
+                    + "	s.Yeni_goturulen_Mebleg,\n"
+                    + "	s.Borcdan_Gelen,\n"
+                    + " m.Satis_miqdari, \n"
+                    + "	m.Alis_qiymeti,\n"
+                    + " m.Satisin_toplam_deyeri, \n"
+                    + "	s.Satis_qiymeti,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
+                    + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
+                    + "	s.Satis_Tarixi,\n"
+                    + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
+                    + "FROM\n"
+                    + "	satilan_mallar s\n"
+                    + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
+                    + "WHERE Date (s.Satis_Tarixi) BETWEEN "+"'"+firstDate+"'"+" and "+"'"+secondDate+"'"+" and s.Malin_adi like '%' " + "'" + findProduct + "'" + " '%'");
+
+            ResultSet rs = pres.executeQuery();
+
+            ResultSetMetaData rd = rs.getMetaData();
+            a = rd.getColumnCount();
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            df.setRowCount(0);
+
+            while (rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 0; i < a; i++) {
+                    v2.add(rs.getInt("id"));
+                    v2.add(rs.getString("Malin_adi"));
+                    v2.add(rs.getString("OdenisinNovu"));
+                    v2.add(rs.getDouble("Miqdari"));
+                    v2.add(rs.getDouble("Satis_Meblegi_Cem"));
+                    v2.add(rs.getDouble("Alis_qiymeti"));
+                    v2.add(rs.getDouble("Satis_qiymeti"));
+                    v2.add(rs.getInt("Umumi_Satis_Miqdari"));
+                    v2.add(rs.getString("Satis_Tarixi"));
+                    v2.add(rs.getDouble("Xeyir"));
+                    v2.add(rs.getDouble("Umumi_Xeyir"));
+                    v2.add(rs.getDouble("QiemenOdenis"));
+                    v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
+                    v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
+                    v2.add(rs.getString("Borc_Alanin_Adi"));
+                    v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
+                    v2.add(rs.getDouble("Borcdan_Gelen"));
+                    v2.add(rs.getString("ActiveUser"));
+                    v2.add(rs.getFloat("cekNomresi"));
+
+                }
+                df.addRow(v2);
+
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+
+        }
+
+    }
+
+    
     public void findYesterday(String findProduct, String date) {
 
         try {
@@ -2993,15 +3171,15 @@ public class Kassa extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         int saySebetUcun = 1;
-        double allTolat =0;
+        double allTolat = 0;
         String optionForPaymentBill = cBoxOptionForBill.getSelectedItem().toString();
 
         if (optionForPaymentBill.equals("Sonuncu satiş")) {
             try {
-                
+
                 pres = con.prepareStatement("truncate table sebet");
                 pres.executeUpdate();
-                
+
                 con = connect();
                 pres = con.prepareStatement("select * from satilan_mallar order by cekNomresi desc limit 1");
                 ResultSet rs = pres.executeQuery();
@@ -3020,9 +3198,9 @@ public class Kassa extends javax.swing.JFrame {
                     int miqdari = rsForProducts.getInt("Miqdari");
                     double total = rsForProducts.getDouble("Umumi_Mebleg");
                     double satisQiymeti = rsForProducts.getDouble("Satis_qiymeti");
-                    
-                    allTolat+=total;
-                    
+
+                    allTolat += total;
+
                     pres = con.prepareStatement(
                             "insert into sebet ( id2, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Tarix ) values(?,?,?,?,?,?,? )");
 
@@ -3037,12 +3215,12 @@ public class Kassa extends javax.swing.JFrame {
                     saySebetUcun++;
 
                 }
-                
+
                 printRecipe(allTolat);
-                
+
                 pres = con.prepareStatement("truncate table sebet");
                 pres.executeUpdate();
-                
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -3050,10 +3228,10 @@ public class Kassa extends javax.swing.JFrame {
         if (optionForPaymentBill.equals("Çek nömreine esasen")) {
 
             try {
-                
+
                 pres = con.prepareStatement("truncate table sebet");
                 pres.executeUpdate();
-                
+
                 float billNumber = Float.parseFloat(txtBillNumberForPrint.getText());
 
                 pres = con.prepareStatement("select * from satilan_mallar where cekNomresi = " + billNumber);
@@ -3065,7 +3243,7 @@ public class Kassa extends javax.swing.JFrame {
                     int miqdari = rsForProducts.getInt("Miqdari");
                     double total = rsForProducts.getDouble("Umumi_Mebleg");
                     double satisQiymeti = rsForProducts.getDouble("Satis_qiymeti");
-                    allTolat+=total;
+                    allTolat += total;
 
                     pres = con.prepareStatement(
                             "insert into sebet ( id2, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Tarix ) values(?,?,?,?,?,?,? )");
@@ -3079,14 +3257,14 @@ public class Kassa extends javax.swing.JFrame {
                     pres.setString(7, time);
                     pres.executeUpdate();
                     saySebetUcun++;
-                    
+
                 }
 
                 printRecipe(allTolat);
-                
+
                 pres = con.prepareStatement("truncate table sebet");
                 pres.executeUpdate();
-                
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -3097,25 +3275,179 @@ public class Kassa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void cBoxOptionForBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxOptionForBillActionPerformed
-        
-      boolean yoxla = txtBillNumberForPrint.isEnabled();
-      String selected = cBoxOptionForBill.getSelectedItem().toString();
-      
-        if (selected.equals("Sonuncu satiş")) {
-            txtBillNumberForPrint.disable();
-        }else{
-            txtBillNumberForPrint.enable();
-        }
-        
-        
-    }//GEN-LAST:event_cBoxOptionForBillActionPerformed
 
-    
+        boolean yoxla = txtBillNumberForPrint.isEnabled();
+        String selected = cBoxOptionForBill.getSelectedItem().toString();
+
+        if (selected.equals("Sonuncu satiş")) {
+            txtBillNumberForPrint.setText("");
+            txtBillNumberForPrint.disable();
+        } else {
+            txtBillNumberForPrint.enable();
+            txtBillNumberForPrint.requestFocus();
+        }
+
+
+    }//GEN-LAST:event_cBoxOptionForBillActionPerformed
+    double allTolat = 0;
+
+    public void findProductByItsBillNum() {
+
+        int saySebetUcun = 1;
+
+        String optionForPaymentBill = cBoxOptionForBill.getSelectedItem().toString();
+
+        if (optionForPaymentBill.equals("Sonuncu satiş")) {
+            try {
+
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+
+                con = connect();
+                pres = con.prepareStatement("select * from satilan_mallar order by cekNomresi desc limit 1");
+                ResultSet rs = pres.executeQuery();
+
+                rs.next();
+
+                float billNumber = rs.getFloat("cekNomresi");
+                System.out.println("Sonuncu cek nomresi budu---->" + billNumber);
+
+                pres = con.prepareStatement("select * from satilan_mallar where cekNomresi = " + billNumber);
+                ResultSet rsForProducts = pres.executeQuery();
+
+                while (rsForProducts.next()) {
+                    String mehsul = rsForProducts.getString("Malin_adi");
+                    int mehsulID = rsForProducts.getInt("id");
+                    int miqdari = rsForProducts.getInt("Miqdari");
+                    double total = rsForProducts.getDouble("Umumi_Mebleg");
+                    double satisQiymeti = rsForProducts.getDouble("Satis_qiymeti");
+
+                    allTolat += total;
+
+                    pres = con.prepareStatement(
+                            "insert into sebet ( id2, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Tarix ) values(?,?,?,?,?,?,? )");
+
+                    pres.setInt(1, saySebetUcun);
+                    pres.setInt(2, mehsulID);
+                    pres.setString(3, mehsul);
+                    pres.setInt(4, miqdari);
+                    pres.setDouble(5, satisQiymeti);
+                    pres.setDouble(6, total);
+                    pres.setString(7, time);
+                    pres.executeUpdate();
+                    saySebetUcun++;
+
+                }
+
+                findProductsWithBillNum(billNumber);
+
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (optionForPaymentBill.equals("Çek nömreine esasen")) {
+
+            try {
+
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+
+                float billNumber = Float.parseFloat(txtBillNumberForPrint.getText());
+
+                pres = con.prepareStatement("select * from satilan_mallar where cekNomresi = " + billNumber);
+                ResultSet rsForProducts = pres.executeQuery();
+
+                while (rsForProducts.next()) {
+                    String mehsul = rsForProducts.getString("Malin_adi");
+                    int mehsulID = rsForProducts.getInt("id");
+                    int miqdari = rsForProducts.getInt("Miqdari");
+                    double total = rsForProducts.getDouble("Umumi_Mebleg");
+                    double satisQiymeti = rsForProducts.getDouble("Satis_qiymeti");
+                    allTolat += total;
+
+                    pres = con.prepareStatement(
+                            "insert into sebet ( id2, id, Malin_adi, Miqdari, Satis_qiymeti, Umumi_Mebleg, Tarix ) values(?,?,?,?,?,?,? )");
+
+                    pres.setInt(1, saySebetUcun);
+                    pres.setInt(2, mehsulID);
+                    pres.setString(3, mehsul);
+                    pres.setInt(4, miqdari);
+                    pres.setDouble(5, satisQiymeti);
+                    pres.setDouble(6, total);
+                    pres.setString(7, time);
+                    pres.executeUpdate();
+                    saySebetUcun++;
+
+                }
+
+                findProductsWithBillNum(billNumber);
+
+                pres = con.prepareStatement("truncate table sebet");
+                pres.executeUpdate();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+        }
+
+    }
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+        findProductByItsBillNum();
+
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void txtBillNumberForPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBillNumberForPrintKeyPressed
+
+        int s = evt.getKeyCode();
+        System.out.println(s);
+        if (s == 10) {
+            findProductByItsBillNum();
+        }
+
+    }//GEN-LAST:event_txtBillNumberForPrintKeyPressed
+
+    public float getTheLastBillNum() {
+
+        float billNumber = 0;
+        try {
+
+            con = connect();
+            pres = con.prepareStatement("select * from satilan_mallar order by cekNomresi desc limit 1");
+            ResultSet rs = pres.executeQuery();
+
+            rs.next();
+
+            billNumber = rs.getFloat("cekNomresi");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return billNumber;
+    }
+
     public void printRecipe(double total) {
+        String optionForPrintPaymentBill = cBoxOptionForBill.getSelectedItem().toString();
+        float theLastBillNum;
+        String billNum = null;
+        if (optionForPrintPaymentBill.equals("Sonuncu satiş")) {
+            theLastBillNum = getTheLastBillNum();
+            billNum = Float.toString(theLastBillNum);
+        } else {
+            if (optionForPrintPaymentBill.equals("Çek nömreine esasen")) {
+                billNum = txtBillNumberForPrint.getText();
+            }
+        }
+
         String printerName;
+
         String currency = "AZN";
         String totalSum = Double.toString(total);
-        
+
         boolean yoxla = totalSum.contains(".");
         if (yoxla == true) {
             currency = "0 qepik";
@@ -3125,7 +3457,7 @@ public class Kassa extends javax.swing.JFrame {
 
         String projectPath = System.getProperty("user.dir");
         System.out.println(projectPath);
-        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\test444_2.jrxml";
+        String filePath = "\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\PaymentBill.jrxml";
         System.out.println(filePath);
 
         JasperDesign jdesign;
@@ -3138,6 +3470,7 @@ public class Kassa extends javax.swing.JFrame {
             parametrs = new HashMap<>();
             parametrs.put("date", time);
             parametrs.put("totalSum", totalSum + currency);
+            parametrs.put("billNum", billNum);
 
             if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
                 printerName = "TSC TDP-225";
@@ -3162,7 +3495,6 @@ public class Kassa extends javax.swing.JFrame {
 
     }
 
-    
     public void refreshAfterUpdate() {
 
         boolean checkLastMonth = sonBirAy.isSelected();
@@ -3252,6 +3584,7 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JRadioButton dunen;
     private com.toedter.calendar.JDateChooser ilkTarix;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -3297,4 +3630,44 @@ public class Kassa extends javax.swing.JFrame {
     private javax.swing.JTextField txtTotalExpenses;
     private javax.swing.JTextField txtTotalProfit;
     // End of variables declaration//GEN-END:variables
+
+    public void clearBarcodeText() {
+
+        Main.txtBarcode_reader.setText("");
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+        clearBarcodeText();
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
 }

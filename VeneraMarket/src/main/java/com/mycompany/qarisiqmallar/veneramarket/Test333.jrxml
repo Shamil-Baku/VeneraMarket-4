@@ -15,59 +15,59 @@
 	<title>
 		<band height="75" splitType="Stretch">
 			<staticText>
-				<reportElement x="8" y="16" width="135" height="16" uuid="beaa75ef-890b-47ba-8b34-640ca3b42947"/>
+				<reportElement x="14" y="16" width="135" height="16" uuid="beaa75ef-890b-47ba-8b34-640ca3b42947"/>
 				<textElement>
 					<font size="11" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Geyim və Tekstil Dünyası]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="51" y="5" width="46" height="27" uuid="20a1f5b5-7efa-4441-bfd0-2418658539fd"/>
+				<reportElement x="57" y="5" width="46" height="27" uuid="20a1f5b5-7efa-4441-bfd0-2418658539fd"/>
 				<textElement>
 					<font size="10" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[VENERA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="6" y="43" width="142" height="11" uuid="754c3684-b6b7-4ab9-9f2a-a15d0117e1df"/>
+				<reportElement x="12" y="43" width="142" height="11" uuid="754c3684-b6b7-4ab9-9f2a-a15d0117e1df"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[  Əlaqə nömrəsi : +994(70) 245-08-70]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="32" width="141" height="9" uuid="c6020333-8164-46bd-9292-3757adb7f113"/>
+				<reportElement x="11" y="32" width="141" height="9" uuid="c6020333-8164-46bd-9292-3757adb7f113"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[ Ünvan: Kürdəxanı qəs, Kənan inşaatın yanı]]></text>
 			</staticText>
 			<line>
-				<reportElement x="145" y="4" width="1" height="56" uuid="d2ff71ca-1c58-40fb-a6b9-4c0c62eaeecb"/>
+				<reportElement x="151" y="4" width="1" height="56" uuid="d2ff71ca-1c58-40fb-a6b9-4c0c62eaeecb"/>
 			</line>
 			<line>
-				<reportElement x="5" y="4" width="140" height="1" uuid="00932e9e-6910-4209-9b31-e18f2961c191"/>
+				<reportElement x="11" y="4" width="140" height="1" uuid="00932e9e-6910-4209-9b31-e18f2961c191"/>
 			</line>
 			<line>
-				<reportElement x="4" y="4" width="1" height="56" uuid="3088cbdd-6914-487f-9880-54e3a9253ce5"/>
+				<reportElement x="10" y="4" width="1" height="56" uuid="3088cbdd-6914-487f-9880-54e3a9253ce5"/>
 			</line>
 			<line>
-				<reportElement x="5" y="59" width="140" height="1" uuid="b037c448-063d-409d-a558-a54d8dc1c684"/>
+				<reportElement x="11" y="59" width="140" height="1" uuid="b037c448-063d-409d-a558-a54d8dc1c684"/>
 			</line>
 			<staticText>
-				<reportElement x="28" y="58" width="100" height="13" uuid="1147bf15-5d5c-415f-bd5d-5648f4f1b345"/>
+				<reportElement x="34" y="58" width="100" height="13" uuid="1147bf15-5d5c-415f-bd5d-5648f4f1b345"/>
 				<textElement>
 					<font isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Borcun ödəniş qəbzi]]></text>
 			</staticText>
 			<line>
-				<reportElement x="27" y="70" width="100" height="1" uuid="5e40d6be-f741-437e-9070-d0055f4d2e05"/>
+				<reportElement x="33" y="70" width="100" height="1" uuid="5e40d6be-f741-437e-9070-d0055f4d2e05"/>
 			</line>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="113" splitType="Stretch">
+		<band height="139" splitType="Stretch">
 			<staticText>
 				<reportElement x="40" y="58" width="38" height="11" uuid="081db212-e0bd-40ef-bd0d-852edb64b37a"/>
 				<textElement>
@@ -76,7 +76,7 @@
 				<text><![CDATA[  Kassa №]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="4" width="57" height="11" uuid="df64f91e-83a7-4d27-97b4-ba117d885e0f"/>
+				<reportElement x="9" y="4" width="53" height="11" uuid="df64f91e-83a7-4d27-97b4-ba117d885e0f"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font size="8"/>
 				</textElement>
@@ -132,7 +132,7 @@
 				<textFieldExpression><![CDATA[$P{currentTime}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="4" width="104" height="11" uuid="f7bba4de-0982-445a-803b-3e732b2418cb"/>
+				<reportElement x="66" y="4" width="94" height="11" uuid="f7bba4de-0982-445a-803b-3e732b2418cb"/>
 				<textElement>
 					<font size="8" isBold="true" isItalic="true"/>
 				</textElement>
@@ -167,11 +167,37 @@
 				<textFieldExpression><![CDATA[$P{cashier}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="60" y="14" width="86" height="1" uuid="62159792-4d86-4734-b3a9-2c98bed14cad"/>
+				<reportElement x="66" y="14" width="94" height="1" uuid="62159792-4d86-4734-b3a9-2c98bed14cad"/>
 			</line>
 			<line>
 				<reportElement x="80" y="81" width="80" height="1" uuid="b92135a1-80ea-472a-85b1-05308d02a218"/>
 			</line>
+			<staticText>
+				<reportElement x="32" y="108" width="102" height="13" uuid="2d7b8c4a-136e-4a43-a795-179ee99d83cb"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Bizi seçdiyiniz üçün]]></text>
+			</staticText>
+			<line>
+				<reportElement x="15" y="134" width="137" height="1" uuid="62679411-a6b1-4e31-89c9-1d4ba1a651f0"/>
+			</line>
+			<line>
+				<reportElement x="151" y="106" width="1" height="29" uuid="80a6b22e-7de9-4f2a-994e-f301f23ce899"/>
+			</line>
+			<line>
+				<reportElement x="15" y="106" width="1" height="28" uuid="1971422c-8898-421b-abbd-025ea5d6d9ad"/>
+			</line>
+			<line>
+				<reportElement x="15" y="106" width="137" height="1" uuid="61848dd7-5f54-465f-97a6-05684e9f6f58"/>
+			</line>
+			<staticText>
+				<reportElement x="52" y="121" width="61" height="13" uuid="861d1990-8668-4ce6-86a0-80513c309364"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Təşəkkürlər!]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 </jasperReport>

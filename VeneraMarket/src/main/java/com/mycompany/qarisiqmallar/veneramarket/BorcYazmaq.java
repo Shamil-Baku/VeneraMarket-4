@@ -504,7 +504,7 @@ public class BorcYazmaq extends javax.swing.JFrame {
 
         comboBoxOptionForCashier.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboBoxOptionForCashier.setForeground(new java.awt.Color(255, 255, 255));
-        comboBoxOptionForCashier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secim edin..", "Eliyeva Zülfiyye", "Eliyeva Hecer", "Eliyev Şamil", "Eliyev Ramil" }));
+        comboBoxOptionForCashier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secim edin..", "Əliyeva Zülfiyyə", "Əliyeva Həcər", "Əliyev Şamil", "Əliyev Ramil" }));
 
         checkBoxOptionFotPrintRecipe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         checkBoxOptionFotPrintRecipe.setForeground(new java.awt.Color(255, 255, 255));
@@ -786,9 +786,9 @@ public class BorcYazmaq extends javax.swing.JFrame {
         if (optionForCashier.equals("Secim edin..")) {
             JOptionPane.showMessageDialog(this, "Zehmet olmasa kassir adini secin!", "DIQQET", HEIGHT);
         } else {
-//            if (yoxla == true) {
-//                printCreditRecipe();
-//            }
+            if (yoxla == true) {
+                printCreditRecipe();
+            }
 
             df = (DefaultTableModel) tblBorcSiyahisi.getModel();
             if (df.getRowCount() == 0) {
