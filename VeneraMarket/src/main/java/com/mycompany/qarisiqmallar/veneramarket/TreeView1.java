@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -88,6 +90,7 @@ public class TreeView1 extends javax.swing.JFrame {
         panelSearch.setVisible(false);
         rbtnOptionForSearch.setVisible(false);
         txtNumOfCopies.disable();
+        getAllPriters();
 
     }
 
@@ -1237,6 +1240,7 @@ public class TreeView1 extends javax.swing.JFrame {
         cbNumberOfCopies = new javax.swing.JComboBox<>();
         txtNumOfCopies = new javax.swing.JTextField();
         rbtnOptionForSearch = new javax.swing.JRadioButton();
+        cBoxAllPrinters = new javax.swing.JComboBox<>();
 
         jMenuItem1.setText("Kateqoriya elave et");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -1806,6 +1810,8 @@ public class TreeView1 extends javax.swing.JFrame {
 
         rbtnOptionForSearch.setText("Barkoda əsasən");
 
+        cBoxAllPrinters.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Printer secin.." }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1819,21 +1825,22 @@ public class TreeView1 extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel2))
                             .addComponent(panelTreeView, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel1)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2)
-                                .addContainerGap())))
+                                .addComponent(jScrollPane2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cBoxAllPrinters, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1896,7 +1903,9 @@ public class TreeView1 extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addContainerGap()
+                        .addComponent(cBoxAllPrinters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2792,7 +2801,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
         Integer i = 0;
 
-        try (Connection c = connect()) {
+        try ( Connection c = connect()) {
             GetProduct getProduct = new GetProduct(this, true);
             int numberOfProduct = (getProduct.number);
             String numberOfProduct2 = (getProduct.txtMiqdar.getText());
@@ -3632,13 +3641,13 @@ public class TreeView1 extends javax.swing.JFrame {
             }
 
             ResultSet rs2 = pres.executeQuery();
-            
-               ResultSetMetaData rd = rs2.getMetaData();
-                a = rd.getColumnCount();
-                df = (DefaultTableModel) jTableMehsullar.getModel();
-                df.setRowCount(0);
 
-                 while (rs2.next()) {
+            ResultSetMetaData rd = rs2.getMetaData();
+            a = rd.getColumnCount();
+            df = (DefaultTableModel) jTableMehsullar.getModel();
+            df.setRowCount(0);
+
+            while (rs2.next()) {
                 Vector v2 = new Vector();
                 for (int i = 0; i < a; i++) {
                     int id2 = rs2.getInt("id");
@@ -3653,8 +3662,6 @@ public class TreeView1 extends javax.swing.JFrame {
                 }
                 df.addRow(v2);
             }
-
-            
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -3671,6 +3678,15 @@ public class TreeView1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableMehsullarKeyReleased
 
     public void open() {
+
+        String printerName;
+        printerName = cBoxAllPrinters.getSelectedItem().toString();
+
+        if (printerName.equals("Printer secin..")) {
+            JOptionPane.showMessageDialog(this, "Zehmet olmasa Printer seçimini edin", "Diqqet", HEIGHT);
+            cBoxAllPrinters.requestFocus();
+            return;
+        }
 
         panelSearch.setVisible(false);
         Double alis = null;
@@ -3697,7 +3713,7 @@ public class TreeView1 extends javax.swing.JFrame {
         getProduct.setVisible(true);
         int say2 = getProduct.getNumber();
         if (getProduct.getNumber() == 0) {
-
+            return;
         } else {
 
             Integer i = identification(id);
@@ -3823,11 +3839,11 @@ public class TreeView1 extends javax.swing.JFrame {
 
         String optionForCopy = cbNumberOfCopies.getSelectedItem().toString();
         if (!"Say teyin et".equals(optionForCopy)) {
-            printOrShowBarcode(say2);
+            printOrShowBarcode(say2, printerName);
         } else {
 
             int manualNumberOfCopies = Integer.parseInt(txtNumOfCopies.getText());
-            printOrShowBarcode(manualNumberOfCopies);
+            printOrShowBarcode(manualNumberOfCopies, printerName);
         }
 
     }
@@ -3904,8 +3920,8 @@ public class TreeView1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-        
-        rbtnOptionForSearch.setVisible(true);       
+
+        rbtnOptionForSearch.setVisible(true);
         panelSearch.setVisible(true);
         txtSearch.requestFocus();
 
@@ -4259,9 +4275,8 @@ public class TreeView1 extends javax.swing.JFrame {
 
     }
 
-    public void printOrShowBarcode(int say) {
+    public void printOrShowBarcode(int say, String printerName) {
 
-        String printerName;
         String currency;
         df = (DefaultTableModel) jTableMehsullar.getModel();
         int selectedRow = jTableMehsullar.getSelectedRow();
@@ -4297,11 +4312,6 @@ public class TreeView1 extends javax.swing.JFrame {
             parametrs.put("productSize", productSize);
             parametrs.put("productColor", productColor);
             parametrs.put("productPrice", productPrice + currency);
-            if (projectPath.equals("C:\\git projects\\VeneraMarket-4\\VeneraMarket")) {
-                printerName = "TSC TDP-225";
-            } else {
-                printerName = "Xprinter XP-365B";
-            }
 
             jr = JasperCompileManager.compileReport(jdesign);
 
@@ -4381,7 +4391,6 @@ public class TreeView1 extends javax.swing.JFrame {
             parametrs.put("productColor", productColor);
             parametrs.put("productPrice", productPrice + currency);
             parametrs.put("currency", currency);
-            String printerName = "Xprinter XP-365B";
 
             jr = JasperCompileManager.compileReport(jdesign);
             JasperPrint jprint = JasperFillManager.fillReport(jr, parametrs, c);
@@ -4397,11 +4406,18 @@ public class TreeView1 extends javax.swing.JFrame {
 
     }
 
-    public static class CharToByteConverter {
+    public void getAllPriters() {
 
-        public static CharToByteConverter getConverter(String encoding) {
-            return new CharToByteConverter();
+        PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
+
+        for (int i = 0; i < services.length; i++) {
+
+            String printerName = services[i].getName();
+            System.out.println(printerName);
+            cBoxAllPrinters.addItem(printerName);
+
         }
+
     }
 
     public void load() {
@@ -4690,6 +4706,7 @@ public class TreeView1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem Cancel;
     private javax.swing.JPopupMenu OptionsForProductsTable;
     private javax.swing.JMenuItem ShowOrPrintBarcode;
+    private javax.swing.JComboBox<String> cBoxAllPrinters;
     private javax.swing.JComboBox<String> cbNumberOfCopies;
     private javax.swing.JComboBox<String> cbOption;
     private static javax.swing.JCheckBox chcekOtbor;

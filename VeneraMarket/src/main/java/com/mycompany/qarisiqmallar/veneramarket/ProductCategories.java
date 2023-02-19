@@ -27,6 +27,8 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -1266,7 +1268,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         Cancel.setText("jMenuItem10");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
@@ -1462,16 +1464,16 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton7)
                                 .addGap(18, 18, 18)
                                 .addComponent(chcekOtbor, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(panelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(jLabel1)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -2600,7 +2602,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         String barcode = null;
         String date = null;
         String productName1 = null;
-//        EditProducts edit = new EditProducts(this, true);
+        
         try {
 
             df = (DefaultTableModel) jTableMehsullar.getModel();
@@ -2626,32 +2628,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
             edit.txtDate.setText(date);
 
             edit.setVisible(true);
-//
-//               productName1 = edit.getProductName();
-//
-//            if (productName1.equals(null)) {
-//
-//            } else {
-//                int qaliqSay1 = edit.getQaliqsay();
-//                double priceOfBuy1 = edit.getPriceBuy();
-//                double priceOfSale1 = edit.getPriceSale();
-//                String barcode1 = edit.getBarcode();
-//
-//                con = connect();
-//                pres = con.prepareStatement("update mehsullar set Malin_adi = ?, Qaliq_say=?, Alis_qiymeti=?, Satis_qiymeti=?, Barcode=? where id = " + id);
-//                pres.setString(1, productName1);
-//                pres.setInt(2, qaliqSay1);
-//                pres.setDouble(3, priceOfBuy1);
-//                pres.setDouble(4, priceOfSale1);
-//                pres.setString(5, barcode1);
-//                pres.executeUpdate();
-//
-//                TreeView1.mouseClicked();
-//
-//                JOptionPane.showMessageDialog(this, "Mehsul melumatlari ugurla yenilendi");
-//
-//            }
-//
+
         } catch (Exception ex2) {
 
             edit.txtName.setText(nameOfProduct);
@@ -2665,54 +2642,6 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
             edit.setVisible(true);
 
         }
-//
-//            if (productName1.equals(null)) {
-//
-//            } else {
-//            
-//            
-//            ex2.printStackTrace();
-//
-//            edit.txtName.setText(nameOfProduct);
-//            edit.txtQaliqSay.setText(Integer.toString(qaliqSay));
-//            edit.txtPriceBuy.setText(Double.toString(priceBuy));
-//            edit.txtPriceSale.setText(Double.toString(priceSale));
-//            edit.txtBarcode.setText(barcode);
-//
-//            edit.setVisible(true);
-//
-//            String productName2 = edit.getProductName();
-//
-//            if (productName2.equals(null)) {
-//
-//            } else {
-//
-//                int qaliqSay2 = edit.getQaliqsay();
-//                double priceOfBuy2 = edit.getPriceBuy();
-//                double priceOfSale = edit.getPriceSale();
-//                String barcode2 = edit.getBarcode();
-//
-//                try {
-//
-//                    con = connect();
-//                    pres = con.prepareStatement("update mehsullar set Malin_adi = ?, Qaliq_say=?, Alis_qiymeti=?, Satis_qiymeti=?, Barcode=? where id = " + id);
-//                    pres.setString(1, productName2);
-//                    pres.setInt(2, qaliqSay2);
-//                    pres.setDouble(3, priceOfBuy2);
-//                    pres.setDouble(4, priceOfSale);
-//                    pres.setString(5, barcode2);
-//                    pres.executeUpdate();
-//                    TreeView1.mouseClicked();
-//
-//                } catch (Exception ex) {
-//                    ex.printStackTrace();
-//                }
-//
-//                JOptionPane.showMessageDialog(this, "Mehsul melumatlari ugurla yenilendi");
-//
-//            }
-//        }
-//        }
 
     }//GEN-LAST:event_correctionActionPerformed
     public static String newCategoryName = null;
@@ -2842,7 +2771,6 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
             parametrs.put("productColor", productColor);
             parametrs.put("productPrice", productPrice + currency);
             parametrs.put("currency", currency);
-            String printerName = "Xprinter XP-365B";
 
             jr = JasperCompileManager.compileReport(jdesign);
             JasperPrint jprint = JasperFillManager.fillReport(jr, parametrs, c);

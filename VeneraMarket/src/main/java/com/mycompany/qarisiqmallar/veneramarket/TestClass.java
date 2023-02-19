@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -317,14 +319,30 @@ public class TestClass {
 
     }
 
-
+public static void getAllPrinter(){
+    
+    PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
+    
+    for (int i = 0; i < services.length; i++) {
+        
+        String printerName = services[i].getName();
+        System.out.println(printerName);
+        //System.out.println(services[i]);
+    }
+    
+}
 
 
     public static void main(String[] args) {
 
-        String projectPath = System.getProperty("user.dir");
-        System.out.println(projectPath);
-        System.out.println("C:\\git projects\\VeneraMarket-4\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml");
+        
+
+
+        getAllPrinter();
+
+        //String projectPath = System.getProperty("user.dir");
+        //System.out.println(projectPath);
+        //System.out.println("C:\\git projects\\VeneraMarket-4\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml");
         //createNewDate();
         //doCoppySecondSubCategory();
         //doCoppySubCategory();

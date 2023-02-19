@@ -822,10 +822,10 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
                     <StringItem index="0" value="Secim edin.."/>
-                    <StringItem index="1" value="Eliyeva Z&#xfc;lfiyye"/>
-                    <StringItem index="2" value="Eliyeva Hecer"/>
-                    <StringItem index="3" value="Eliyev &#x15e;amil"/>
-                    <StringItem index="4" value="Eliyev Ramil"/>
+                    <StringItem index="1" value="&#x18f;liyeva Z&#xfc;lfiyy&#x259;"/>
+                    <StringItem index="2" value="&#x18f;liyeva H&#x259;c&#x259;r"/>
+                    <StringItem index="3" value="&#x18f;liyev &#x15e;amil"/>
+                    <StringItem index="4" value="&#x18f;liyev Ramil"/>
                   </StringArray>
                 </Property>
               </Properties>
