@@ -1268,7 +1268,7 @@ public class ProductCategories extends javax.swing.JFrame implements WindowListe
         Cancel.setText("jMenuItem10");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
