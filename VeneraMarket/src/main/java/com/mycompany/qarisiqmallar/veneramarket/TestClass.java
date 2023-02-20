@@ -333,13 +333,43 @@ public static void getAllPrinter(){
 }
 
 
+public static void checkAllClients(){
+    String clientName;
+    try{
+     
+        con = connect();
+        pres = con.prepareStatement("select * from clients");
+        ResultSet rsClients = pres.executeQuery();
+        
+        while (rsClients.next()) {            
+            clientName = rsClients.getString("NameAndSurename");
+            
+            pres = con.prepareStatement("select * from clients_permanently where NameAndSurename =" +"'"+clientName+"'");
+            ResultSet rsClientPermanent = pres.executeQuery();
+            
+            if (rsClientPermanent.next()) {
+                
+            }else{
+                System.out.println("Bu ad elave olunacaq-----> "+clientName);
+            }
+            
+        }
+        
+        
+    }catch(Exception ex){
+        ex.printStackTrace();
+    }
+    
+}
+
+
     public static void main(String[] args) {
 
         
 
 
-        getAllPrinter();
-
+        //getAllPrinter();
+        checkAllClients();
         //String projectPath = System.getProperty("user.dir");
         //System.out.println(projectPath);
         //System.out.println("C:\\git projects\\VeneraMarket-4\\VeneraMarket\\src\\main\\java\\com\\mycompany\\qarisiqmallar\\veneramarket\\Test333.jrxml");

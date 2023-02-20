@@ -138,7 +138,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
-        changeNameOfClient.setText("jMenuItem1");
+        changeNameOfClient.setText("Adını dəyişdir");
         changeNameOfClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeNameOfClientActionPerformed(evt);
@@ -146,7 +146,7 @@ public class BorclarlaEmeliyyat extends javax.swing.JFrame implements WindowList
         });
         jPopupMenu1.add(changeNameOfClient);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 204));
 

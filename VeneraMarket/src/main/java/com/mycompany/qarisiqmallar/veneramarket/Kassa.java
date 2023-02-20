@@ -475,7 +475,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         jtableExpenses = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));

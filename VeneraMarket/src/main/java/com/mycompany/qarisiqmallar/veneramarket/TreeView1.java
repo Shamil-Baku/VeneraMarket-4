@@ -1304,7 +1304,7 @@ public class TreeView1 extends javax.swing.JFrame {
         jMenuItem9.setText("Legv et");
         jPopupMenu2.add(jMenuItem9);
 
-        open.setText("jMenuItem10");
+        open.setText("Aç");
         open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openActionPerformed(evt);
@@ -1312,7 +1312,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(open);
 
-        correction.setText("jMenuItem10");
+        correction.setText("Düzəliş et");
         correction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correctionActionPerformed(evt);
@@ -1320,7 +1320,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(correction);
 
-        delete.setText("jMenuItem10");
+        delete.setText("Sil");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
@@ -1328,7 +1328,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(delete);
 
-        ShowOrPrintBarcode.setText("jMenuItem10");
+        ShowOrPrintBarcode.setText("Barkodu göstər/Çap et");
         ShowOrPrintBarcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowOrPrintBarcodeActionPerformed(evt);
@@ -1336,10 +1336,10 @@ public class TreeView1 extends javax.swing.JFrame {
         });
         OptionsForProductsTable.add(ShowOrPrintBarcode);
 
-        Cancel.setText("jMenuItem10");
+        Cancel.setText("Bağla");
         OptionsForProductsTable.add(Cancel);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
@@ -1360,7 +1360,7 @@ public class TreeView1 extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Список товаров");
+        jLabel1.setText("Mehsullar siyahisi..");
 
         jTableMehsullar = new JTable()
 
@@ -1465,19 +1465,19 @@ public class TreeView1 extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Имя и фамилия :");
+        jLabel6.setText("Orqanizasiya adi :");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Комментарий :");
+        jLabel7.setText("Kommentari :");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Номер накладной :");
+        jLabel8.setText("Qaime nömresi :");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Дата создания :");
+        jLabel9.setText("Yaranma tarixi :");
 
         listNameOfClients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1511,7 +1511,7 @@ public class TreeView1 extends javax.swing.JFrame {
             }
         });
 
-        rb_mergeOfFile.setText("Объединить документы");
+        rb_mergeOfFile.setText("Qaimeleri birleşdirin");
         rb_mergeOfFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rb_mergeOfFileActionPerformed(evt);
@@ -1640,7 +1640,7 @@ public class TreeView1 extends javax.swing.JFrame {
         }
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("Категории");
+        jLabel2.setText("Kateqoriyalar");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Yeni Qaime..");
@@ -1689,7 +1689,7 @@ public class TreeView1 extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("По курсу:");
+        jLabel10.setText("Kursa göre :");
 
         lblImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1778,7 +1778,7 @@ public class TreeView1 extends javax.swing.JFrame {
         );
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setText("Изображение продукта");
+        jLabel11.setText("Mehsul tesviri");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setText("Qaime Melumatlari");
@@ -1834,9 +1834,9 @@ public class TreeView1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel11)
+                                .addGap(62, 62, 62)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cBoxAllPrinters, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1881,7 +1881,7 @@ public class TreeView1 extends javax.swing.JFrame {
                                                 .addComponent(txtSetPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtCemMebleg, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1915,9 +1915,9 @@ public class TreeView1 extends javax.swing.JFrame {
                             .addComponent(panelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(21, 21, 21)
                         .addComponent(jLabel11)
-                        .addGap(12, 12, 12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                         .addComponent(jButton7)

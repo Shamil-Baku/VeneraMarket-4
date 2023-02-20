@@ -205,9 +205,9 @@
                                   <Component id="jScrollPane2" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="cBoxAllPrinters" min="-2" pref="191" max="-2" attributes="0"/>
@@ -260,7 +260,7 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButton5" min="-2" pref="92" max="-2" attributes="0"/>
-                                          <EmptySpace pref="73" max="32767" attributes="0"/>
+                                          <EmptySpace pref="56" max="32767" attributes="0"/>
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="txtCemMebleg" min="-2" pref="220" max="-2" attributes="0"/>
@@ -308,9 +308,9 @@
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblImage" min="-2" pref="180" max="-2" attributes="0"/>
                           <EmptySpace pref="160" max="32767" attributes="0"/>
                           <Component id="jButton7" min="-2" max="-2" attributes="0"/>
@@ -370,7 +370,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x421;&#x43f;&#x438;&#x441;&#x43e;&#x43a; &#x442;&#x43e;&#x432;&#x430;&#x440;&#x43e;&#x432;"/>
+            <Property name="text" type="java.lang.String" value="Mehsullar siyahisi.."/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -616,7 +616,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="&#x418;&#x43c;&#x44f; &#x438; &#x444;&#x430;&#x43c;&#x438;&#x43b;&#x438;&#x44f; :"/>
+                <Property name="text" type="java.lang.String" value="Orqanizasiya adi :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -625,7 +625,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43c;&#x43c;&#x435;&#x43d;&#x442;&#x430;&#x440;&#x438;&#x439; :"/>
+                <Property name="text" type="java.lang.String" value="Kommentari :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -634,7 +634,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="&#x41d;&#x43e;&#x43c;&#x435;&#x440; &#x43d;&#x430;&#x43a;&#x43b;&#x430;&#x434;&#x43d;&#x43e;&#x439; :"/>
+                <Property name="text" type="java.lang.String" value="Qaime n&#xf6;mresi :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -643,7 +643,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="&#x414;&#x430;&#x442;&#x430; &#x441;&#x43e;&#x437;&#x434;&#x430;&#x43d;&#x438;&#x44f; :"/>
+                <Property name="text" type="java.lang.String" value="Yaranma tarixi :"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="panelTest">
@@ -703,7 +703,7 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rb_mergeOfFile">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41e;&#x431;&#x44a;&#x435;&#x434;&#x438;&#x43d;&#x438;&#x442;&#x44c; &#x434;&#x43e;&#x43a;&#x443;&#x43c;&#x435;&#x43d;&#x442;&#x44b;"/>
+                <Property name="text" type="java.lang.String" value="Qaimeleri birle&#x15f;dirin"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rb_mergeOfFileActionPerformed"/>
@@ -822,7 +822,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x41a;&#x430;&#x442;&#x435;&#x433;&#x43e;&#x440;&#x438;&#x438;"/>
+            <Property name="text" type="java.lang.String" value="Kateqoriyalar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -898,7 +898,7 @@
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&#x41f;&#x43e; &#x43a;&#x443;&#x440;&#x441;&#x443;:"/>
+            <Property name="text" type="java.lang.String" value="Kursa g&#xf6;re :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblImage">
@@ -1051,7 +1051,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x418;&#x437;&#x43e;&#x431;&#x440;&#x430;&#x436;&#x435;&#x43d;&#x438;&#x435; &#x43f;&#x440;&#x43e;&#x434;&#x443;&#x43a;&#x442;&#x430;"/>
+            <Property name="text" type="java.lang.String" value="Mehsul tesviri"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
