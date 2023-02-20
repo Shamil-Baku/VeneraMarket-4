@@ -124,47 +124,47 @@
 	<title>
 		<band height="100" splitType="Stretch">
 			<staticText>
-				<reportElement x="62" y="4" width="46" height="27" uuid="cbb80b34-7c98-4ebb-9402-40cb4c2befd4"/>
+				<reportElement x="53" y="3" width="46" height="27" uuid="cbb80b34-7c98-4ebb-9402-40cb4c2befd4"/>
 				<textElement>
 					<font fontName="Bradley Hand ITC" size="10" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[VENERA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="14" y="15" width="140" height="16" uuid="9ce28c1b-ca8c-4006-a50c-cc99007671af"/>
+				<reportElement x="8" y="14" width="140" height="16" uuid="9ce28c1b-ca8c-4006-a50c-cc99007671af"/>
 				<textElement>
 					<font fontName="Bradley Hand ITC" size="11" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Geyim ve Tekstil Dünyası]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="31" width="142" height="11" uuid="22da5621-e49b-42a8-91d1-fba8a732d13d"/>
+				<reportElement x="2" y="30" width="142" height="11" uuid="22da5621-e49b-42a8-91d1-fba8a732d13d"/>
 				<textElement textAlignment="Center">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[ Ünvan : Kürdəxanı qəs, Kənan inşaatın yanı]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="43" width="141" height="11" uuid="dff3d77a-fb6d-45f6-9dd4-56402da2b700"/>
+				<reportElement x="3" y="42" width="141" height="11" uuid="dff3d77a-fb6d-45f6-9dd4-56402da2b700"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[  Əlaqə nömrəsi : +994(70) 245-08-70]]></text>
 			</staticText>
 			<line>
-				<reportElement x="10" y="3" width="1" height="56" uuid="ffb95a0e-672f-4ba2-8a6c-ec9b0aaab125"/>
+				<reportElement x="4" y="2" width="1" height="56" uuid="ffb95a0e-672f-4ba2-8a6c-ec9b0aaab125"/>
 			</line>
 			<line>
-				<reportElement x="152" y="4" width="1" height="55" uuid="31b89fda-0ef8-4356-b8cd-d340fff10c0a"/>
+				<reportElement x="143" y="3" width="1" height="55" uuid="31b89fda-0ef8-4356-b8cd-d340fff10c0a"/>
 			</line>
 			<line>
-				<reportElement x="10" y="59" width="143" height="1" uuid="73dc3e4c-5582-401a-a69a-2dd014172281"/>
+				<reportElement x="4" y="58" width="140" height="1" uuid="73dc3e4c-5582-401a-a69a-2dd014172281"/>
 			</line>
 			<line>
-				<reportElement x="11" y="3" width="142" height="1" uuid="1509200d-55db-4bf0-93d3-d4940ea78f3b"/>
+				<reportElement x="5" y="2" width="139" height="1" uuid="1509200d-55db-4bf0-93d3-d4940ea78f3b"/>
 			</line>
 			<componentElement>
-				<reportElement key="table 3" style="table 3" x="11" y="63" width="142" height="36" uuid="94f620f3-8deb-40d1-b4eb-57d447fa0b8d"/>
+				<reportElement key="table 3" style="table 3" x="5" y="63" width="139" height="36" uuid="94f620f3-8deb-40d1-b4eb-57d447fa0b8d"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="sebet" uuid="9d210d3f-e5fe-4609-9f3c-e2cde400bc48">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -172,7 +172,7 @@
 					<jr:column width="12" uuid="9e77a50e-9ec6-42b2-be4a-b3df37196b26">
 						<jr:columnHeader style="table 3_CH" height="11" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="12" height="10" uuid="1a9aab87-b73d-496e-b7fa-82089b86137c"/>
+								<reportElement x="0" y="0" width="12" height="11" uuid="1a9aab87-b73d-496e-b7fa-82089b86137c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="6" isBold="true"/>
 								</textElement>
@@ -189,10 +189,10 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="53" uuid="b3803f8e-e73d-4277-bb36-321a8b0dc723">
+					<jr:column width="49" uuid="b3803f8e-e73d-4277-bb36-321a8b0dc723">
 						<jr:columnHeader style="table 3_CH" height="11" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="53" height="10" uuid="972dc358-f6e5-4f81-b834-0971b7a94df2"/>
+								<reportElement x="0" y="0" width="49" height="11" uuid="972dc358-f6e5-4f81-b834-0971b7a94df2"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="6" isBold="true"/>
 								</textElement>
@@ -201,7 +201,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 3_TD" height="8" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="51" height="8" uuid="523a6376-b9f6-43d3-b54d-ade26f34bd03"/>
+								<reportElement x="2" y="0" width="47" height="8" uuid="523a6376-b9f6-43d3-b54d-ade26f34bd03"/>
 								<textElement verticalAlignment="Top">
 									<font size="6" isBold="true"/>
 								</textElement>
@@ -212,7 +212,7 @@
 					<jr:column width="25" uuid="48339515-1e73-4ef2-827f-11e388417c67">
 						<jr:columnHeader style="table 3_CH" height="11" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="25" height="10" uuid="20f8cd4d-72d8-4d3a-8b47-2d4668c708b9"/>
+								<reportElement x="0" y="0" width="25" height="11" uuid="20f8cd4d-72d8-4d3a-8b47-2d4668c708b9"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="6" isBold="true"/>
 								</textElement>
@@ -232,7 +232,7 @@
 					<jr:column width="26" uuid="18467b8e-b816-44d8-af3e-5dbb08944713">
 						<jr:columnHeader style="table 3_CH" height="11" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="26" height="10" uuid="add729d0-0b52-494a-b4b7-6ac14961ea0d"/>
+								<reportElement x="0" y="0" width="26" height="11" uuid="add729d0-0b52-494a-b4b7-6ac14961ea0d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="6" isBold="true"/>
 								</textElement>
@@ -252,7 +252,7 @@
 					<jr:column width="26" uuid="2587d0d6-2288-4934-b70d-96e8125779d5">
 						<jr:columnHeader style="table 3_CH" height="11" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="26" height="10" uuid="a2850932-1525-44f0-bf94-13083cec432f"/>
+								<reportElement x="0" y="0" width="24" height="11" uuid="a2850932-1525-44f0-bf94-13083cec432f"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="6" isBold="true"/>
 								</textElement>
@@ -261,7 +261,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 3_TD" height="8" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="26" height="8" uuid="cd448c1e-3c78-4ffc-8724-2fdef7d845a4"/>
+								<reportElement x="0" y="0" width="24" height="8" uuid="cd448c1e-3c78-4ffc-8724-2fdef7d845a4"/>
 								<textElement textAlignment="Center" verticalAlignment="Top">
 									<font size="6" isBold="true"/>
 								</textElement>
@@ -297,26 +297,26 @@
 				<text><![CDATA[Tarix :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="49" width="102" height="13" uuid="23d51156-8599-471c-9ed7-9c49aa6a7f3e"/>
+				<reportElement x="24" y="48" width="102" height="13" uuid="23d51156-8599-471c-9ed7-9c49aa6a7f3e"/>
 				<textElement textAlignment="Center">
 					<font size="10" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Bizi seçdiyiniz üçün]]></text>
 			</staticText>
 			<line>
-				<reportElement x="13" y="75" width="137" height="1" uuid="6ea85a8f-95ba-4874-b156-f5d4b13f932b"/>
+				<reportElement x="7" y="74" width="137" height="1" uuid="6ea85a8f-95ba-4874-b156-f5d4b13f932b"/>
 			</line>
 			<line>
-				<reportElement x="149" y="47" width="1" height="29" uuid="9088a201-f609-400b-b8e2-72caae5dd2e7"/>
+				<reportElement x="143" y="46" width="1" height="29" uuid="9088a201-f609-400b-b8e2-72caae5dd2e7"/>
 			</line>
 			<line>
-				<reportElement x="13" y="47" width="1" height="28" uuid="4dd009bc-f114-4a12-889e-d1fffb37bf45"/>
+				<reportElement x="7" y="46" width="1" height="28" uuid="4dd009bc-f114-4a12-889e-d1fffb37bf45"/>
 			</line>
 			<line>
-				<reportElement x="13" y="47" width="137" height="1" uuid="55154700-d9e8-4836-a8ac-7a0747615756"/>
+				<reportElement x="7" y="46" width="137" height="1" uuid="55154700-d9e8-4836-a8ac-7a0747615756"/>
 			</line>
 			<staticText>
-				<reportElement x="50" y="62" width="61" height="13" uuid="dfe38190-b243-49ad-b093-ce005e27dba8"/>
+				<reportElement x="44" y="61" width="61" height="13" uuid="dfe38190-b243-49ad-b093-ce005e27dba8"/>
 				<textElement textAlignment="Center">
 					<font size="10" isBold="true" isUnderline="false"/>
 				</textElement>
