@@ -2120,44 +2120,58 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         df = (DefaultTableModel) tblGelirCedveli.getModel();
 
         Double SatisQiymeti, borcdanGelen, Gelir, Miqdari, musteriyeGeriQaytarilanMebleg, qismenOdenis, GeriQaytarilanMehsulunMebleg;
+        String mehsulAdi;
 
         for (int i = 0; i < df.getRowCount(); i++) {
 
             Gelir = Double.parseDouble(df.getValueAt(i, 9).toString());
+            mehsulAdi = (df.getValueAt(i, 1).toString());
 
-            String formattedGelir = dformater.format(Gelir);
-            double roundedGelir = Math.round(Gelir * 100.000) / 100.000;
+            if (mehsulAdi.contains("geri qaytarıldı")) {
+                System.out.println("Bu mehsul geri qaytarildi");
 
-            boolean yoxla = UmumiSatis.getText().isEmpty();
-
-            if (yoxla != false) {
-                UmumiSatis.setText(Double.toString(roundedGelir));
             } else {
 
-                double kohneMebleg = Double.parseDouble(UmumiSatis.getText());
+                String formattedGelir = dformater.format(Gelir);
+                double roundedGelir = Math.round(Gelir * 100.000) / 100.000;
 
-                String formattedKohneMebleg = dformater.format(kohneMebleg);
-                double roundedMebleg = Math.round(kohneMebleg * 100.000) / 100.000;
+                boolean yoxla = UmumiSatis.getText().isEmpty();
 
-                double netice = roundedMebleg + roundedGelir;
+                if (yoxla != false) {
+                    UmumiSatis.setText(Double.toString(roundedGelir));
+                } else {
 
-                String formatterNetice = dformater.format(netice);
-                double roundedNetice = Math.round(netice * 100.000) / 100.000;
+                    double kohneMebleg = Double.parseDouble(UmumiSatis.getText());
 
-                UmumiSatis.setText(Double.toString(roundedNetice));
+                    String formattedKohneMebleg = dformater.format(kohneMebleg);
+                    double roundedMebleg = Math.round(kohneMebleg * 100.000) / 100.000;
+
+                    double netice = roundedMebleg + roundedGelir;
+
+                    String formatterNetice = dformater.format(netice);
+                    double roundedNetice = Math.round(netice * 100.000) / 100.000;
+
+                    UmumiSatis.setText(Double.toString(roundedNetice));
+                }
+
             }
-
         }
         txtKassa.setText("");
-        for (int i = 0; i < df.getRowCount(); i++) {
+        for (int j = 0; j < df.getRowCount(); j++) {
 
-            SatisQiymeti = Double.parseDouble(df.getValueAt(i, 6).toString());
-            Miqdari = Double.parseDouble(df.getValueAt(i, 3).toString());
-            musteriyeGeriQaytarilanMebleg = Double.parseDouble(df.getValueAt(i, 13).toString());
-            GeriQaytarilanMehsulunMebleg = Double.parseDouble(df.getValueAt(i, 15).toString());
-            qismenOdenis = Double.parseDouble(df.getValueAt(i, 11).toString());
-            borcdanGelen = Double.parseDouble(df.getValueAt(i, 16).toString());
+            SatisQiymeti = Double.parseDouble(df.getValueAt(j, 6).toString());
+            Miqdari = Double.parseDouble(df.getValueAt(j, 3).toString());
+            musteriyeGeriQaytarilanMebleg = Double.parseDouble(df.getValueAt(j, 13).toString());
+            GeriQaytarilanMehsulunMebleg = Double.parseDouble(df.getValueAt(j, 15).toString());
+            qismenOdenis = Double.parseDouble(df.getValueAt(j, 11).toString());
+            borcdanGelen = Double.parseDouble(df.getValueAt(j, 16).toString());
+            mehsulAdi = (df.getValueAt(j, 1).toString());
+            
+            if (mehsulAdi.contains("geri qaytarıldı")) {
+                System.out.println("Bu mehsul geri qaytarildi");
 
+            }else{
+            
             boolean yoxla1 = txtKassa.getText().isEmpty();
 
             if (yoxla1 != false) {
@@ -2191,7 +2205,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
             }
 
         }
-
+        }
         getExpensesIndecator();
         indecators();
 
@@ -2747,7 +2761,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
             String firstDate1 = sdf.format(ilkTarix.getDate());
             String secondDAte = sdf.format(sonTarix.getDate());
-            
+
             findBetweenTwoDays(find, firstDate1, secondDAte);
 
         } else {
@@ -2862,7 +2876,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
     }
 
-     public void findBetweenTwoDays(String findProduct, String firstDate, String secondDate) {
+    public void findBetweenTwoDays(String findProduct, String firstDate, String secondDate) {
 
         try {
             int a;
@@ -2890,7 +2904,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                     + "FROM\n"
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
-                    + "WHERE Date (s.Satis_Tarixi) BETWEEN "+"'"+firstDate+"'"+" and "+"'"+secondDate+"'"+" and s.Malin_adi like '%' " + "'" + findProduct + "'" + " '%'");
+                    + "WHERE Date (s.Satis_Tarixi) BETWEEN " + "'" + firstDate + "'" + " and " + "'" + secondDate + "'" + " and s.Malin_adi like '%' " + "'" + findProduct + "'" + " '%'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -2935,7 +2949,6 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
     }
 
-    
     public void findYesterday(String findProduct, String date) {
 
         try {
