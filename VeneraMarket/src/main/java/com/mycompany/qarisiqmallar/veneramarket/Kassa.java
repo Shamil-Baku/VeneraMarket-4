@@ -1881,7 +1881,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
                     + "WHERE\n"
-                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + sss + "'" + "and "+"'"+secondDate+"'"+" and s.Borc_Alanin_Adi = " + "'" + clientName + "'");
+                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + firstDate + "'" + "and "+"'"+secondDate+"'"+" and s.Borc_Alanin_Adi = " + "'" + clientName + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1915,11 +1915,11 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
                 qismenOdenis = (rs.getDouble("QiemenOdenis"));
                 allpartialPayment += qismenOdenis;
-
+                
                 df.addRow(v2);
             }
-
-            txtPayment.setText(Double.toString(allpartialPayment));
+            double roundedAllPayment = Math.round(allpartialPayment * 100.000)/100.000;
+            txtPayment.setText(Double.toString(roundedAllPayment));
 
         } catch (Exception ex) {
             ex.printStackTrace();
