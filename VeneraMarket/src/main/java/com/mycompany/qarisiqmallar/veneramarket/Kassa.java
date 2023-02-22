@@ -58,6 +58,9 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         buttonGroup1.add(sonBirHefte);
         buttonGroup1.add(sonBirAy);
         rbBugun.doClick();
+        buttonGroup2.add(jRBMusteriSiyahisi);
+        buttonGroup2.add(jRBSatilanMallar);
+        jRBMusteriSiyahisi.doClick();
         Date dt = new Date();
         sdf = new SimpleDateFormat("HH:mm:ss");
         sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -421,6 +424,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         rbBugun = new javax.swing.JRadioButton();
         sonUcGun = new javax.swing.JRadioButton();
@@ -463,6 +467,8 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         txtBillNumberForPrint = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jRBSatilanMallar = new javax.swing.JRadioButton();
+        jRBMusteriSiyahisi = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGelirCedveli = new javax.swing.JTable();
@@ -475,7 +481,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         jtableExpenses = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
@@ -708,6 +714,10 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
             }
         });
 
+        jRBSatilanMallar.setText("SM");
+
+        jRBMusteriSiyahisi.setText("MS");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -791,21 +801,25 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                                 .addComponent(txtBillNumberForPrint)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton9)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 438, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 420, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jRBMusteriSiyahisi)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRBSatilanMallar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel12)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cBoxOptionFoorSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtAxtaris, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(cBoxOptionFoorSearch, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(cbOption, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -875,7 +889,9 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtAxtaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
+                                    .addComponent(jLabel12)
+                                    .addComponent(jRBSatilanMallar)
+                                    .addComponent(jRBMusteriSiyahisi))
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel11)
@@ -1066,21 +1082,44 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
     DefaultListModel modelList = new DefaultListModel();
 
     public void searchForTheCllient() {
-
+        int cixilan = 0;
+        int toplanan = 0;
         jPanel2.setVisible(true);
         modelList.removeAllElements();
         String s = txtAxtaris.getText();
-
+        boolean clientList = jRBMusteriSiyahisi.isSelected();
+        boolean inSoldProducts = jRBSatilanMallar.isSelected();
         try {
             Connection c = connect();
-            pres = c.prepareStatement("select * from clients_permanently c where c.NameAndSurename like " + "'" + "%" + s + "%" + "'");
+            if (inSoldProducts == true) {
+
+                ///cixilan = 2;
+                toplanan = 1;
+                //toplanan = cixilan;
+
+                pres = c.prepareStatement("select * from satilan_mallar c where c.Borc_Alanin_Adi like " + "'" + "%" + s + "%" + "'");
+            } else {
+                if (clientList == true) {
+
+                    pres = c.prepareStatement("select * from clients_permanently c where c.NameAndSurename like " + "'" + "%" + s + "%" + "'");
+                }
+            }
 
             ResultSet rs = pres.executeQuery();
 
             while (rs.next()) {
 
-                modelList.addElement(rs.getString("NameAndSurename"));
-                listNameOfClients.setModel(modelList);
+                if (clientList == true) {
+                    modelList.addElement(rs.getString("NameAndSurename"));
+                    listNameOfClients.setModel(modelList);
+                } else {
+                    if (inSoldProducts == true) {
+                        modelList.addElement(rs.getString("Borc_Alanin_Adi"));
+                        listNameOfClients.setModel(modelList);
+
+                    }
+                }
+
             }
 
         } catch (Exception ex) {
@@ -1088,7 +1127,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
             ex.printStackTrace();
 
         }
-
+        listNameOfClients.setModel(modelList);
     }
 
     public void getTodaysExpenses() {
@@ -1358,7 +1397,8 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                 df.addRow(v2);
             }
 
-            txtPayment.setText(Double.toString(allpartialPayment));
+            double roundedAllPayment = Math.round(allpartialPayment * 100.000) / 100.000;
+            txtPayment.setText(Double.toString(roundedAllPayment));
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -1603,7 +1643,8 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
         }
 
-        txtPayment.setText(Double.toString(allpartialPayment));
+        double roundedAllPayment = Math.round(allpartialPayment * 100.000) / 100.000;
+        txtPayment.setText(Double.toString(roundedAllPayment));
 
     }
 
@@ -1830,14 +1871,14 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                 df.addRow(v2);
             }
 
-            txtPayment.setText(Double.toString(allpartialPayment));
+            double roundedAllPayment = Math.round(allpartialPayment * 100.000) / 100.000;
+            txtPayment.setText(Double.toString(roundedAllPayment));
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
     }
-
 
     public void getInfoAboutClientsPaymentBetweenTwoDays(String clientName, String firstDate, String secondDate) {
 
@@ -1881,7 +1922,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                     + "	satilan_mallar s\n"
                     + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
                     + "WHERE\n"
-                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + firstDate + "'" + "and "+"'"+secondDate+"'"+" and s.Borc_Alanin_Adi = " + "'" + clientName + "'");
+                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + firstDate + "'" + "and " + "'" + secondDate + "'" + " and s.Borc_Alanin_Adi = " + "'" + clientName + "'");
 
             ResultSet rs = pres.executeQuery();
 
@@ -1915,10 +1956,10 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
                 qismenOdenis = (rs.getDouble("QiemenOdenis"));
                 allpartialPayment += qismenOdenis;
-                
+
                 df.addRow(v2);
             }
-            double roundedAllPayment = Math.round(allpartialPayment * 100.000)/100.000;
+            double roundedAllPayment = Math.round(allpartialPayment * 100.000) / 100.000;
             txtPayment.setText(Double.toString(roundedAllPayment));
 
         } catch (Exception ex) {
@@ -1927,8 +1968,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
     }
 
-    
-    
+
     private void sonBirAyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sonBirAyActionPerformed
 
         txtPayment.setText("");
@@ -2095,7 +2135,8 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
                 df.addRow(v2);
             }
 
-            txtPayment.setText(Double.toString(allpartialPayment));
+            double roundedAllPayment = Math.round(allpartialPayment * 100.000) / 100.000;
+            txtPayment.setText(Double.toString(roundedAllPayment));
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -2256,45 +2297,45 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
             qismenOdenis = Double.parseDouble(df.getValueAt(j, 11).toString());
             borcdanGelen = Double.parseDouble(df.getValueAt(j, 16).toString());
             mehsulAdi = (df.getValueAt(j, 1).toString());
-            
+
             if (mehsulAdi.contains("geri qaytarıldı")) {
                 System.out.println("Bu mehsul geri qaytarildi");
 
-            }else{
-            
-            boolean yoxla1 = txtKassa.getText().isEmpty();
-
-            if (yoxla1 != false) {
-
-                double umumiSatis = SatisQiymeti * Miqdari - musteriyeGeriQaytarilanMebleg + qismenOdenis - (borcdanGelen);
-
-                String formatted = dformater.format(umumiSatis);
-                double roundedGelir = Math.round(umumiSatis * 100.000) / 100.000;
-
-                txtKassa.setText(Double.toString(roundedGelir));
-
             } else {
 
-                double kohneMebleg = Double.parseDouble(txtKassa.getText());
-                double umumiSatis = SatisQiymeti * Miqdari;
+                boolean yoxla1 = txtKassa.getText().isEmpty();
 
-                if (umumiSatis == qismenOdenis) {
-                    double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg - borcdanGelen + qismenOdenis;
-                    String formatted = dformater.format(sonNetice);
-                    double roundedSonNetice = Math.round(sonNetice * 100.000) / 100.000;
-                    txtKassa.setText(Double.toString(roundedSonNetice));
+                if (yoxla1 != false) {
+
+                    double umumiSatis = SatisQiymeti * Miqdari - musteriyeGeriQaytarilanMebleg + qismenOdenis - (borcdanGelen);
+
+                    String formatted = dformater.format(umumiSatis);
+                    double roundedGelir = Math.round(umumiSatis * 100.000) / 100.000;
+
+                    txtKassa.setText(Double.toString(roundedGelir));
 
                 } else {
 
-                    double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg + qismenOdenis - borcdanGelen;
-                    String formatted = dformater.format(sonNetice);
-                    double roundedSonNetice = Math.round(sonNetice * 100.000) / 100.000;
-                    txtKassa.setText(Double.toString(roundedSonNetice));
+                    double kohneMebleg = Double.parseDouble(txtKassa.getText());
+                    double umumiSatis = SatisQiymeti * Miqdari;
+
+                    if (umumiSatis == qismenOdenis) {
+                        double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg - borcdanGelen + qismenOdenis;
+                        String formatted = dformater.format(sonNetice);
+                        double roundedSonNetice = Math.round(sonNetice * 100.000) / 100.000;
+                        txtKassa.setText(Double.toString(roundedSonNetice));
+
+                    } else {
+
+                        double sonNetice = kohneMebleg + umumiSatis - GeriQaytarilanMehsulunMebleg + qismenOdenis - borcdanGelen;
+                        String formatted = dformater.format(sonNetice);
+                        double roundedSonNetice = Math.round(sonNetice * 100.000) / 100.000;
+                        txtKassa.setText(Double.toString(roundedSonNetice));
+                    }
+
                 }
 
             }
-
-        }
         }
         getExpensesIndecator();
         indecators();
@@ -2700,7 +2741,8 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
         }
 
-        txtPayment.setText(Double.toString(allpartialPayment));
+        double roundedAllPayment = Math.round(allpartialPayment * 100.000) / 100.000;
+        txtPayment.setText(Double.toString(roundedAllPayment));
 
     }
 
@@ -3192,7 +3234,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         boolean yoxlaTheLastThreeDay = sonUcGun.isSelected();
         boolean yoxlaTheLastWeek = sonBirHefte.isSelected();
         boolean yoxlaTheLastMonth = sonBirAy.isSelected();
-        
+
         Date firstDate2 = ilkTarix.getDate();
         Date secondDate2 = sonTarix.getDate();
 
@@ -3202,7 +3244,6 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         String selectedClientName = listNameOfClients.getSelectedValue();
         txtAxtaris.setText(selectedClientName);
 
-        
         if (firstDate2 != null && secondDate2 != null) {
             System.out.println("Beli qaqaw tarix null dan ferqlidir. Budur.. " + firstDate2);
 
@@ -3211,31 +3252,30 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
 
             getInfoAboutClientsPaymentBetweenTwoDays(selectedClientName, firstDate1, secondDAte);
             jPanel2.setVisible(false);
-        }else{
-        
-        
-        if (yoxlaToday == true) {
-            getInfoAboutClientsPaymentForToday();
-            jPanel2.setVisible(false);
-        }
-        if (yoxlaYesterday == true) {
-            getInfoAboutClientsPaymentForYesterday();
-            jPanel2.setVisible(false);
-        }
-        if (yoxlaTheLastThreeDay == true) {
-            getInfoAboutClientsPaymentForLastThreeDays();
-            jPanel2.setVisible(false);
-        }
-        if (yoxlaTheLastWeek == true) {
-            getInfoAboutClientsPaymentForLastWeek();
-            jPanel2.setVisible(false);
-        }
-        if (yoxlaTheLastMonth == true) {
-            getInfoAboutClientsPaymentForTheLastMonth();
-            jPanel2.setVisible(false);
-        }
+        } else {
 
-      }
+            if (yoxlaToday == true) {
+                getInfoAboutClientsPaymentForToday();
+                jPanel2.setVisible(false);
+            }
+            if (yoxlaYesterday == true) {
+                getInfoAboutClientsPaymentForYesterday();
+                jPanel2.setVisible(false);
+            }
+            if (yoxlaTheLastThreeDay == true) {
+                getInfoAboutClientsPaymentForLastThreeDays();
+                jPanel2.setVisible(false);
+            }
+            if (yoxlaTheLastWeek == true) {
+                getInfoAboutClientsPaymentForLastWeek();
+                jPanel2.setVisible(false);
+            }
+            if (yoxlaTheLastMonth == true) {
+                getInfoAboutClientsPaymentForTheLastMonth();
+                jPanel2.setVisible(false);
+            }
+
+        }
     }//GEN-LAST:event_listNameOfClientsMouseClicked
 
     private void txtAxtarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAxtarisActionPerformed
@@ -3699,6 +3739,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
     private javax.swing.JTextField UmumiSatis;
     private javax.swing.JButton btnHesabla;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cBoxOptionFoorSearch;
     private javax.swing.JComboBox<String> cBoxOptionForBill;
     private javax.swing.JComboBox<String> cbOption;
@@ -3730,6 +3771,8 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRBMusteriSiyahisi;
+    private javax.swing.JRadioButton jRBSatilanMallar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
