@@ -1839,6 +1839,96 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
     }
 
 
+    public void getInfoAboutClientsPaymentBetweenTwoDays(String clientName, String firstDate, String secondDate) {
+
+        String nameClient = txtAxtaris.getText();
+        double qismenOdenis = 0;
+        double allpartialPayment = 0;
+
+        int day = 7;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = new GregorianCalendar();
+        cal.add(Calendar.DAY_OF_MONTH, -7);
+        String sss = sdf.format(cal.getTime());
+
+        // txtKassa.removeAll();
+        // System.out.println(sss);
+        int a;
+        try {
+
+            pres = con.prepareCall("SELECT\n"
+                    + "	s.id,\n"
+                    + "	s.Malin_adi,\n"
+                    + "	s.Miqdari,\n"
+                    + "	s.Umumi_Mebleg AS Satis_Meblegi_Cem,\n"
+                    + "	s.QiemenOdenis,\n"
+                    + "	s.Qaytarilan_Mehsul_Miqdari,\n"
+                    + "	s.Musteriye_Geri_Odenis,\n"
+                    + "	s.Borc_Alanin_Adi,\n"
+                    + "	s.Yeni_goturulen_Mebleg,\n"
+                    + "	s.Borcdan_Gelen,\n"
+                    + "	s.OdenisinNovu,\n"
+                    + "	s.cekNomresi,\n"
+                    + "	s.ActiveUser,\n"
+                    + " m.Satis_miqdari, \n"
+                    + "	m.Alis_qiymeti,\n"
+                    + " m.Satisin_toplam_deyeri, \n"
+                    + "	s.Satis_qiymeti,\n"
+                    + "	m.Satis_miqdari AS Umumi_Satis_Miqdari,\n"
+                    + "	s.Satis_Tarixi,\n"
+                    + "	( s.Miqdari * s.Satis_qiymeti - s.Miqdari * m.Alis_qiymeti ) AS Xeyir, (m.Satisin_toplam_deyeri - m.Alis_qiymeti* m.Satis_miqdari) as Umumi_Xeyir \n"
+                    + "FROM\n"
+                    + "	satilan_mallar s\n"
+                    + "	LEFT JOIN mehsullar m ON m.id = s.id \n"
+                    + "WHERE\n"
+                    + "	DATE(s.Satis_Tarixi) BETWEEN" + "'" + sss + "'" + "and "+"'"+secondDate+"'"+" and s.Borc_Alanin_Adi = " + "'" + clientName + "'");
+
+            ResultSet rs = pres.executeQuery();
+
+            ResultSetMetaData rd = rs.getMetaData();
+            a = rd.getColumnCount();
+            df = (DefaultTableModel) tblGelirCedveli.getModel();
+            df.setRowCount(0);
+
+            while (rs.next()) {
+                Vector v2 = new Vector();
+
+                v2.add(rs.getInt("id"));
+                v2.add(rs.getString("Malin_adi"));
+                v2.add(rs.getString("OdenisinNovu"));
+                v2.add(rs.getDouble("Miqdari"));
+                v2.add(rs.getDouble("Satis_Meblegi_Cem"));
+                v2.add(rs.getDouble("Alis_qiymeti"));
+                v2.add(rs.getDouble("Satis_qiymeti"));
+                v2.add(rs.getInt("Umumi_Satis_Miqdari"));
+                v2.add(rs.getString("Satis_Tarixi"));
+                v2.add(rs.getDouble("Xeyir"));
+                v2.add(rs.getDouble("Umumi_Xeyir"));
+                v2.add(rs.getDouble("QiemenOdenis"));
+                v2.add(rs.getDouble("Qaytarilan_Mehsul_Miqdari"));
+                v2.add(rs.getDouble("Musteriye_Geri_Odenis"));
+                v2.add(rs.getString("Borc_Alanin_Adi"));
+                v2.add(rs.getDouble("Yeni_goturulen_Mebleg"));
+                v2.add(rs.getDouble("Borcdan_Gelen"));
+                v2.add(rs.getString("ActiveUser"));
+                v2.add(rs.getFloat("cekNomresi"));
+
+                qismenOdenis = (rs.getDouble("QiemenOdenis"));
+                allpartialPayment += qismenOdenis;
+
+                df.addRow(v2);
+            }
+
+            txtPayment.setText(Double.toString(allpartialPayment));
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    
+    
     private void sonBirAyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sonBirAyActionPerformed
 
         txtPayment.setText("");
@@ -3102,10 +3192,28 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
         boolean yoxlaTheLastThreeDay = sonUcGun.isSelected();
         boolean yoxlaTheLastWeek = sonBirHefte.isSelected();
         boolean yoxlaTheLastMonth = sonBirAy.isSelected();
+        
+        Date firstDate2 = ilkTarix.getDate();
+        Date secondDate2 = sonTarix.getDate();
+
+        Calendar cal = new GregorianCalendar();
+        sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         String selectedClientName = listNameOfClients.getSelectedValue();
         txtAxtaris.setText(selectedClientName);
 
+        
+        if (firstDate2 != null && secondDate2 != null) {
+            System.out.println("Beli qaqaw tarix null dan ferqlidir. Budur.. " + firstDate2);
+
+            String firstDate1 = sdf.format(ilkTarix.getDate());
+            String secondDAte = sdf.format(sonTarix.getDate());
+
+            getInfoAboutClientsPaymentBetweenTwoDays(selectedClientName, firstDate1, secondDAte);
+            jPanel2.setVisible(false);
+        }else{
+        
+        
         if (yoxlaToday == true) {
             getInfoAboutClientsPaymentForToday();
             jPanel2.setVisible(false);
@@ -3127,7 +3235,7 @@ public class Kassa extends javax.swing.JFrame implements WindowListener {
             jPanel2.setVisible(false);
         }
 
-
+      }
     }//GEN-LAST:event_listNameOfClientsMouseClicked
 
     private void txtAxtarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAxtarisActionPerformed
