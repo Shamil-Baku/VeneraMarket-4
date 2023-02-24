@@ -152,6 +152,29 @@ public class ChangeNameOfClient extends javax.swing.JDialog {
             pres.setString(1, newName);
             pres.executeUpdate();
 
+            pres = con.prepareStatement("select * from clients_permanently where NameAndSurename = " + "'" + newName + "'");
+            ResultSet rsCheckName = pres.executeQuery();
+
+            if (rsCheckName.next()) {
+                System.out.println("Bu ad artiq movcuddur!");
+                JOptionPane.showMessageDialog(this, "Müşteri adı " + newName + " - olaraq deyişdirildi!", "Info", HEIGHT);
+
+                pres = con.prepareStatement("select * from clients_permanently where NameAndSurename = " + "'" + oldName + "'");
+                ResultSet rsDeletedClientName = pres.executeQuery();
+                
+                rsDeletedClientName.next();
+                
+                int clientID = rsDeletedClientName.getInt("id");
+
+                pres = con.prepareStatement("delete from clients_permanently where id = ?");
+                pres.setInt(1, clientID);
+                pres.executeUpdate();
+
+                clientName = 2;
+                this.dispose();
+                return;
+            }
+
             pres = con.prepareStatement("update clients_permanently set NameAndSurename=? where NameAndSurename = " + "'" + oldName + "'");
             pres.setString(1, newName);
             pres.executeUpdate();
@@ -176,7 +199,8 @@ public class ChangeNameOfClient extends javax.swing.JDialog {
 
                         if (clientID == idCopyName) {
 
-                        } if(clientID != idCopyName) {
+                        }
+                        if (clientID != idCopyName) {
 
                             pres = con.prepareStatement("delete from clients_permanently where id = ?");
                             pres.setInt(1, idCopyName);
